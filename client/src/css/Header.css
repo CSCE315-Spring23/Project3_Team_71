@@ -1,0 +1,30 @@
+.header {
+    background-color: #f5f5dc;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    font-size: calc(10px + 2vmin);
+    color: #e51636;
+}
+
+.header > div {
+    margin: 0 2rem;
+}
+
+p {
+    width: 50%;
+    margin: 0 auto;
+}
+
+ul {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+}
+
+ul > li > a {
+    margin: 0 2rem;
+    text-decoration: none;
+    color: #e51636;
+}

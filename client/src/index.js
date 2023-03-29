@@ -2,10 +2,10 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./css/index.css";
-import App from "./App";
-import Cashier from "./cashier/Cashier";
-import Header from "./Header";
-import Manager from "./manager/Manager";
+import App from "./pages/App";
+import Cashier from "./pages/cashier/Cashier";
+import Header from "./pages/Header";
+import Manager from "./pages/manager/Manager";
 
 
 const router = createBrowserRouter([

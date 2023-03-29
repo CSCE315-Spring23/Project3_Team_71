@@ -1,0 +1,9 @@
+.button-row {
+    display: flex;
+    justify-content:space-around;
+}
+
+button {
+    padding: 1rem 2rem;
+    margin: 1rem;
+}

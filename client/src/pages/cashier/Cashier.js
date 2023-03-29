@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-
+import "../../css/Cashier.css"
 
 const Cashier = () => {
     const [menu, setMenu] = useState("");
@@ -16,7 +16,15 @@ const Cashier = () => {
     }, []);
     return (
         <div>
-            <h1>{JSON.stringify(menu, null, 2)}</h1>
+            {/* <h1>{JSON.stringify(menu, null, 2)}</h1> */}
+
+            <div className="button-row">
+                <button>b1</button>
+                <button>b2</button>
+                <button>b3</button>
+                <button>b4</button>
+                <button>b5</button>
+            </div>
         </div>
     );
 };
