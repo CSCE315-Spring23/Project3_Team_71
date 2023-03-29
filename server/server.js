@@ -20,7 +20,6 @@ app.get("/weather/:lat/:lon", async (req, res) => {
     );
 
     const data = await result.json();
-    
     return res.json(data);
 });
 
