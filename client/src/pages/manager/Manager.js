@@ -1,27 +1,15 @@
 import React, { useEffect, useState } from "react";
 import Orders from "./Orders";
 import MenuItems from "./MenuItems";
-import Ingredients from "./Ingredients";
+import Inventory from "./Inventory";
 import SalesReports from "./SalesReports";
 import ChangeMenu from "./ChangeMenu";
 import ChangeIngredient from "./ChangeIngredient";
 import AddMenuItem from "./AddMenuItem";
+import AddIngredient from "./AddIngredient";
 
 const Manager = () => {
 
-    const [weather, setWeather] = useState("");
-
-    useEffect(() => {
-        const getWeather = async () => {
-            const res = await fetch("http://localhost:3001/weather/30.6280/-96.3344");
-            const data = await res.json();
-
-            setWeather(data);
-        };
-
-
-        getWeather();
-    }, []);
 
     const [activeFunction, setFunction] = useState(null);
 
@@ -46,8 +34,8 @@ const Manager = () => {
                 <button onClick={() => handleManagerFunction('menuItemsFunction')}>
                     {activeFunction === 'menuItemsFunction' ? 'Hide MenuItems' : 'MenuItems'} 
                 </button>
-                <button onClick={() => handleManagerFunction('ingredientsFunction')}>
-                    {activeFunction === 'ingredientsFunction' ? 'Hide Ingredients Items' : 'Ingredients Items'} 
+                <button onClick={() => handleManagerFunction('inventoryFunction')}>
+                    {activeFunction === 'inventoryFunction' ? 'Hide Inventory' : 'Inventory'} 
                 </button>
                 <button onClick={() => handleManagerFunction('salesReportsFunction')}>
                     {activeFunction === 'salesReportsFunction' ? 'Hide Sales Report' : 'Sales Report'} 
@@ -64,16 +52,19 @@ const Manager = () => {
                 <button onClick={() => handleManagerFunction('addMenuItemFunction')}>
                     {activeFunction === 'addMenuItemFunction' ? 'Hide Add Menu Item' : 'Change Add Menu Item'} 
                 </button>
-                <button>Add Ingredient</button>
+                <button onClick={() => handleManagerFunction('addIngredientFunction')}>
+                    {activeFunction === 'addIngredientFunction' ? 'Hide Add Ingredient' : 'Change Add Ingredient'} 
+                </button>
             </div>
 
             {activeFunction === 'orderFunction' && <Orders />}
             {activeFunction === 'menuItemsFunction' && <MenuItems />}
-            {activeFunction === 'ingredientsFunction' && <Ingredients />}
+            {activeFunction === 'inventoryFunction' && <Inventory />}
             {activeFunction === 'salesReportsFunction' && <SalesReports />}
             {activeFunction === 'changeMenuFunction' && <ChangeMenu />}
             {activeFunction === 'changeIngredientFunction' && <ChangeIngredient />}
             {activeFunction === 'addMenuItemFunction' && <AddMenuItem />}
+            {activeFunction === 'addIngredientFunction' && <AddIngredient />}
         </div>
     );
 };

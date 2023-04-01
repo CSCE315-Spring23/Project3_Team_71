@@ -21,7 +21,10 @@ const Header = () => {
                                 <a href={`/manager`}>Manager</a>
                             </li>
                             <li>
-                                <a href={`/`}>Customer</a>
+                                <a href={`/customer`}>Customer</a>
+                            </li>
+                            <li>
+                                <a href={`/menu`}>Menu</a>
                             </li>
                         </ul>
                     </nav>
