@@ -39,10 +39,15 @@ app.get("/menu", async (req, res) => {
 app.get("/sales", async (req, res) => {
 
     const result = await pool.query('SELECT * FROM sales ORDER BY sales_id', (err, result) => {
+        //console.log(result['rows']);
         if (err) {
             return res.status(500).send('cant retrieve from db');
         }
         else {
+            for (let i = 0 ; i < result['rows'].length ; i++){
+                result['rows'][i]['sales_date'] = result['rows'][i]['sales_date'].toString().slice(0,16); 
+            }
+            //console.log( String(result['rows'][2]['sales_date']));
             return res.send(result.rows);
         }
     })
