@@ -9,10 +9,9 @@ const pool = new Pool({
     database: 'csce315331_team_71',
     password: '71_TeaM',
     port: 5432, 
-  });
+});
 
 app.use(cors());
-
 app.get("/weather/:lat/:lon", async (req, res) => {
     const result = await fetch(
         `https://api.openweathermap.org/data/3.0/onecall?lat=${req.params.lat}&lon=${req.params.lon}&appid=8055724633e109d30c148d36ea2352b0
@@ -23,9 +22,9 @@ app.get("/weather/:lat/:lon", async (req, res) => {
     return res.json(data);
 });
 
-app.get("/menu", async (req, res) => {
+app.get("/menu", (req, res) => {
 
-    const result = await pool.query('SELECT * FROM menu_items', (err, result) => {
+    const result =  pool.query('SELECT * FROM menu_items', (err, result) => {
         if (err) {
             return res.status(500).send('cant retrieve from db');
         }
@@ -36,8 +35,8 @@ app.get("/menu", async (req, res) => {
 
 })
 
+
+
 const port = process.env.PORT || 3001;
 app.listen(port);
 console.log("App is listening on port " + port);
-
-
