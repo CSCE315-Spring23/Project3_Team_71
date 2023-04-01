@@ -34,7 +34,20 @@ app.get("/menu", async (req, res) => {
         }
     })
 
-})
+});
+
+app.get("/inventory", async (req, res) => {
+
+    const result = await pool.query('SELECT * FROM inventory ORDER BY item_id', (err, result) => {
+        if (err) {
+            return res.status(500).send('cant retrieve from db');
+        }
+        else {
+            return res.send(result.rows);
+        }
+    })
+
+});
 
 const port = process.env.PORT || 3001;
 app.listen(port);

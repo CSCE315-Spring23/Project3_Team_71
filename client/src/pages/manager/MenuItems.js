@@ -3,12 +3,12 @@ import React, { useEffect, useState } from "react";
 const MenuItems = () => {
   const [items, setMenu] = useState([]);
 
-  //*FIXME* No way to display a boolean value in table
   useEffect(() => {
     const getMenu= async ()=> {
       const res = await fetch ("http://localhost:3001/menu");
       const getdata= await res.json();
       setMenu(getdata);
+      console.log(getdata);
       }
       getMenu();
   }, []);
@@ -34,6 +34,7 @@ const MenuItems = () => {
               <td>{menu_list.menu_item_name}</td>
               <td>{menu_list.menu_item_price}</td>
               <td>{menu_list.size}</td>
+              <td>{menu_list.is_meal ? "true" : "false"}</td>
             </tr>
           ))}
       </tbody>

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Orders from "./Orders";
 import MenuItems from "./MenuItems";
-import Ingredients from "./Ingredients";
+import Inventory from "./Inventory";
 import SalesReports from "./SalesReports";
 import ChangeMenu from "./ChangeMenu";
 import ChangeIngredient from "./ChangeIngredient";
@@ -34,8 +34,8 @@ const Manager = () => {
                 <button onClick={() => handleManagerFunction('menuItemsFunction')}>
                     {activeFunction === 'menuItemsFunction' ? 'Hide MenuItems' : 'MenuItems'} 
                 </button>
-                <button onClick={() => handleManagerFunction('ingredientsFunction')}>
-                    {activeFunction === 'ingredientsFunction' ? 'Hide Ingredients Items' : 'Ingredients Items'} 
+                <button onClick={() => handleManagerFunction('inventoryFunction')}>
+                    {activeFunction === 'inventoryFunction' ? 'Hide Inventory' : 'Inventory'} 
                 </button>
                 <button onClick={() => handleManagerFunction('salesReportsFunction')}>
                     {activeFunction === 'salesReportsFunction' ? 'Hide Sales Report' : 'Sales Report'} 
@@ -59,7 +59,7 @@ const Manager = () => {
 
             {activeFunction === 'orderFunction' && <Orders />}
             {activeFunction === 'menuItemsFunction' && <MenuItems />}
-            {activeFunction === 'ingredientsFunction' && <Ingredients />}
+            {activeFunction === 'inventoryFunction' && <Inventory />}
             {activeFunction === 'salesReportsFunction' && <SalesReports />}
             {activeFunction === 'changeMenuFunction' && <ChangeMenu />}
             {activeFunction === 'changeIngredientFunction' && <ChangeIngredient />}
