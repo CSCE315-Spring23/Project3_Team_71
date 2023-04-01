@@ -49,6 +49,34 @@ app.get("/inventory", async (req, res) => {
 
 });
 
+app.get("/changeIngredient/:id/:quantity/:name", async (req, res) => {
+
+    //console.log(req.params.quantity);
+    //console.log(req.params.name);
+    if(req.params.quantity === "" && req.params.name === "") {
+        return res.status(500).send('No Name or Quantity Inputs');
+    }
+
+    else {
+    if (req.params.quantity !== "") {
+        const result = await pool.query("UPDATE inventory SET quantity = " + req.params.quantity + " WHERE item_id = " + req.params.id + ";", (err, result) => {
+            if (err) {
+                return res.status(500).send('Failed to update Quantity');
+            }
+        })
+    }
+
+    if (req.params.name !== "") {
+        result = await pool.query("UPDATE inventory SET item_name = '" + req.params.name + "' WHERE item_id = " + req.params.id + ";", (err, result) => {
+            if (err) {
+                //return res.status(500).send('Failed to Update Name');
+            }
+        })
+    }
+    }
+    return res.json({ message: 'User updated successfully' });
+});
+
 const port = process.env.PORT || 3001;
 app.listen(port);
 console.log("App is listening on port " + port);
