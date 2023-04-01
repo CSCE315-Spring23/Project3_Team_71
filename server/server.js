@@ -25,7 +25,7 @@ app.get("/weather/:lat/:lon", async (req, res) => {
 
 app.get("/menu", async (req, res) => {
 
-    const result = await pool.query('SELECT * FROM menu_items', (err, result) => {
+    const result = await pool.query('SELECT * FROM menu_items ORDER BY menu_item_id', (err, result) => {
         if (err) {
             return res.status(500).send('cant retrieve from db');
         }

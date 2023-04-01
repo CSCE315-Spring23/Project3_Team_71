@@ -6,22 +6,10 @@ import SalesReports from "./SalesReports";
 import ChangeMenu from "./ChangeMenu";
 import ChangeIngredient from "./ChangeIngredient";
 import AddMenuItem from "./AddMenuItem";
+import AddIngredient from "./AddIngredient";
 
 const Manager = () => {
 
-    const [weather, setWeather] = useState("");
-
-    useEffect(() => {
-        const getWeather = async () => {
-            const res = await fetch("http://localhost:3001/weather/30.6280/-96.3344");
-            const data = await res.json();
-
-            setWeather(data);
-        };
-
-
-        getWeather();
-    }, []);
 
     const [activeFunction, setFunction] = useState(null);
 
@@ -64,7 +52,9 @@ const Manager = () => {
                 <button onClick={() => handleManagerFunction('addMenuItemFunction')}>
                     {activeFunction === 'addMenuItemFunction' ? 'Hide Add Menu Item' : 'Change Add Menu Item'} 
                 </button>
-                <button>Add Ingredient</button>
+                <button onClick={() => handleManagerFunction('addIngredientFunction')}>
+                    {activeFunction === 'addIngredientFunction' ? 'Hide Add Ingredient' : 'Change Add Ingredient'} 
+                </button>
             </div>
 
             {activeFunction === 'orderFunction' && <Orders />}
@@ -74,6 +64,7 @@ const Manager = () => {
             {activeFunction === 'changeMenuFunction' && <ChangeMenu />}
             {activeFunction === 'changeIngredientFunction' && <ChangeIngredient />}
             {activeFunction === 'addMenuItemFunction' && <AddMenuItem />}
+            {activeFunction === 'addIngredientFunction' && <AddIngredient />}
         </div>
     );
 };
