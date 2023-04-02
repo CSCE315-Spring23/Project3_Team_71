@@ -1,9 +1,22 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
-const AddIngredient = () => {
+function UserInputLogger() {
+  const [inputValue, setInputValue] = useState("");
+
+  const handleInputChange = (event) => {
+    setInputValue(event.target.value);
+  };
+
+  const handleButtonClick = () => {
+    console.log(inputValue);
+  };
+
   return (
-    <div>Add Ingredient Item</div>
-  )
+    <div>
+      <input type="text" value={inputValue} onChange={handleInputChange} />
+      <button onClick={handleButtonClick}>Log Input Value</button>
+    </div>
+  );
 }
 
-export default AddIngredient
+export default UserInputLogger;
