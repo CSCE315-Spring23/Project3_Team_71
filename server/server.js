@@ -206,6 +206,21 @@ app.get("/orders/:beginning/:end", async (req, res) => {
 
 });
 
+app.post("/addmenu/completeMenu" ,async (req,res) =>{
+    console.log("completion");
+    const orderDets = req.body;
+    console.log(orderDets);
+    const id = await pool.query("SELECT MAX(menu_item_id) FROM menu_items;");
+    const idVal = id.rows[0]['max'] +1;
+    const result = await pool.query("INSERT INTO menu_items (menu_item_id, menu_item_name, menu_item_price) VALUES ("+ idVal+ ",'" + orderDets['name']+ "' , " + orderDets['price'] + ");", (err, result) => {
+                    if (err) {
+                        res.status(500).send('Failed to update Quantity');
+                        console.log("error");
+                    }
+                });
+    res.status(200).json({message:"Menu Item Created"});
+});
+
 app.post("/addMenu", async (req, res) => {
     console.log("hello");
     const ingredients = req.body.ingredients;
