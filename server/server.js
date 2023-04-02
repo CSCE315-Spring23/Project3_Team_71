@@ -9,7 +9,7 @@ const pool = new Pool({
     database: 'csce315331_team_71',
     password: '71_TeaM',
     port: 5432, 
-  });
+});
 
 app.use(cors());
 app.use(express.json());
@@ -110,7 +110,7 @@ app.get("/updateInventory/:qty/:inventoryId", async (req,res) => {
 });
 
 app.get("/addOrderItems/:price/:isPaid", async (req,res) => {
-    const result = await pool.query(`INSERT INTO orders (price, is_paid, order_time) VALUES (${req.params.price.parseFloat(2)}, ${req.params.isPaid}, NOW());`, (err, result) => {
+    const result = await pool.query(`INSERT INTO orders (price, is_paid, order_time) VALUES (${parseFloat(req.params.price).toFixed(2)}, ${req.params.isPaid}, NOW());`, (err, result) => {
         if (err) {
             return res.status(500).send('cant send to db');
         }
@@ -248,8 +248,49 @@ app.post("/addMenu", async (req, res) => {
     res.status(200).json({ message: "Ingredients received" });
   });
 
+
+app.post("/addMenu", async (req, res) => {
+    console.log("hello");
+    const ingredients = req.body.ingredients;
+    // Item.create({ name: req.body.name, price: req.body.price })
+    //   .then(() => res.send('Item added'))
+    //   .catch((error) => {
+    //     console.error(error);
+    //     res.status(500).send('Error adding item');
+    //   });
+
+    console.log(ingredients);
+    const result = await pool.query("select * from inventory;");
+    let ingNames = {};
+    for (let i = 0 ; i < result.rows.length; i++){
+        ingNames[result.rows[i]['item_name']] = result.rows[i]['item_id'];
+    }
+    console.log(result);
+    console.log("separation");
+    console.log(ingNames);
+    if(!("peep" in ingNames)){
+        console.log("true");
+    }
+    const id = await pool.query("SELECT MAX(menu_item_id) FROM menu_items;");
+    const idVal = id.rows[0]['max'] +1;
+    console.log(idVal);
+    for(let i = 0 ; i < req.body.ingredients.length; i++){
+            //if(req.body.ingredients[i]['name'] in )
+            if((ingredients[i]['name'] in ingNames)){
+                
+                console.log(req.body.ingredients[i]['name']+":"+ingNames[req.body.ingredients[i]['name']]);
+        const result = await pool.query("INSERT INTO recipes (menu_item_id,inventory_id,quantity) VALUES ("+idVal+"," + ingNames[req.body.ingredients[i]['name']] +','+req.body.ingredients[i]['quantity'] +");", (err, result) => {
+            //const result = await pool.query("select * from orders;", (err,result) =>{
+            if (err) {
+                //res.status(500).send('Failed to update Quantity');
+                console.log("error");
+            }
+       })
+    }
+}
+    res.status(200).json({ message: "Ingredients received" });
+  });
+
 const port = process.env.PORT || 3001;
 app.listen(port);
 console.log("App is listening on port " + port);
-
-
