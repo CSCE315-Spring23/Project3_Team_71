@@ -188,7 +188,43 @@ export default function Menu() {
         </div>  
        
     </div>
+    <h1>Sides</h1>
+    <h1>...</h1>
+    <div class="sides">
+        
+        <br></br>
+        <div class = "side">
+            <img src="/resource/waffleFry.png"></img>
+            <h3>
+                Waffle Fries
+            </h3>
+            <h4>M: $2.29| L: $2.69</h4>
+        </div>
+        <div class = "side">
+            <img src="/resource/chips.png"></img>
+            <h3>
+                Chips
+            </h3>
+            <h4>$1.99</h4>
+        </div>
+        <div class = "side">
+            <img src="/resource/sideSalad.png"></img>
+            <h3>
+                Side Salad
+            </h3>
+            <h4>$3.79</h4>
+        </div>
+        <div class = "side">
+            <img src="/resource/Fruit-Cup.png"></img>
+            <h3>
+                Fruit Cup
+            </h3>
+            <h4>$3.79</h4>
+        </div>
+    </div>
+    <br></br><br></br>
     <div>
+        
         <h1>
             Seasonal Items
         </h1>

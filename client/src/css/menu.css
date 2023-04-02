@@ -50,6 +50,16 @@
     border-color: black;
 }
 
+.sides {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: stretch;
+}
+.side {
+    padding-left: 20px;
+}
+
 
 
 img {
