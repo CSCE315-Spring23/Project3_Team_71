@@ -191,7 +191,19 @@ app.get("/changeIngredient/:id/:quantity/:name", async (req, res) => {
     return res.json({ message: 'User updated successfully' });
 });
 
+app.get("/orders/:beginning/:end", async (req, res) => {
 
+    const result = await pool.query("SELECT * FROM orders WHERE orders.order_time::date >= '"
+    + req.params.beginning + "' AND orders.order_time::date <= '" + req.params.end + "';", (err, result) => {
+        if (err) {
+            return res.status(500).send('cant retrieve from db');
+        }
+        else {
+            return res.send(result.rows);
+        }
+    })
+
+});
 
 
 
