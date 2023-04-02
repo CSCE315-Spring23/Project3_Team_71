@@ -16,7 +16,7 @@ table {
     border-collapse: collapse;
     overflow: hidden;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    background-color: #d4cccc;
+    background-color: #f0ece9;
   }
   th,
   td {
@@ -28,7 +28,7 @@ table {
     text-align: left;
   }
   thead th {
-    background-color: #746161;
+    background-color: #d4cccc;
   }
   tbody tr:hover {
     background-color: rgba(255, 255, 255, 0.3);
