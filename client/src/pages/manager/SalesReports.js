@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-
+import "./../../css/sales.css"
 const SalesReports = () => {
   const [sales, setSales] = useState([]);
   useEffect(() => {
@@ -16,7 +16,7 @@ const SalesReports = () => {
   return (
     <div>
       <h2>Sales Reports</h2>
-
+    <div className="container">
     <table className="table table-bordered text-white">
       <thead>
         <tr>
@@ -38,6 +38,7 @@ const SalesReports = () => {
           ))}
       </tbody>
     </table>
+    </div>
     </div>
   );
 }
