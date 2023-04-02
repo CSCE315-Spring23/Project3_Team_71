@@ -41,6 +41,14 @@
     flex: 50%;
     flex-wrap: wrap;
 }
+.s {
+    flex: 20%;
+    flex-wrap: wrap;
+    flex-direction: row;
+    border-left: 10px;
+    border-left-color: black;
+    border-color: black;
+}
 
 
 
@@ -48,6 +56,13 @@ img {
     max-width: 100px;
     max-height: 100px;
 }
+li {
+    list-style-type: none;
+    padding-left: 10px;
+    padding-bottom: 10px;
+    tab-size: 4;
+}
+
 @media (max-width: 800px) {
     .sandwich1, .sandwich2 {
       flex: 100%;
