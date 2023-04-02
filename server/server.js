@@ -109,7 +109,7 @@ app.get("/updateInventory/:qty/:inventoryId", async (req,res) => {
 });
 
 app.get("/addOrderItems/:price/:isPaid", async (req,res) => {
-    const result = await pool.query(`INSERT INTO orders (price, is_paid, order_time) VALUES (${req.params.price.parseFloat(2)}, ${req.params.isPaid}, NOW());`, (err, result) => {
+    const result = await pool.query(`INSERT INTO orders (price, is_paid, order_time) VALUES (${parseFloat(req.params.price).toFixed(2)}, ${req.params.isPaid}, NOW());`, (err, result) => {
         if (err) {
             return res.status(500).send('cant send to db');
         }
