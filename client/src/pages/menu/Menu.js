@@ -29,52 +29,52 @@ export default function Menu() {
             <br></br>
             <div class = "s1">
                 <div class="sandwich1">
-                    <img src="/resource/CFASandwich.png"></img> 
+                    <img class= "menuImg" src="/resource/CFASandwich.png" alt="Chick-Fil-A Sandwhich"></img> 
                     <h3>
                         Chick-fil-A Chicken Sandwich
                     </h3>
                     <h4> $8.09 Meal  | $4.49 Entree</h4>
                     <br></br>
-                    <img src="/resource/DeluxeSandwich.png"></img>
+                    <img class= "menuImg" src="/resource/DeluxeSandwich.png"  alt="Chick-fil-A Deluxe Sandwich"></img>
                     <h3>
                         Chick-fil-A Deluxe Sandwich
                     </h3>
                     <h4> $8.79 Meal  | $5.19 Entree</h4>
 
-                    <img src="/resource/CFASpicySandwich.png"></img>
+                    <img class= "menuImg" src="/resource/CFASpicySandwich.png" alt=""></img>
                     <h3>
                         Spicy Chicken Sandwich 
                     </h3>
                     <h4> $8.39 Meal  | $4.89 Entree</h4>
-                    <img src="/resource/Spicy-Deluxe-Sandwich.png"></img>
+                    <img class= "menuImg" src="/resource/Spicy-Deluxe-Sandwich.png" alt=""></img>
                     <h3>
                         Spicy Deluxe Sandwich
                     </h3>
                     <h4> $9.09 Meal  | $5.59 Entree</h4>
                 </div>
                 <div class = "sandwich2">
-                    <img src="/resource/Grilled-Deluxe-Sandwich_1085.png"></img>
+                    <img class= "menuImg" src="/resource/Grilled-Deluxe-Sandwich_1085.png" alt=""></img>
                     <h3>
                         Grilled Chicken Sandwich
                     </h3>
                     <h4> $9.89 Meal  | $6.15 Entree</h4>
-                    <img src="/resource/grilledClub_colbyJack.png"></img>
+                    <img class= "menuImg" src="/resource/grilledClub_colbyJack.png" alt=""></img>
                     <h3>
                         Grilled Chicken Club Sandwich
                     </h3>
                     <h4> $11.49 Meal  | $7.79 Entree</h4>
-                    <img src="/resource/wrap.png"></img>
+                    <img class= "menuImg" src="/resource/wrap.png" alt=""></img>
                     <h3>
                         Grilled Chicken Cool Wrap
                     </h3>
                     <h4> $10.99 Meal  | $7.45 Entree</h4>
-                    <img src="/resource/nuggets_8ct.png"></img>
+                    <img class= "menuImg" src="/resource/nuggets_8ct.png" alt=""></img>
                     <h3>
                         Chick-fil-A Nuggets
                     </h3>
                     <h4> 8ct: $8.09 Meal  | $4.55 Entree</h4>
                     <h4> 12ct: $9.85 Meal  | $6.29 Entree</h4>
-                    <img src="/resource/grilledNuggets_8ct.png"></img>
+                    <img class= "menuImg" src="/resource/grilledNuggets_8ct.png" alt=""></img>
                     <h3>
                         Grilled Nuggets
                     </h3>
@@ -89,17 +89,17 @@ export default function Menu() {
             <br></br>
             <div class = "s">
                 <div class = "salads">
-                    <img src="/resource/cobbSalad.png"></img>
+                    <img class= "menuImg" src="/resource/cobbSalad.png" alt=""></img>
                     <h3>
                         Cobb
                     </h3>
                     <h4>$9.25</h4>
-                    <img src="/resource/marketSalad.png"></img>
+                    <img class= "menuImg" src="/resource/marketSalad.png" alt=""></img>
                     <h3>
                         Market
                     </h3>
                     <h4>$9.45</h4>
-                    <img src="/resource/sswSalad.png"></img>
+                    <img class= "menuImg" src="/resource/sswSalad.png" alt=""></img>
                     <h3>
                         Spicy Southwest
                     </h3>
@@ -113,17 +113,17 @@ export default function Menu() {
             <br></br>
             <div class = "s">
                 <div class = "drinks">
-                    <img src="/resource/tea.png"></img>
+                    <img class= "menuImg" src="/resource/tea.png" alt=""></img>
                     <h3>
                         Freshly-Brewed Iced Tea
                     </h3>
                     <h4>M: $2.09 | L: $2.39</h4>
-                    <img src="/resource/lemonade.png"></img>
+                    <img class= "menuImg" src="/resource/lemonade.png" alt=""></img>
                     <h3>
                         Chick-Fil-A Lemondade
                     </h3>
                     <h4>M: $2.39 | L: $2.89</h4>
-                    <img src="/resource/sunjoy.png"></img>
+                    <img class= "menuImg" src="/resource/sunjoy.png" alt=""></img>
                     <h3>
                         Chick-Fil-A Sunjoy
                     </h3>
@@ -139,7 +139,7 @@ export default function Menu() {
                     </h3>
                     <h4>$1.95</h4>
                     <br></br>
-                    <img src="/resource/2022IcedCoffee.png"></img>
+                    <img class= "menuImg" src="/resource/2022IcedCoffee.png" alt=""></img>
                     <h3>
                         Cold Brew Iced Coffee
                     </h3>
@@ -153,32 +153,32 @@ export default function Menu() {
             <br></br>
             <div class = "s">
                 <div class = "Treats">
-                    <img src="/resource/VanillaMilkshake-1080.png"></img>
+                    <img class= "menuImg" src="/resource/VanillaMilkshake-1080.png" alt=""></img>
                     <h3>
                         Hand-Spun Milkshakes
                     </h3>
                     <h4>$4.19</h4>
-                    <img src="/resource/Frosted-Lemonade.png"></img>
+                    <img class= "menuImg" src="/resource/Frosted-Lemonade.png" alt=""></img>
                     <h3>
                         Frosted Lemonade
                     </h3>
                     <h4>$4.09</h4>
-                    <img src="/resource/Frosted-Coffee.png"></img>
+                    <img class= "menuImg" src="/resource/Frosted-Coffee.png" alt=""></img>
                     <h3>
                         Frosted Coffee
                     </h3>
                     <h4>$4.09</h4>
-                    <img src="/resource/Ice-Dream.png"></img>
+                    <img class= "menuImg" src="/resource/Ice-Dream.png" alt=""></img>
                     <h3>
                         Icedream Cone
                     </h3>
                     <h4>$1.65</h4>
-                    <img src="/resource/031717_FudgeChunkBrownie_PDP.png"></img>
+                    <img class= "menuImg" src="/resource/031717_FudgeChunkBrownie_PDP.png" alt=""></img>
                     <h3>
                         Chocolate Fudge Cookie
                     </h3>
                     <h4>1ct: $2.09</h4>
-                    <img src="/resource/CCCookie.png"></img>
+                    <img class= "menuImg" src="/resource/CCCookie.png" alt=""></img>
                     <h3>
                         Chocolate Chunk Cookie
                     </h3>
@@ -194,28 +194,28 @@ export default function Menu() {
         
         <br></br>
         <div class = "side">
-            <img src="/resource/waffleFry.png"></img>
+            <img class= "menuImg" src="/resource/waffleFry.png" alt=""></img>
             <h3>
                 Waffle Fries
             </h3>
             <h4>M: $2.29| L: $2.69</h4>
         </div>
         <div class = "side">
-            <img src="/resource/chips.png"></img>
+            <img class= "menuImg" src="/resource/chips.png" alt=""></img>
             <h3>
                 Chips
             </h3>
             <h4>$1.99</h4>
         </div>
         <div class = "side">
-            <img src="/resource/sideSalad.png"></img>
+            <img class= "menuImg" src="/resource/sideSalad.png" alt=""></img>
             <h3>
                 Side Salad
             </h3>
             <h4>$3.79</h4>
         </div>
         <div class = "side">
-            <img src="/resource/Fruit-Cup.png"></img>
+            <img class= "menuImg" src="/resource/Fruit-Cup.png" alt=""></img>
             <h3>
                 Fruit Cup
             </h3>
@@ -231,7 +231,7 @@ export default function Menu() {
         <h1>...</h1>
         {/* get items that were added */}
         {items.map(function(i,idx) {
-            return (<li key={idx}>{i.menu_item_name} .... ${i.menu_item_price}</li>)
+            return (<li class="newitems" key={idx}>{i.menu_item_name} .... ${i.menu_item_price}</li>)
         })}
     </div>
   

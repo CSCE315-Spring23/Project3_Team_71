@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
-
-
-export default function Customer() {
+import "../../css/Customer.css";
+const Customer = () => {
   const [menu, setMenu] = useState("");
     const [totalCost, setTotalCost] = useState(0);
     const [curItems, setCurItems] = useState({});
@@ -158,57 +157,284 @@ export default function Customer() {
 
 
     return (
-        <div>
-            {/* <h1>{JSON.stringify(menu, null, 2)}</h1> */}
+      <>
+      
+      <div className = "c1">
 
-            <div className="button-row">
-                <button id="cs" onClick={handleClick}>Chicken Sandwich</button>
-                <button id="csd" onClick={handleClick}>Chicken Sandwich Deluxe</button>
-                <button id="scs" onClick={handleClick}>Spicy Sandwich</button>
-                <button id="scsd" onClick={handleClick}>Spicy Sandwich Deluxe</button>
-                <button id="n8" onClick={handleClick}>Nugget8</button>
+        <div className="button-row">
+          {/* <img src="/resource/CFASandwich.png"></img>  */}
+          <div className = "items">
+              <img
+                src="/resource/nuggets_8ct.png"
+                alt="Chick-Fil-A Nuggets"
+                class="hi"
+                
+              />
+              <h1 class="txt" >Chick-Fil-A Nuggets</h1>
+              <span class="subtext">$</span>
+              <button class="add-button" id="cs" onClick={handleClick} >Chicken Sandwich</button>
             </div>
-
-            <div className="button-row">
-                <button id="n12" onClick={handleClick}>Nugget12</button>
-                <button id="wfm" onClick={handleClick}>FriesM</button>
-                <button id="ng8" onClick={handleClick}>Grilled8</button>
-                <button id="ng12" onClick={handleClick}>Grilled12</button>
-                <button id="csg" onClick={handleClick}>Sandwich Grilled</button>
+          <div className = "items">
+              <img
+                src="/resource/nuggets_8ct.png"
+                alt="Chick-Fil-A Nuggets"
+                class="hi"
+                
+              />
+              <h1 class="txt" >Chick-Fil-A Nuggets</h1>
+              <span class="subtext">$</span>
+              <button class="add-button" id="csd" onClick={handleClick}>Chicken Sandwich Deluxe</button>
             </div>
-
-            <div className="button-row">
-                <button id="sm" onClick={handleClick}>Salad Market</button>
-                <button id="cookie" onClick={handleClick}>Cookie</button>
-                <button id="csgc" onClick={handleClick}>Grilled Club</button>
-                <button id="ccwg" onClick={handleClick}>Wrap Grilled</button>
-                <button id="sc" onClick={handleClick}>Salad Cobb</button>
+          <div className = "items">
+              <img
+                src="/resource/nuggets_8ct.png"
+                alt="Chick-Fil-A Nuggets"
+                class="hi"
+                
+              />
+              <h1 class="txt" >Chick-Fil-A Nuggets</h1>
+              <span class="subtext">$</span>
+              <button class="add-button" id="scs" onClick={handleClick}>Spicy Sandwich</button>
             </div>
+          <div className = "items">
+              <img
+                src="/resource/nuggets_8ct.png"
+                alt="Chick-Fil-A Nuggets"
+                class="hi"
+                
+              />
+              <h1 class="txt" >Chick-Fil-A Nuggets</h1>
+              <span class="subtext">$</span>
+              <button class="add-button" id="scsd" onClick={handleClick}>Spicy Sandwich Deluxe</button>
+           </div>
+        </div>
 
-            <div className="button-row">
-                <button id="sss" onClick={handleClick}>Salad Southwest</button>
-                <button id="ic" onClick={handleClick}>Icedream</button>
-                <button id="brown" onClick={handleClick}>Brownie</button>
-                <button id="wfl" onClick={handleClick}>FriesL</button>
-                <button id="wc" onClick={handleClick}>Chip</button>
+        <div className="button-row">
+            <div className = "items">
+              <img
+                src="/resource/nuggets_8ct.png"
+                alt="Chick-Fil-A Nuggets"
+                class="hi"
+                
+              />
+              <h1 class="txt" >Chick-Fil-A Nuggets</h1>
+              <span class="subtext">$</span>
+              
+              <button class="add-button" id="n8" onClick={handleClick}>Add</button>
             </div>
-
-            <div className="button-row">
-                <button id="fc" onClick={handleClick}>Fruit</button>
-                <button id="side" onClick={handleClick}>Side</button>
+            <div className = "items">
+              <img
+                src="/resource/CFASandwich.png"
+                alt="Chick-Fil-A Sandwhich"
+                class="hi"
+                
+              />
+              <h1 class="txt" >Chick-Fil-A Nuggets</h1>
+              <span class="subtext">$</span>
+              <button class="add-button" id="n12" onClick={handleClick}>Add</button>
             </div>
-
-            <button className="complete" onClick={handleComplete}>
-                Finish Order
-            </button>
-
-            <button className="new" onClick={handleNewOrder}>
-                New Order
-            </button>
-
-            <div className="price">
-                Price: ${totalCost.toFixed(2)}
+            <div className = "items">
+              <img
+                src="/resource/nuggets_8ct.png"
+                alt="Chick-Fil-A Nuggets"
+                class="hi"
+                
+              />
+              <h1 class="txt" >Chick-Fil-A Nuggets</h1>
+              <span class="subtext">$</span>
+              <button class="add-button" id="ng8" onClick={handleClick}>Grilled8</button>
+            </div>
+            <div className = "items">
+              <img
+                src="/resource/nuggets_8ct.png"
+                alt="Chick-Fil-A Nuggets"
+                class="hi"
+                
+              />
+              <h1 class="txt" >Chick-Fil-A Nuggets</h1>
+              <span class="subtext">$</span>
+              <button class="add-button" id="ng12" onClick={handleClick}>Grilled12</button>
+            </div>
+            <div className = "items">
+              <img
+                src="/resource/nuggets_8ct.png"
+                alt="Chick-Fil-A Nuggets"
+                class="hi"
+                
+              />
+              <h1 class="txt" >Chick-Fil-A Nuggets</h1>
+              <span class="subtext">$</span>
+              <button class="add-button" id="csg" onClick={handleClick}>Sandwich Grilled</button>
+            </div>
+            <div className = "items">
+              <img
+                src="/resource/nuggets_8ct.png"
+                alt="Chick-Fil-A Nuggets"
+                class="hi"
+                
+              />
+              <h1 class="txt" >Chick-Fil-A Nuggets</h1>
+              <span class="subtext">$</span>
+              <button class="add-button" id="csgc" onClick={handleClick}>Grilled Club</button>
             </div>
         </div>
-    );
-}
+
+        <div className="button-row">
+            <div className = "items">
+              <img
+                src="/resource/nuggets_8ct.png"
+                alt="Chick-Fil-A Nuggets"
+                class="hi"
+                
+              />
+              <h1 class="txt" >Chick-Fil-A Nuggets</h1>
+              <span class="subtext">$</span>
+              <button class="add-button" id="ccwg" onClick={handleClick}>Wrap Grilled</button>
+            </div>
+            <div className = "items">
+              <img
+                src="/resource/nuggets_8ct.png"
+                alt="Chick-Fil-A Nuggets"
+                class="hi"
+                
+              />
+              <h1 class="txt" >Chick-Fil-A Nuggets</h1>
+              <span class="subtext">$</span>
+              <button class="add-button" id="sm" onClick={handleClick}>Salad Market</button>
+            </div>
+            <div className = "items">
+              <img
+                src="/resource/nuggets_8ct.png"
+                alt="Chick-Fil-A Nuggets"
+                class="hi"
+                
+              />
+              <h1 class="txt" >Chick-Fil-A Nuggets</h1>
+              <span class="subtext">$</span>
+              <button class="add-button" id="sss" onClick={handleClick}>Salad Southwest</button>
+            </div>    
+            <div className = "items">
+              <img
+                src="/resource/nuggets_8ct.png"
+                alt="Chick-Fil-A Nuggets"
+                class="hi"
+                
+              />
+              <h1 class="txt" >Chick-Fil-A Nuggets</h1>
+              <span class="subtext">$</span>
+              <button class="add-button" id="sc" onClick={handleClick}>Salad Cobb</button>
+            </div>
+        </div>
+
+        <div className="button-row">
+            <div className = "items">
+              <img
+                src="/resource/nuggets_8ct.png"
+                alt="Chick-Fil-A Nuggets"
+                class="hi"
+                
+              />
+              <h1 class="txt" >Chick-Fil-A Nuggets</h1>
+              <span class="subtext">$</span>
+              <button class="add-button" id="cookie" onClick={handleClick}>Cookie</button>
+            </div>
+            <div className = "items">
+              <img
+                src="/resource/nuggets_8ct.png"
+                alt="Chick-Fil-A Nuggets"
+                class="hi"
+                
+              />
+              <h1 class="txt" >Chick-Fil-A Nuggets</h1>
+              <span class="subtext">$</span>
+              <button class="add-button" id="ic" onClick={handleClick}>Icedream</button>
+            </div>
+            <div className = "items">
+              <img
+                src="/resource/nuggets_8ct.png"
+                alt="Chick-Fil-A Nuggets"
+                class="hi"
+                
+              />
+              <h1 class="txt" >Chick-Fil-A Nuggets</h1>
+              <span class="subtext">$</span>
+              <button class="add-button" id="brown" onClick={handleClick}>Brownie</button>
+            </div>
+            <div className = "items">
+              <img
+                src="/resource/nuggets_8ct.png"
+                alt="Chick-Fil-A Nuggets"
+                class="hi"
+                
+              />
+              <h1 class="txt" >Chick-Fil-A Nuggets</h1>
+              <span class="subtext">$</span>
+              <button class="add-button" id="fc" onClick={handleClick}>Fruit</button>
+            </div>
+            <div className = "items">
+              <img
+                src="/resource/nuggets_8ct.png"
+                alt="Chick-Fil-A Nuggets"
+                class="hi"
+                
+              />
+              <h1 class="txt" >Chick-Fil-A Nuggets</h1>
+              <span class="subtext">$</span>
+              <button class="add-button" id="side" onClick={handleClick}>Side</button>
+            </div>
+            
+        </div>
+
+        <div className="button-row">   
+            <div className = "items">
+              <img
+                src="/resource/nuggets_8ct.png"
+                alt="Chick-Fil-A Nuggets"
+                class="hi"
+                
+              />
+              <h1 class="txt" >Chick-Fil-A Nuggets</h1>
+              <span class="subtext">$</span>
+              <button class="add-button" id="wfm" onClick={handleClick}>FriesM</button>
+            </div>
+            <div className = "items">
+              <img
+                src="/resource/nuggets_8ct.png"
+                alt="Chick-Fil-A Nuggets"
+                class="hi"
+                
+              />
+              <h1 class="txt" >Chick-Fil-A Nuggets</h1>
+              <span class="subtext">$</span>
+              <button class="add-button" id="wfl" onClick={handleClick}>FriesL</button>
+            </div>
+            <div className = "items">
+              <img
+                src="/resource/nuggets_8ct.png"
+                alt="Chick-Fil-A Nuggets"
+                class="hi"
+                
+              />
+              <h1 class="txt" >Chick-Fil-A Nuggets</h1>
+              <span class="subtext">$</span>
+              <button class="add-button" id="wc" onClick={handleClick}>Chip</button>
+            </div>
+        </div>
+      </div>
+      
+      <button className="complete" onClick={handleComplete}>
+          Finish Order
+      </button>
+
+      
+      <button className="new" onClick={handleNewOrder}>
+          New Order
+      </button>
+
+      <div className="price">
+          Price: ${totalCost.toFixed(2)}
+      </div>
+      </>
+  );
+};
+export default Customer;
