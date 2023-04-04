@@ -13,6 +13,8 @@ import CashierMeal from "./cashier/CashierMeal";
 import Home from "./home/Home";
 import { CurOrderContextProvider } from "../hooks/CurOrderContext";
 import CashierDrink from "./cashier/CashierDrink";
+import CustomerMeal from "./customer/CustomerMeal";
+import CustomerDrink from "./customer/CustomerDrink";
 
 function App() {
 
@@ -26,6 +28,8 @@ function App() {
                 <Route path="/manager" element={<Manager />} />
                 <Route path="/menu" element={<Menu />} />
                 <Route path="/customer" element={<Customer />} />
+                <Route path="/customer/drink" element={<CustomerDrink />} />
+                <Route path="/customer/meal" element={<CustomerMeal />} />
             </Route>
         )
     );
