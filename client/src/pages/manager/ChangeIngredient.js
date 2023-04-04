@@ -10,8 +10,14 @@ const ChangeIngredient = () => {
 
   const handleSubmit = async () => {
 
-    console.log("/changeIngredient/:"+id+"/:"+quantity+"/:"+name);
-    const response = await fetch("http://localhost:3001/changeIngredient/"+id+"/"+quantity+"/"+name);
+    if(quantity !== '') {
+      console.log("/changeIngredient/:"+id+"/:"+quantity+"/:"+quantity);
+      const response_quantity = await fetch("http://localhost:3001/changeIngredientQuantity/"+id+"/"+quantity);
+    }
+    if(name !== '') {
+      console.log("/changeIngredient/:"+id+"/:"+quantity+"/:"+name);
+      const response_name = await fetch("http://localhost:3001/changeIngredientName/"+id+"/"+name);
+    }
   };
   const handleIdChange = (event) => {
     setId(event.target.value);
