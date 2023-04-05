@@ -7,6 +7,7 @@ import ChangeMenu from "./ChangeMenu";
 import ChangeIngredient from "./ChangeIngredient";
 import AddMenuItem from "./AddMenuItem";
 import AddIngredient from "./AddIngredient";
+import "../../css/Manager.css";
 
 const Manager = () => {
 

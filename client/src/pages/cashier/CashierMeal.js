@@ -77,7 +77,7 @@ const CashierMeal = () => {
                 </button>
             </div>
 
-            <div className="button-row">
+            <div classNname='button-row'>
                 <button class= "btn" id="wrpmeal" onClick={handleClick}>
                     wrap
                 </button>
