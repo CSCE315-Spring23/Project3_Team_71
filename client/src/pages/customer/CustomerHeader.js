@@ -1,21 +1,22 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import "../../css/Customer.css";
 
-const CashierHeader = () => {
+const CustomerHeader = () => {
 
     let navigate = useNavigate();
 
     const handleMeal = () => {
-        navigate('/cashier/meal');
+        navigate('/customer/meal');
         
     }
 
     const handleMain = () => {
-        navigate('/cashier');
+        navigate('/customer');
     }
 
     const handleDrink = () => {
-        navigate('/cashier/drink');
+        navigate('/customer/drink');
     }
 
 
@@ -23,15 +24,15 @@ const CashierHeader = () => {
     return (
         <div>
             <nav>
-                <ul className="nav">
-                    <li className="nav-item">
-                        <a onClick={handleMain}>Items</a>
+                <ul>
+                    <li>
+                        <a onClick={handleMain}>Entrees & Sides</a>
                     </li>
-                    <li className="nav-item">
+                    <li>
                         <a onClick={handleMeal}>Meals</a>
                     </li>
-                    <li className="nav-item">
-                        <a onClick={handleDrink}>Drinks</a>
+                    <li>
+                        <a onClick={handleDrink}>Drinks & Treats</a>
                     </li>
 
 
@@ -41,4 +42,4 @@ const CashierHeader = () => {
     );
 };
 
-export default CashierHeader;
+export default CustomerHeader;
