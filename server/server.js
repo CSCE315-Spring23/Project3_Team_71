@@ -190,31 +190,29 @@ app.get("/changeIngredientName/:id/:name", async (req, res) => {
     return res.json({ message: 'User updated successfully' });
 });
 
-app.get("/changeMenu/:id/:price/:name", async (req, res) => {
-
-    //console.log(req.params.quantity);
-    //console.log(req.params.name);
-    if(req.params.price === "" && req.params.name === "") {
-        return res.status(500).send('No Name or Quantity Inputs');
-    }
-
-    else {
+app.get("/changeMenuPrice/:id/:price", async (req, res) => {
+    console.log("Actually Runs Price");
     if (req.params.price !== "") {
-        const result = await pool.query("UPDATE menu_items SET meny_item_price = " + req.params.price + " WHERE menu_item_id = " + req.params.id + ";", (err, result) => {
+        const result = await pool.query("UPDATE menu_items SET menu_item_price = " + req.params.price + " WHERE menu_item_id = " + req.params.id + ";", (err, result) => {
             if (err) {
                 return res.status(500).send('Failed to update Price');
             }
         })
     }
 
+    return res.json({ message: 'User updated successfully' });
+});
+
+app.get("/changeMenuName/:id/:name", async (req, res) => {
+    console.log("Actually Runs Name");
     if (req.params.name !== "") {
         result = await pool.query("UPDATE menu_items SET menu_item_name = '" + req.params.name + "' WHERE menu_item_id = " + req.params.id + ";", (err, result) => {
             if (err) {
-                //return res.status(500).send('Failed to Update Name');
+                return res.status(500).send('Failed to Update Name');
             }
         })
     }
-    }
+
     return res.json({ message: 'User updated successfully' });
 });
 

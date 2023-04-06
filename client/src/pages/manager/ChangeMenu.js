@@ -5,11 +5,19 @@ const ChangeMenu = () => {
   const [price, setPrice] = useState('');
   const [name, setName] = useState ('');
 
+
   const handleSubmit = async () => {
 
-    console.log("/changeIngredient/:"+id+"/:"+price+"/:"+name);
-    const response = await fetch("http://localhost:3001/changeMenu/"+id+"/"+price+"/"+name);
+    if(price !== '') {
+      console.log("/changeMenuPrice/"+id+"/"+price);
+      const response_quantity = await fetch("http://localhost:3001/changeMenuPrice/"+id+"/"+price);
+    }
+    if(name !== '') {
+      console.log("/changeMenuName/"+id+"/"+name);
+      const response_name = await fetch("http://localhost:3001/changeMenuName/"+id+"/"+name);
+    }
   };
+
   const handleIdChange = (event) => {
     setId(event.target.value);
   };
