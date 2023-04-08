@@ -42,43 +42,43 @@ const CashierMeal = () => {
             <CashierHeader />
 
             <div className="button-row">
-                <button class= "btn" id="8nmeal" onClick={handleClick}>
+                <button className= "btn" id="8nmeal" onClick={handleClick}>
                     ng8
                 </button>
-                <button class= "btn" id="12nmeal" onClick={handleClick}>
+                <button className= "btn" id="12nmeal" onClick={handleClick}>
                     ng12
                 </button>
-                <button class= "btn" id="8ngmeal" onClick={handleClick}>
+                <button className= "btn" id="8ngmeal" onClick={handleClick}>
                     gril8
                 </button>
-                <button class= "btn" id="12ngmeal" onClick={handleClick}>
+                <button className= "btn" id="12ngmeal" onClick={handleClick}>
                     gril12
                 </button>
-                <button class= "btn" id="csmeal" onClick={handleClick}>
+                <button className= "btn" id="csmeal" onClick={handleClick}>
                     sandwich
                 </button>
             </div>
 
             <div className="button-row">
-                <button class= "btn" id="csdmeal" onClick={handleClick}>
+                <button className= "btn" id="csdmeal" onClick={handleClick}>
                     sandwichD
                 </button>
-                <button class= "btn" id="cssmeal" onClick={handleClick}>
+                <button className= "btn" id="cssmeal" onClick={handleClick}>
                     spicy
                 </button>
-                <button class= "btn" id="cssdmeal" onClick={handleClick}>
+                <button className= "btn" id="cssdmeal" onClick={handleClick}>
                     spicyD
                 </button>
-                <button class= "btn" id="csgmeal" onClick={handleClick}>
+                <button className= "btn" id="csgmeal" onClick={handleClick}>
                     sandwichG
                 </button>
-                <button class= "btn" id="csgdmeal" onClick={handleClick}>
+                <button className= "btn" id="csgdmeal" onClick={handleClick}>
                     Sandwich Grilled De
                 </button>
             </div>
 
             <div classNname='button-row'>
-                <button class= "btn" id="wrpmeal" onClick={handleClick}>
+                <button className= "btn" id="wrpmeal" onClick={handleClick}>
                     wrap
                 </button>
             </div>

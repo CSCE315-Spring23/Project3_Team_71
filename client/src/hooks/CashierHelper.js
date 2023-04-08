@@ -31,6 +31,13 @@ export const CashierHelper = (
         handleNewOrder();
     };
 
+    const handleClickExtra = (event, num) => {
+        const bID = event.target.id;
+        console.log(num, bID);
+
+        addItem(parseInt(bID));
+    }
+
     const handleClick = (event) => {
         const bID = event.target.id;
         console.log(bID);
@@ -197,7 +204,7 @@ export const CashierHelper = (
                 [menuID]: prev[menuID] + 1,
             }));
 
-            setTotalCost((prev) => (prev += parseFloat(menu[menuID])));
+            setTotalCost((prev) => (prev += parseFloat(menu[menuID][0])));
         } else {
             console.log("new item");
 
@@ -206,9 +213,9 @@ export const CashierHelper = (
                 [menuID]: 1,
             }));
 
-            setTotalCost((prev) => (prev += parseFloat(menu[menuID])));
+            setTotalCost((prev) => (prev += parseFloat(menu[menuID][0])));
         }
     };
 
-    return { handleNewOrder, handleComplete, handleClick };
+    return { handleNewOrder, handleComplete, handleClick, handleClickExtra };
 };

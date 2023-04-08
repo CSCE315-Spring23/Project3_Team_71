@@ -42,55 +42,55 @@ const CashierDrink = () => {
             <CashierHeader />
 
             <div className="button-row">
-                <button class= "btn" id="milkchoc" onClick={handleClick}>
+                <button className= "btn" id="milkchoc" onClick={handleClick}>
                     milkchoc
                 </button>
-                <button class= "btn" id="milkvan" onClick={handleClick}>
+                <button className= "btn" id="milkvan" onClick={handleClick}>
                     mlkvan
                 </button>
-                <button class= "btn" id="milkstraw" onClick={handleClick}>
+                <button className= "btn" id="milkstraw" onClick={handleClick}>
                     milkstraw
                 </button>
-                <button class= "btn" id="milkcook" onClick={handleClick}>
+                <button className= "btn" id="milkcook" onClick={handleClick}>
                     milkcook
                 </button>
-                <button class= "btn" id="lem" onClick={handleClick}>
+                <button className= "btn" id="lem" onClick={handleClick}>
                     lemoade m
                 </button>
             </div>
 
             <div className="button-row">
-                <button class= "btn" id="softm" onClick={handleClick}>
+                <button className= "btn" id="softm" onClick={handleClick}>
                     soda m
                 </button>
-                <button class= "btn" id="softl" onClick={handleClick}>
+                <button className= "btn" id="softl" onClick={handleClick}>
                     soda lar
                 </button>
-                <button class= "btn" id="team" onClick={handleClick}>
+                <button className= "btn" id="team" onClick={handleClick}>
                     tea med
                 </button>
-                <button class= "btn" id="teal" onClick={handleClick}>
+                <button className= "btn" id="teal" onClick={handleClick}>
                     teal large
                 </button>
-                <button class= "btn" id="leml" onClick={handleClick}>
+                <button className= "btn" id="leml" onClick={handleClick}>
                     lemonade large
                 </button>
             </div>
 
             <div className="button-row">
-                <button class= "btn" id="sunjoym" onClick={handleClick}>
+                <button className= "btn" id="sunjoym" onClick={handleClick}>
                     sunjoy m
                 </button>
-                <button class= "btn" id="sunjoyl" onClick={handleClick}>
+                <button className= "btn" id="sunjoyl" onClick={handleClick}>
                     sunjoy l
                 </button>
-                <button class= "btn" id="cofice" onClick={handleClick}>
+                <button className= "btn" id="cofice" onClick={handleClick}>
                     coffee ice
                 </button>
-                <button class= "btn" id="lemfrost" onClick={handleClick}>
+                <button className= "btn" id="lemfrost" onClick={handleClick}>
                     lemonade frost
                 </button>
-                <button class= "btn" id="cofrost" onClick={handleClick}>
+                <button className= "btn" id="cofrost" onClick={handleClick}>
                     coffee frost
                 </button>
             </div>

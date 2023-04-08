@@ -53,16 +53,16 @@ const CustomerDrink = () => {
             <img
               src="/resource/Drinks_Coca-cola.png"
               alt="Soft Drink"
-              class="hi"
+              className="hi"
 
             />
-            <h1 class="txt" >Soft Drink</h1>
-            <span class="subtext">M: ${getMenuPrice(9, menu)} | L: ${getMenuPrice(43, menu)}</span>
+            <h1 className="txt" >Soft Drink</h1>
+            <span className="subtext">M: ${getMenuPrice(9, menu)} | L: ${getMenuPrice(43, menu)}</span>
             <div className="btn-holder">
-              <button class="add-button" id="softm" onClick={handleClick}>
+              <button className="add-button" id="softm" onClick={handleClick}>
                 soda m
               </button>
-              <button class="add-button" id="softl" onClick={handleClick}>
+              <button className="add-button" id="softl" onClick={handleClick}>
                 soda lar
               </button>
             </div>
@@ -71,16 +71,16 @@ const CustomerDrink = () => {
             <img
               src="/resource/lemonade.png"
               alt="Chick-Fil-A Lemondade"
-              class="hi"
+              className="hi"
 
             />
-            <h1 class="txt" >Chick-Fil-A Lemondade</h1>
-            <span class="subtext">M: ${getMenuPrice(15, menu)} | L: ${getMenuPrice(42, menu)}</span>
+            <h1 className="txt" >Chick-Fil-A Lemondade</h1>
+            <span className="subtext">M: ${getMenuPrice(15, menu)} | L: ${getMenuPrice(42, menu)}</span>
             <div className="btn-holder">
-              <button class="add-button" id="lem" onClick={handleClick}>
+              <button className="add-button" id="lem" onClick={handleClick}>
                 lemoade m
               </button>
-              <button class="add-button" id="leml" onClick={handleClick}>
+              <button className="add-button" id="leml" onClick={handleClick}>
                 lemonade large
               </button>
             </div>
@@ -89,16 +89,16 @@ const CustomerDrink = () => {
             <img
               src="/resource/tea.png"
               alt="Freshly-Brewed Iced Tea"
-              class="hi"
+              className="hi"
 
             />
-            <h1 class="txt" >Freshly-Brewed Iced Tea</h1>
-            <span class="subtext">M: ${getMenuPrice(40, menu)} | L: ${getMenuPrice(41, menu)}</span>
+            <h1 className="txt" >Freshly-Brewed Iced Tea</h1>
+            <span className="subtext">M: ${getMenuPrice(40, menu)} | L: ${getMenuPrice(41, menu)}</span>
             <div className="btn-holder">
-              <button class="add-button" id="team" onClick={handleClick}>
+              <button className="add-button" id="team" onClick={handleClick}>
                 tea med
               </button>
-              <button class="add-button" id="teal" onClick={handleClick}>
+              <button className="add-button" id="teal" onClick={handleClick}>
                 teal large
               </button>
             </div>
@@ -108,16 +108,16 @@ const CustomerDrink = () => {
             <img
               src="/resource/sunjoy.png"
               alt="Chick-Fil-A Sunjoy"
-              class="hi"
+              className="hi"
 
             />
-            <h1 class="txt" >Chick-Fil-A Sunjoy</h1>
-            <span class="subtext">M: ${getMenuPrice(44, menu)} | L: ${getMenuPrice(45, menu)}</span>
+            <h1 className="txt" >Chick-Fil-A Sunjoy</h1>
+            <span className="subtext">M: ${getMenuPrice(44, menu)} | L: ${getMenuPrice(45, menu)}</span>
             <div className="btn-holder">
-              <button class="add-button" id="sunjoym" onClick={handleClick}>
+              <button className="add-button" id="sunjoym" onClick={handleClick}>
                 sunjoy m
               </button>
-              <button class="add-button" id="sunjoyl" onClick={handleClick}>
+              <button className="add-button" id="sunjoyl" onClick={handleClick}>
                 sunjoy l
               </button>
             </div>
@@ -129,12 +129,12 @@ const CustomerDrink = () => {
             <img
               src="/resource/ChocolateMilkshake-1080.png"
               alt="Hand-Spun Chocolate Milkshake"
-              class="hi"
+              className="hi"
 
             />
-            <h1 class="txt" >Hand-Spun Chocolate Milkshake</h1>
-            <span class="subtext">${getMenuPrice(20, menu)}</span>
-            <button class="add-button" id="milkchoc" onClick={handleClick}>
+            <h1 className="txt" >Hand-Spun Chocolate Milkshake</h1>
+            <span className="subtext">${getMenuPrice(20, menu)}</span>
+            <button className="add-button" id="milkchoc" onClick={handleClick}>
               Add
             </button>
           </div>
@@ -142,12 +142,12 @@ const CustomerDrink = () => {
             <img
               src="/resource/VanillaMilkshake-1080.png"
               alt="Hand-Spun Vanilla Milkshake"
-              class="hi"
+              className="hi"
 
             />
-            <h1 class="txt" >Hand-Spun Vanilla Milkshake</h1>
-            <span class="subtext">${getMenuPrice(21, menu)}</span>
-            <button class="add-button" id="milkvan" onClick={handleClick}>
+            <h1 className="txt" >Hand-Spun Vanilla Milkshake</h1>
+            <span className="subtext">${getMenuPrice(21, menu)}</span>
+            <button className="add-button" id="milkvan" onClick={handleClick}>
               Add
             </button>
           </div>
@@ -155,12 +155,12 @@ const CustomerDrink = () => {
             <img
               src="/resource/16oz_StrawberryMilkshake-1080.png"
               alt="Hand-Spun Strawberry Milkshake"
-              class="hi"
+              className="hi"
 
             />
-            <h1 class="txt" >Hand-Spun Strawberry Milkshake</h1>
-            <span class="subtext">${getMenuPrice(22, menu)}</span>
-            <button class="add-button" id="milkstraw" onClick={handleClick}>
+            <h1 className="txt" >Hand-Spun Strawberry Milkshake</h1>
+            <span className="subtext">${getMenuPrice(22, menu)}</span>
+            <button className="add-button" id="milkstraw" onClick={handleClick}>
               Add
             </button>
           </div>
@@ -168,12 +168,12 @@ const CustomerDrink = () => {
             <img
               src="/resource/16oz_C&C_Milkshake-1080.png"
               alt="Hand-Spun Cookies & Cream Milkshake"
-              class="hi"
+              className="hi"
 
             />
-            <h1 class="txt" >Hand-Spun Cookies & Cream Milkshake</h1>
-            <span class="subtext">${getMenuPrice(23, menu)}</span>
-            <button class="add-button" id="milkcook" onClick={handleClick}>
+            <h1 className="txt" >Hand-Spun Cookies & Cream Milkshake</h1>
+            <span className="subtext">${getMenuPrice(23, menu)}</span>
+            <button className="add-button" id="milkcook" onClick={handleClick}>
               Add
             </button>
           </div>
@@ -186,12 +186,12 @@ const CustomerDrink = () => {
             <img
               src="/resource/2022IcedCoffee.png"
               alt="Cold Brew Iced Coffee"
-              class="hi"
+              className="hi"
 
             />
-            <h1 class="txt" >Cold Brew Iced Coffee</h1>
-            <span class="subtext">${getMenuPrice(46, menu)}</span>
-            <button class="add-button" id="cofice" onClick={handleClick}>
+            <h1 className="txt" >Cold Brew Iced Coffee</h1>
+            <span className="subtext">${getMenuPrice(46, menu)}</span>
+            <button className="add-button" id="cofice" onClick={handleClick}>
               Add
             </button>
           </div>
@@ -199,11 +199,11 @@ const CustomerDrink = () => {
             <img
               src="/resource/Frosted-Lemonade.png"
               alt="Frosted Lemonade"
-              class="hi"
+              className="hi"
             />
-            <h1 class="txt" >Frosted Lemonade</h1>
-            <span class="subtext">${getMenuPrice(47, menu)}</span>
-            <button class="add-button" id="lemfrost" onClick={handleClick}>
+            <h1 className="txt" >Frosted Lemonade</h1>
+            <span className="subtext">${getMenuPrice(47, menu)}</span>
+            <button className="add-button" id="lemfrost" onClick={handleClick}>
               Add
             </button>
           </div>
@@ -211,12 +211,12 @@ const CustomerDrink = () => {
             <img
               src="/resource/Frosted-Coffee.png"
               alt="Frosted Coffee"
-              class="hi"
+              className="hi"
 
             />
-            <h1 class="txt" >Frosted Coffee</h1>
-            <span class="subtext">${getMenuPrice(48, menu)}</span>
-            <button class="add-button" id="cofrost" onClick={handleClick}>
+            <h1 className="txt" >Frosted Coffee</h1>
+            <span className="subtext">${getMenuPrice(48, menu)}</span>
+            <button className="add-button" id="cofrost" onClick={handleClick}>
               Add
             </button>
           </div>
@@ -230,31 +230,31 @@ const CustomerDrink = () => {
             <img
               src="/resource/CCCookie.png"
               alt="Chocolate Chunk Cookie"
-              class="hi"
+              className="hi"
             />
-            <h1 class="txt" >Chocolate Chunk Cookie</h1>
-            <span class="subtext">${getMenuPrice(24, menu)}</span>
-            <button class="add-button" id="cookie" onClick={handleClick}>Add</button>
+            <h1 className="txt" >Chocolate Chunk Cookie</h1>
+            <span className="subtext">${getMenuPrice(24, menu)}</span>
+            <button className="add-button" id="cookie" onClick={handleClick}>Add</button>
           </div>
           <div className="items">
             <img
               src="/resource/Ice-Dream.png"
               alt="Icedream Cone"
-              class="hi"
+              className="hi"
             />
-            <h1 class="txt" >Icedream Cone</h1>
-            <span class="subtext">${getMenuPrice(49, menu)}</span>
-            <button class="add-button" id="ic" onClick={handleClick}>Add</button>
+            <h1 className="txt" >Icedream Cone</h1>
+            <span className="subtext">${getMenuPrice(49, menu)}</span>
+            <button className="add-button" id="ic" onClick={handleClick}>Add</button>
           </div>
           <div className="items">
             <img
               src="/resource/031717_FudgeChunkBrownie_PDP.png"
               alt="Chocolate Fudge Cookie"
-              class="hi"
+              className="hi"
             />
-            <h1 class="txt" >Chocolate Fudge Cookie</h1>
-            <span class="subtext">${getMenuPrice(50, menu)}</span>
-            <button class="add-button" id="brown" onClick={handleClick}>Add</button>
+            <h1 className="txt" >Chocolate Fudge Cookie</h1>
+            <span className="subtext">${getMenuPrice(50, menu)}</span>
+            <button className="add-button" id="brown" onClick={handleClick}>Add</button>
           </div>
         </div>
       </div>
