@@ -19,6 +19,10 @@ const CustomerHeader = () => {
         navigate('/customer/drink');
     }
 
+    const handleSeasonal = () => {
+        navigate('/customer/seasonal');
+    }
+    
 
 
     return (
@@ -34,8 +38,9 @@ const CustomerHeader = () => {
                     <li>
                         <a onClick={handleDrink}>Drinks & Treats</a>
                     </li>
-
-
+                    <li>
+                        <a onClick={handleSeasonal}>Seasonal</a>
+                    </li>
                 </ul>
             </nav>
         </div>

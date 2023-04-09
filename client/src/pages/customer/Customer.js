@@ -35,8 +35,11 @@ const Customer = () => {
 
   }, [curItems]);
 
+
+
   return (
     <>
+
       <CustomerHeader />
       <div className="c1">
         <br></br>

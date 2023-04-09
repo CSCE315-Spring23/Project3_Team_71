@@ -1,10 +1,13 @@
 import React, { useContext, useEffect, useState } from "react";
 import { CashierHelper } from "../../hooks/CashierHelper";
-import CashierHeader from "./CashierHeader";
-import "../../css/Cashier.css";
+import CashierHeader from "./CustomerHeader";
+import "../../css/Customer.css";
 import { CurOrderContext } from "../../hooks/CurOrderContext";
 
-const CashierSeasonal = () => {
+
+function CustomerNew() {
+
+
     const [menu, setMenu] = useState({});
     const [seasonMenu, setSeasonMenu] = useState([]);
     const { totalCost, setTotalCost, curItems, setCurItems } =
@@ -55,36 +58,29 @@ const CashierSeasonal = () => {
     useEffect(() => {
         console.log(curItems);
     }, [curItems]);
-    return (
-        <div>
-            {/* <h1>{JSON.stringify(menu, null, 2)}</h1> */}
-            <CashierHeader />
-            {seasonMenu.map((button, index) => (
-                <button  className= "btn" key={index} id={button.menuID} onClick={(event) => handleClickExtra(event, 5)}>
-                    {button.name}
-                </button>
-            ))}
-            <button className="complete" onClick={handleComplete}>
-                Finish Order
-            </button>
-            <button className="new" onClick={handleNewOrder}>
-                New Order
-            </button>
-            <div className="price">Price: ${totalCost.toFixed(2)}</div>
 
-            <button className="complete" onClick={handleComplete}>
-                Finish Order
-            </button>
+  return (
+    <>
+      <CashierHeader/>
+      {seasonMenu.map((button, index) => (
+              <button  className= "btn" key={index} id={button.menuID} onClick={(event) => handleClickExtra(event, 5)}>
+                  {button.name}
+              </button>
+          ))}
 
-            <button className="new" onClick={handleNewOrder}>
-                New Order
-            </button>
+      <button className="complete" onClick={handleComplete}>
+        Finish Order
+      </button>
+
+      <button className="new" onClick={handleNewOrder}>
+        New Order
+      </button>
 
 
-            <div className="price">Price: ${totalCost.toFixed(2)}</div>
+      <div className="price">Price: ${totalCost.toFixed(2)}</div>
+    </>
+  
+  )
+}
 
-        </div>
-    );
-};
-
-export default CashierSeasonal;
+export default CustomerNew

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-
+import "../../css/Manager.css"
 //YYYY-MM-DD FORMAT
 
 const Orders = () => {
@@ -28,11 +28,15 @@ const Orders = () => {
     <div>
       <h2>Orders</h2>
 
-      <p>To use, enter the beginning and end dates in a YYYY-MM-DD Format</p>
+      {/* <p>To use, enter the beginning and end dates in a YYYY-MM-DD Format</p> */}
+      <div className="prompt-orders">
+        <p>Enter the beginning and end date</p>
+      </div>
+      
 
       <form>
         <input 
-        type = "text"
+        type = "date"
         id = "beginningdate" 
         name ="Beginning Date"
         required = "required"
@@ -41,7 +45,7 @@ const Orders = () => {
         onChange = {handleBeginningChange}
         />
         <input 
-        type = "text" 
+        type = "date" 
         id = "enddate"
         name ="End Date"
         placeholder="Enter End Date"

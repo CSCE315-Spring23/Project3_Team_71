@@ -1,5 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import "../../css/Cashier.css";
+
 
 const CashierHeader = () => {
 
@@ -26,17 +28,17 @@ const CashierHeader = () => {
     return (
         <div>
             <nav>
-                <ul className="nav">
-                    <li className="nav-item">
+                <ul >
+                    <li >
                         <button onClick={handleMain}>Items</button>
                     </li>
-                    <li className="nav-item">
+                    <li >
                         <button onClick={handleMeal}>Meals</button>
                     </li>
-                    <li className="nav-item">
+                    <li >
                         <button onClick={handleDrink}>Drinks</button>
                     </li>
-                    <li className="nav-item">
+                    <li >
                         <button onClick={handleSeasonal}>Seasonal</button>
                     </li>
 

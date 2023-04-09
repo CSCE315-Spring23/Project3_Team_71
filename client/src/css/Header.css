@@ -1,11 +1,14 @@
 .header {
-    background-color: #f5f5dc;
+    background-color: #e0e0e0;
     display: flex;
-    flex-direction: row;
+    /* flex-direction: row;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: flex-end; */
     font-size: calc(10px + 2vmin);
     color: #e51636;
+    justify-content: space-between;
+    padding-top: 5px;
+    padding-bottom: 10px;
 }
 
 .header > div {
@@ -27,4 +30,20 @@ ul > li > a {
     margin: 0 2rem;
     text-decoration: none;
     color: #e51636;
+}
+.h1 {
+    justify-content: left;
+}
+.h2 {
+    justify-content: right;
+    align-items: flex-end;
+
+}
+
+.navImg {
+    max-height: calc(40px + 2vmin);
+    max-width: auto;
+    display: flex;
+    align-content: flex-start;
+    justify-content:left ;
 }

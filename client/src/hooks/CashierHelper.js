@@ -204,7 +204,7 @@ export const CashierHelper = (
                 [menuID]: prev[menuID] + 1,
             }));
 
-            setTotalCost((prev) => (prev += parseFloat(menu[menuID][0])));
+            setTotalCost((prev) => (prev += parseFloat(menu[menuID])));
         } else {
             console.log("new item");
 
@@ -213,7 +213,7 @@ export const CashierHelper = (
                 [menuID]: 1,
             }));
 
-            setTotalCost((prev) => (prev += parseFloat(menu[menuID][0])));
+            setTotalCost((prev) => (prev += parseFloat(menu[menuID])));
         }
     };
 

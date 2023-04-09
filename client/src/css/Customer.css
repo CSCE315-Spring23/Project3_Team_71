@@ -75,6 +75,7 @@ border-width: 1px;
     background-color: #E51636;
     color: white;
     border-radius: 80% !important;
+    transition: all 0.2s ease;
 }
 .add-button::after {
     content: "Add";
@@ -87,6 +88,7 @@ border-width: 1px;
     padding-right: 0.4vw;
     padding-left: 0.4vw;
     width: 8vw;
+    transition: all;
     
 
     
