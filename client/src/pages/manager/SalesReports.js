@@ -26,6 +26,16 @@ const columns = [
 
 const SalesReports = () => {
   const [sales, setSales] = useState([]);
+  const [zDate, setZDate] = useState('');
+
+  const handleZReport = async () => {
+    const res = await fetch("http://localhost:3001/zreport/" + zDate);
+
+  };
+
+  const handleZChange = (event) => {
+    setZDate(event.target.value);
+  };
 
   useEffect(() => {
     const getSales= async ()=> {
@@ -41,6 +51,18 @@ const SalesReports = () => {
 
   return (
     <div className="container">
+      <form>
+        <input 
+        type = "date"
+        id = "zreportdate" 
+        name ="Z Report Date"
+        required = "required"
+        placeholder="Enter Z Report Date"
+        value = {zDate}
+        onChange = {handleZChange}
+        />
+        <button type ="button" onClick ={handleZReport}>Create Z Report</button>
+      </form>
       <table {...getTableProps()}>
         <thead>
           {headerGroups.map((headerGroup) => (
