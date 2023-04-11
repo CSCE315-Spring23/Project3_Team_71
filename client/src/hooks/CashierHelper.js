@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+
 export const CashierHelper = (
     curItems,
     menu,
@@ -36,7 +38,7 @@ export const CashierHelper = (
         console.log(num, bID);
 
         addItem(parseInt(bID));
-    }
+    };
 
     const handleClick = (event) => {
         const bID = event.target.id;
@@ -193,9 +195,29 @@ export const CashierHelper = (
         }
     };
 
+    const handleSubtract = (itemID) => {
+        console.log(curItems[itemID]);
+
+        setCurItems((prev) => ({
+            ...prev,
+            [itemID]: prev[itemID] - 1,
+        }));
+
+        setTotalCost((prev) => (prev -= parseFloat(menu[itemID])));
+    };
+
+    useEffect(() => {
+        Object.keys(curItems).forEach((id) => {
+            // if the value of a key hits zero, delete that key-value pair
+            if (curItems[id] === 0) {
+                const newCurItems = { ...curItems };
+                delete newCurItems[id];
+                setCurItems(newCurItems);
+            }
+        });
+    }, [curItems]);
+
     const addItem = (menuID) => {
-        console.log(menuID);
-        console.log(menuID in menu);
         if (menuID in curItems) {
             console.log("item in");
 
@@ -217,5 +239,11 @@ export const CashierHelper = (
         }
     };
 
-    return { handleNewOrder, handleComplete, handleClick, handleClickExtra };
+    return {
+        handleNewOrder,
+        handleComplete,
+        handleClick,
+        handleClickExtra,
+        handleSubtract,
+    };
 };
