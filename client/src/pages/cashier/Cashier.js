@@ -9,7 +9,7 @@ const Cashier = () => {
     const { totalCost, setTotalCost, curItems, setCurItems } =
         useContext(CurOrderContext);
     const [menu, setMenu] = useState("");
-    const { handleClick, handleComplete, handleNewOrder } = CashierHelper(
+    const { handleClick, handleComplete, handleNewOrder, handleSubtract } = CashierHelper(
         curItems,
         menu,
         totalCost,
@@ -124,7 +124,7 @@ const Cashier = () => {
                     Chip
                 </button>
             </div>
-            <div>{showPopUp && <CurOrderPopUp curItems={curItems} menu={menu} />}</div>
+            <div>{showPopUp && <CurOrderPopUp curItems={curItems} handleSubtract={handleSubtract} menu={menu} />}</div>
 
             <button className="complete" onClick={handleComplete}>
                 Finish Order

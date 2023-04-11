@@ -11,7 +11,7 @@ const CashierSeasonal = () => {
     const { totalCost, setTotalCost, curItems, setCurItems } =
         useContext(CurOrderContext);
 
-    const { handleClickExtra, handleComplete, handleNewOrder } = CashierHelper(
+    const { handleClickExtra, handleComplete, handleNewOrder, handleSubtract } = CashierHelper(
         curItems,
         menu,
         totalCost,
@@ -62,7 +62,7 @@ const CashierSeasonal = () => {
                     {button.name}
                 </button>
             ))}
-            <div>{showPopUp && <CurOrderPopUp curItems={curItems} menu={menu} />}</div>
+            <div>{showPopUp && <CurOrderPopUp curItems={curItems} handleSubtract={handleSubtract} menu={menu} />}</div>
 
             <button className="complete" onClick={handleComplete}>
                 Finish Order
