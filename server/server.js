@@ -230,13 +230,30 @@ app.get("/orders/:beginning/:end", async (req, res) => {
 
 });
 
+app.get("/zreport/:date", async (req, res) => {
+    const id = await pool.query("SELECT MAX(sales_id) FROM sales;");
+    const idVal = id.rows[0]['max'] + 1;
+    const net = await pool.query("SELECT SUM(price) FROM orders WHERE orders.order_time::date = '" + req.params.date + "';");
+    const tax = net.rows[0]['sum'] * 0.0825;
+    const profit = net.rows[0]['sum'] - tax;
+    const result = await pool.query("INSERT INTO sales (sales_id, sales_date, total_sales, total_tax) VALUES ("
+                    + idVal + ",'" + req.params.date + "' , " + profit + " , " + tax + ");", (err, result) => {
+                        if (err) {
+                            res.status(500).send('Failed to create Sales Report');
+                            console.log("error");
+                        }
+                    });
+    res.json({message:"Sales Report Created"});
+});
+
 app.post("/addmenu/completeMenu" ,async (req,res) =>{
     console.log("completion");
     const orderDets = req.body;
     console.log(orderDets);
     const id = await pool.query("SELECT MAX(menu_item_id) FROM menu_items;");
-    const idVal = id.rows[0]['max'] +1;
-    const result = await pool.query("INSERT INTO menu_items (menu_item_id, menu_item_name, menu_item_price) VALUES ("+ idVal+ ",'" + orderDets['name']+ "' , " + orderDets['price'] + ");", (err, result) => {
+    const idVal = id.rows[0]['max'] + 1;
+    const result = await pool.query("INSERT INTO menu_items (menu_item_id, menu_item_name, menu_item_price) VALUES (" 
+            + idVal+ ",'" + orderDets['name']+ "' , " + orderDets['price'] + ");", (err, result) => {
                     if (err) {
                         res.status(500).send('Failed to update Quantity');
                         console.log("error");
