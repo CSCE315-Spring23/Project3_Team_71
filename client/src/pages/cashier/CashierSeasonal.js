@@ -3,6 +3,7 @@ import { CashierHelper } from "../../hooks/CashierHelper";
 import CashierHeader from "./CashierHeader";
 import "../../css/Cashier.css";
 import { CurOrderContext } from "../../hooks/CurOrderContext";
+import CurOrderPopUp from "../../components/CurOrderPopUp";
 
 const CashierSeasonal = () => {
     const [menu, setMenu] = useState({});
@@ -17,6 +18,12 @@ const CashierSeasonal = () => {
         setCurItems,
         setTotalCost
     );
+
+    const [showPopUp, setShowPopUp] = useState(false);
+
+    const handlePopUp = () => {
+        setShowPopUp(!showPopUp);
+    };
 
     useEffect(() => {
         const getMenu = async () => {
@@ -45,35 +52,24 @@ const CashierSeasonal = () => {
                 }))
         );
 
-        console.log(menu);
     }, [menu]);
 
-    useEffect(() => {
-        console.log(menu);
-    }, [menu]);
-
-    useEffect(() => {
-        console.log(curItems);
-    }, [curItems]);
     return (
         <div>
-            {/* <h1>{JSON.stringify(menu, null, 2)}</h1> */}
             <CashierHeader />
             {seasonMenu.map((button, index) => (
                 <button  className= "btn" key={index} id={button.menuID} onClick={(event) => handleClickExtra(event, 5)}>
                     {button.name}
                 </button>
             ))}
-            <button className="complete" onClick={handleComplete}>
-                Finish Order
-            </button>
-            <button className="new" onClick={handleNewOrder}>
-                New Order
-            </button>
-            <div className="price">Price: ${totalCost.toFixed(2)}</div>
+            <div>{showPopUp && <CurOrderPopUp curItems={curItems} menu={menu} />}</div>
 
             <button className="complete" onClick={handleComplete}>
                 Finish Order
+            </button>
+
+            <button className="popup" onClick={handlePopUp}>
+                CurOrder
             </button>
 
             <button className="new" onClick={handleNewOrder}>

@@ -3,6 +3,7 @@ import { CashierHelper } from "../../hooks/CashierHelper";
 import CashierHeader from "./CashierHeader";
 import "../../css/Cashier.css";
 import { CurOrderContext } from "../../hooks/CurOrderContext";
+import CurOrderPopUp from "../../components/CurOrderPopUp";
 
 const CashierMeal = () => {
     const [menu, setMenu] = useState("");
@@ -17,6 +18,12 @@ const CashierMeal = () => {
         setTotalCost
     );
 
+    const [showPopUp, setShowPopUp] = useState(false);
+
+    const handlePopUp = () => {
+        setShowPopUp(!showPopUp);
+    };
+
     useEffect(() => {
         const getMenu = async () => {
             const res = await fetch("http://localhost:3001/menu");
@@ -24,8 +31,9 @@ const CashierMeal = () => {
 
             const newObj = {};
             for (const key in data) {
-                const { menu_item_id, menu_item_price } = data[key];
-                newObj[menu_item_id] = menu_item_price;
+                const { menu_item_id, menu_item_price, menu_item_name } =
+                    data[key];
+                newObj[menu_item_id] = [menu_item_price, menu_item_name];
             }
 
             setMenu(newObj);
@@ -42,49 +50,57 @@ const CashierMeal = () => {
             <CashierHeader />
 
             <div className="button-row">
-                <button className= "btn" id="8nmeal" onClick={handleClick}>
+                <button className="btn" id="8nmeal" onClick={handleClick}>
                     ng8
                 </button>
-                <button className= "btn" id="12nmeal" onClick={handleClick}>
+                <button className="btn" id="12nmeal" onClick={handleClick}>
                     ng12
                 </button>
-                <button className= "btn" id="8ngmeal" onClick={handleClick}>
+                <button className="btn" id="8ngmeal" onClick={handleClick}>
                     gril8
                 </button>
-                <button className= "btn" id="12ngmeal" onClick={handleClick}>
+                <button className="btn" id="12ngmeal" onClick={handleClick}>
                     gril12
                 </button>
-                <button className= "btn" id="csmeal" onClick={handleClick}>
+                <button className="btn" id="csmeal" onClick={handleClick}>
                     sandwich
                 </button>
             </div>
 
             <div className="button-row">
-                <button className= "btn" id="csdmeal" onClick={handleClick}>
+                <button className="btn" id="csdmeal" onClick={handleClick}>
                     sandwichD
                 </button>
-                <button className= "btn" id="cssmeal" onClick={handleClick}>
+                <button className="btn" id="cssmeal" onClick={handleClick}>
                     spicy
                 </button>
-                <button className= "btn" id="cssdmeal" onClick={handleClick}>
+                <button className="btn" id="cssdmeal" onClick={handleClick}>
                     spicyD
                 </button>
-                <button className= "btn" id="csgmeal" onClick={handleClick}>
+                <button className="btn" id="csgmeal" onClick={handleClick}>
                     sandwichG
                 </button>
-                <button className= "btn" id="csgdmeal" onClick={handleClick}>
+                <button className="btn" id="csgdmeal" onClick={handleClick}>
                     Sandwich Grilled De
                 </button>
             </div>
 
-            <div classNname='button-row'>
-                <button className= "btn" id="wrpmeal" onClick={handleClick}>
+            <div classNname="button-row">
+                <button className="btn" id="wrpmeal" onClick={handleClick}>
                     wrap
                 </button>
             </div>
 
+            <div>
+                {showPopUp && <CurOrderPopUp curItems={curItems} menu={menu} />}
+            </div>
+
             <button className="complete" onClick={handleComplete}>
                 Finish Order
+            </button>
+
+            <button className="popup" onClick={handlePopUp}>
+                CurOrder
             </button>
 
             <button className="new" onClick={handleNewOrder}>

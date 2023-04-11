@@ -3,6 +3,7 @@ import { CashierHelper } from "../../hooks/CashierHelper";
 import CashierHeader from "./CashierHeader";
 import "../../css/Cashier.css";
 import { CurOrderContext } from "../../hooks/CurOrderContext";
+import CurOrderPopUp from "../../components/CurOrderPopUp";
 
 const CashierDrink = () => {
     const [menu, setMenu] = useState("");
@@ -17,6 +18,12 @@ const CashierDrink = () => {
         setTotalCost
     );
 
+    const [showPopUp, setShowPopUp] = useState(false);
+
+    const handlePopUp = () => {
+        setShowPopUp(!showPopUp);
+    };
+
     useEffect(() => {
         const getMenu = async () => {
             const res = await fetch("http://localhost:3001/menu");
@@ -24,8 +31,8 @@ const CashierDrink = () => {
 
             const newObj = {};
             for (const key in data) {
-                const { menu_item_id, menu_item_price } = data[key];
-                newObj[menu_item_id] = menu_item_price;
+                const { menu_item_id, menu_item_price, menu_item_name } = data[key];
+                newObj[menu_item_id] = [menu_item_price, menu_item_name];
             }
 
             setMenu(newObj);
@@ -33,9 +40,6 @@ const CashierDrink = () => {
         getMenu();
     }, []);
 
-    useEffect(() => {
-        console.log(curItems);
-    }, [curItems]);
     return (
         <div>
             {/* <h1>{JSON.stringify(menu, null, 2)}</h1> */}
@@ -95,9 +99,14 @@ const CashierDrink = () => {
                 </button>
             </div>
 
+            <div>{showPopUp && <CurOrderPopUp curItems={curItems} menu={menu} />}</div>
 
             <button className="complete" onClick={handleComplete}>
                 Finish Order
+            </button>
+
+            <button className="popup" onClick={handlePopUp}>
+                CurOrder
             </button>
 
             <button className="new" onClick={handleNewOrder}>

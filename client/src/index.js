@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./css/index.css";
 import App from "./pages/App";
-import Header from "./pages/Header";
+import Header from "./components/Header";
 
 
 
