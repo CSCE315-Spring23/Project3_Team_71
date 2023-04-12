@@ -35,15 +35,12 @@ const PrivateRouteCashier = React.memo(({ children }) => {
   
           if (data.isAuthorized && (data.privilege === "manager" || data.privilege ==="cashier")) {
             console.log("user found");
-            // do something here if success
-            // setShouldRender(true); // not needed
+
             setShouldRender(true);
           } else {
             console.log("priv failed");
-            // do something here if it failed
-            // setShouldRender(false); // not needed
+
             setShouldRender(false);
-           // since you want to navigate to "/" if the check is false, you can simply do it here
            document.location.assign('/')
           }
         }else{

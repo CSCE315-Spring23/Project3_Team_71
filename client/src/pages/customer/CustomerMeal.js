@@ -109,10 +109,10 @@ const CustomerMeal = () => {
                         <span className="subtext" >8ct. meal: ${getMenuPrice(30, menu)} | 12ct. meal: ${getMenuPrice(31, menu)} </span>
                         <div className="btn-holder">
                             <button className="add-button" type="submit" name="completed" value="" id="8nmeal" onClick={handleClick}>
-                                ng8
+                                
                             </button>
                             <button className="add-button" type="submit" name="completed" value="" id="12nmeal" onClick={handleClick}>
-                                ng12
+                                
                             </button>
                         </div>
 
@@ -127,10 +127,8 @@ const CustomerMeal = () => {
                         <span className="subtext" >8ct. meal: ${getMenuPrice(32, menu)} | 12ct. meal: ${getMenuPrice(33, menu)}</span>
                         <div className="btn-holder">
                             <button className="add-button" type="submit" name="completed" value="" id="8ngmeal" onClick={handleClick}>
-                                gril8
                             </button>
                             <button className="add-button" type="submit" name="completed" value="" id="12ngmeal" onClick={handleClick}>
-                                gril12
                             </button>
                         </div>
                     </div>

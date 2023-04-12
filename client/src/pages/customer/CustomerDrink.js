@@ -69,7 +69,6 @@ const CustomerDrink = () => {
                                 id="softm"
                                 onClick={handleClick}
                             >
-                                soda m
                             </button>
                             <button
                                 className="add-button"
@@ -79,7 +78,6 @@ const CustomerDrink = () => {
                                 id="softl"
                                 onClick={handleClick}
                             >
-                                soda lar
                             </button>
                         </div>
                     </div>
@@ -103,7 +101,6 @@ const CustomerDrink = () => {
                                 id="lem"
                                 onClick={handleClick}
                             >
-                                lemoade m
                             </button>
                             <button
                                 className="add-button"
@@ -113,7 +110,6 @@ const CustomerDrink = () => {
                                 id="leml"
                                 onClick={handleClick}
                             >
-                                lemonade large
                             </button>
                         </div>
                     </div>
@@ -137,7 +133,6 @@ const CustomerDrink = () => {
                                 id="team"
                                 onClick={handleClick}
                             >
-                                tea med
                             </button>
                             <button
                                 className="add-button"
@@ -147,7 +142,6 @@ const CustomerDrink = () => {
                                 id="teal"
                                 onClick={handleClick}
                             >
-                                teal large
                             </button>
                         </div>
                     </div>
@@ -171,7 +165,6 @@ const CustomerDrink = () => {
                                 id="sunjoym"
                                 onClick={handleClick}
                             >
-                                sunjoy m
                             </button>
                             <button
                                 className="add-button"
@@ -181,7 +174,6 @@ const CustomerDrink = () => {
                                 id="sunjoyl"
                                 onClick={handleClick}
                             >
-                                sunjoy l
                             </button>
                         </div>
                     </div>
