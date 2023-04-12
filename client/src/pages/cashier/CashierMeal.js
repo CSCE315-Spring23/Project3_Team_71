@@ -85,7 +85,7 @@ const CashierMeal = () => {
                 </button>
             </div>
 
-            <div classNname="button-row">
+            <div className="button-row">
                 <button className="btn" id="wrpmeal" onClick={handleClick}>
                     wrap
                 </button>
