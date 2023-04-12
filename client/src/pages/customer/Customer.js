@@ -112,8 +112,8 @@ const Customer = () => {
             <h1 className="txt" >Chick-Fil-A Nuggets</h1>
             <span className="subtext">8ct. ${getMenuPrice(16, menu)} | 12ct.  ${getMenuPrice(17, menu)}</span>
             <div className="btn-holder">
-              <button className="add-button" type="submit" name="completed" value="" id="ng8" onClick={handleClick}>Grilled8</button>
-              <button className="add-button" type="submit" name="completed" value="" id="ng12" onClick={handleClick}>Grilled12</button>
+              <button className="add-button" type="submit" name="completed" value="" id="ng8" onClick={handleClick}></button>
+              <button className="add-button" type="submit" name="completed" value="" id="ng12" onClick={handleClick}></button>
             </div>
           </div>
           <div className="items">
@@ -215,8 +215,8 @@ const Customer = () => {
             <h1 className="txt" >Waffle Fries</h1>
             <span className="subtext">M: ${getMenuPrice(12, menu)} | L: ${getMenuPrice(52, menu)}</span>
             <div className="btn-holder">
-              <button className="add-button" type="submit" name="completed" value="" id="wfm" onClick={handleClick}>FriesM</button>
-              <button className="add-button" type="submit" name="completed" value="" id="wfl" onClick={handleClick}>FriesL</button>
+              <button className="add-button" type="submit" name="completed" value="" id="wfm" onClick={handleClick}></button>
+              <button className="add-button" type="submit" name="completed" value="" id="wfl" onClick={handleClick}></button>
             </div>
           </div>
           <div className="items">

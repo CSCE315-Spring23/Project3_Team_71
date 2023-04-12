@@ -52,12 +52,17 @@
 
 .sides {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
     align-items: stretch;
 }
 .side {
     padding-left: 20px;
+}
+.sidewrapper {
+    display: flex;
+    flex: auto;
+    flex-direction: row;
 }
 
 
@@ -72,9 +77,15 @@
     padding-bottom: 10px;
     tab-size: 4;
 }
+.bdy2 {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content:space-around ;
+}
 
 @media (max-width: 800px) {
     .sandwich1, .sandwich2 {
       flex: 100%;
     }
-  }
+}

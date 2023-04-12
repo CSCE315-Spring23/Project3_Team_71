@@ -10,7 +10,7 @@
 
 .button-row-C {
     height: 400px;
-    padding: 10px;
+    padding:10px;
     display: flex;
     align-self: stretch;
     align-items: stretch;
@@ -28,16 +28,17 @@
     align-items: center;
     flex-direction: column;
     justify-content: center;
-    transition: transform 0.2s;
+    transition: transform .2s;
     /* -moz-box-shadow: 0 0 5px #999;
 -webkit-box-shadow: 0 0 5px #999;
 box-shadow: 0 0 5px #999; */
+    
 }
-
+  
 .items:hover {
-    -ms-transform: scale(1.5); /* IE 9 */
-    -webkit-transform: scale(1.5); /* Safari 3-8 */
-    transform: scale(1.5);
+-ms-transform: scale(1.5); /* IE 9 */
+-webkit-transform: scale(1.5); /* Safari 3-8 */
+transform: scale(1.5); 
 }
 .btn-holder {
     display: flex;
@@ -46,31 +47,32 @@ box-shadow: 0 0 5px #999; */
     margin: 5px;
 }
 
-.hi {
+.hi{
     max-width: 200px;
     max-height: 200px;
-    object-fit: cover;
+  object-fit: cover;
 }
 
+
 .items h1 {
-    font-size: 20px;
-    text-align: center;
+font-size: 20px ;
+text-align: center;
 }
 
 .subtext {
-    font-size: 18px;
+font-size: 18px;
 }
 .add-button {
-    margin: 0.8vw !important;
-    padding: 0.8vw !important;
+margin: 0.8vw !important;
+padding: 0.8vw !important;
 
-    text-align: center;
-    display: inline-block;
-    border-radius: 10px;
-    border-width: 1px;
+text-align: center;
+display: inline-block;
+border-radius: 10px;
+border-width: 1px;
 }
 .add-button:hover {
-    background-color: #e51636;
+    background-color: #E51636;
     color: white;
     border-radius: 80% !important;
     transition: all 0.2s ease;
@@ -87,7 +89,11 @@ box-shadow: 0 0 5px #999; */
     padding-left: 0.4vw;
     width: 8vw;
     transition: all;
+    
+
+    
 }
+
 
 .complete {
     position: fixed;
@@ -101,7 +107,7 @@ box-shadow: 0 0 5px #999; */
 }
 
 .complete:hover {
-    background-color: #e51636;
+    background-color: #E51636;
     color: white;
 }
 .new {
@@ -115,7 +121,7 @@ box-shadow: 0 0 5px #999; */
     border-width: 1px;
 }
 .new:hover {
-    background-color: #e51636;
+    background-color: #E51636;
     color: white;
 }
 .price {
@@ -124,7 +130,7 @@ box-shadow: 0 0 5px #999; */
     right: 0;
     font-size: 1.5rem;
     padding: 1.5rem;
-    background-color: #e51636;
+    background-color: #E51636;
     color: white;
     border-radius: 8px;
     border-width: 1px;
@@ -133,3 +139,4 @@ box-shadow: 0 0 5px #999; */
 .nav {
     color: white;
 }
+
