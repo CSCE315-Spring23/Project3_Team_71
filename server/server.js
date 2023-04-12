@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const app = express();
+var zDate = '';
 
 const { Pool } = require('pg');
 const pool = new Pool({
@@ -230,21 +231,69 @@ app.get("/orders/:beginning/:end", async (req, res) => {
 
 });
 
-app.get("/zreport/:date", async (req, res) => {
+app.get("/xreportdefault", async (req, res) => {
+    console.log(zDate);
+    if(zDate === "") {
+    const id = await pool.query("SELECT sales_date FROM sales WHERE sales_id=(SELECT max(sales_id) FROM sales);");
+    const idVal = id.rows[0]['sales_date'];
+    const netResult = await pool.query("SELECT SUM(price) FROM orders WHERE order_time >= $1", [idVal]);
+
+
+    return res.send(netResult.rows[0]['sum']);
+    }
+    else {
+        const netResult = await pool.query("SELECT SUM(price) FROM orders WHERE order_id > $1", [zDate]);
+
+        var output = netResult.rows[0]['sum'];
+        if(output === null) {
+            output = '0';
+        }
+        console.log(output);
+        
+        // Check if output is null before calling res.send()
+        if(output !== null) {
+            return res.send(output.toString());
+        } else {
+            return res.send('0');
+        }
+    }
+
+});
+/*Need Assistance to Test*/
+app.get("/xreport/:date", async (req, res) => {
+    //const id = await pool.query("SELECT sales_date FROM sales WHERE sales_id=(SELECT max(sales_id) FROM sales)");
+    console.log(req.params.date);
+    const netResult = await pool.query("SELECT SUM(price) FROM orders WHERE order_time >= '" + req.params.date + "';");
+
+    return res.send(netResult.rows[0]['sum']);
+});
+
+app.get("/zreport", async (req, res) => {
     const id = await pool.query("SELECT MAX(sales_id) FROM sales;");
     const idVal = id.rows[0]['max'] + 1;
-    const net = await pool.query("SELECT SUM(price) FROM orders WHERE orders.order_time::date = '" + req.params.date + "';");
+    const date = getLocalDate();
+    const net = await pool.query("SELECT SUM(price) FROM orders WHERE orders.order_time::date = '" + date + "';");
     const tax = net.rows[0]['sum'] * 0.0825;
     const profit = net.rows[0]['sum'] - tax;
     const result = await pool.query("INSERT INTO sales (sales_id, sales_date, total_sales, total_tax) VALUES ("
-                    + idVal + ",'" + req.params.date + "' , " + profit + " , " + tax + ");", (err, result) => {
+                    + idVal + ",'" + date + "' , " + profit + " , " + tax + ");", (err, result) => {
                         if (err) {
                             res.status(500).send('Failed to create Sales Report');
                             console.log("error");
                         }
                     });
-    res.json({message:"Sales Report Created"});
+    const orderid = await pool.query("SELECT max(order_id) FROM orders");
+    zDate = orderid.rows[0]['max'];
+    
 });
+
+function getLocalDate() {
+    const date = new Date();
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0'); // Add leading zero if needed
+    const day = String(date.getDate()).padStart(2, '0'); // Add leading zero if needed
+    return `${year}-${month}-${day}`;
+  }
 
 app.post("/addmenu/completeMenu" ,async (req,res) =>{
     console.log("completion");

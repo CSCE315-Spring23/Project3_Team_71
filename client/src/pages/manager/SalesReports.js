@@ -27,15 +27,41 @@ const columns = [
 const SalesReports = () => {
   const [sales, setSales] = useState([]);
   const [zDate, setZDate] = useState('');
+  const [xprofit, setxprofit] = useState('Profits: ');
+  const [xtax, setxtax] = useState('Tax: ');
 
   const handleZReport = async () => {
-    const res = await fetch("http://localhost:3001/zreport/" + zDate);
+    const res = await fetch("http://localhost:3001/zreport");
+    const data= await res.json();
+    setZDate(data);
+  };
+
+  const handleXReport = async () => {
+    console.log("zDate: "+ zDate);
+
+      const res1 = await fetch("http://localhost:3001/xreportdefault");
+      const data = await res1.json();
+      console.log(data);
+      const tax = data * 0.0825;
+      const profit = data - tax;
+      setxprofit('Profits: $' + profit.toFixed(2));
+      setxtax('Taxes: $' + tax.toFixed(2));
+    
+    /*else{
+      const res2 = await fetch("http://localhost:3001/xreport/"+zDate);
+      const data = await res2.json();
+      
+      const tax = data * 0.0825;
+      const profit = data - tax;
+      setxprofit('Profits: $' + profit.toFixed(2));
+      setxtax('Taxes: $' + tax.toFixed(2));
+    }*/
+
+
 
   };
 
-  const handleZChange = (event) => {
-    setZDate(event.target.value);
-  };
+
 
   useEffect(() => {
     const getSales= async ()=> {
@@ -51,18 +77,12 @@ const SalesReports = () => {
 
   return (
     <div className="container">
-      <form>
-        <input 
-        type = "date"
-        id = "zreportdate" 
-        name ="Z Report Date"
-        required = "required"
-        placeholder="Enter Z Report Date"
-        value = {zDate}
-        onChange = {handleZChange}
-        />
-        <button type ="button" onClick ={handleZReport}>Create Z Report</button>
-      </form>
+      <button type ="button" onClick ={handleZReport}>Create Z Report</button>
+
+      <button type ="button" onClick ={handleXReport}>Create X Report</button>
+      <p>{xprofit}</p>
+      <p>{xtax}</p>
+
       <table {...getTableProps()}>
         <thead>
           {headerGroups.map((headerGroup) => (
