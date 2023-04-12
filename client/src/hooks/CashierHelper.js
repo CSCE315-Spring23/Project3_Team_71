@@ -215,7 +215,7 @@ export const CashierHelper = (
                 setCurItems(newCurItems);
             }
         });
-    }, [curItems]);
+    }, [curItems, setCurItems]);
 
     const addItem = (menuID) => {
         if (menuID in curItems) {

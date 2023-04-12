@@ -304,7 +304,31 @@ app.post("/addMenu", async (req, res) => {
     res.status(200).json({ message: "Ingredients received" });
   });
 
+  app.post("/check-authorization", async (req, res) => {
+    const email = req.body.email;
+  
+    try {
+      const result = await pool.query(
+        "SELECT COUNT(*) FROM emails WHERE email = $1 GROUP BY privilege",
+        [email]
+      );
 
+      const res2 = await pool.query("SELECT privilege FROM emails WHERE email = '"+email+"';");
+
+    console.log("got the data from db")
+    console.log("result: ",res2.rows[0]);
+      const count = parseInt(result.rows[0].count, 10);
+      const isAuthorized = count > 0;
+      console.log("is auth: ",isAuthorized);
+      const privilege = isAuthorized ? res2.rows[0]['privilege'] : null;
+      console.log("privi: ", privilege);
+  
+      res.send({ isAuthorized, privilege });
+    } catch (error) {
+      console.log(error);
+      res.status(500).send({ message: "Server error" });
+    }
+  });
 
 const port = process.env.PORT || 3001;
 app.listen(port);
