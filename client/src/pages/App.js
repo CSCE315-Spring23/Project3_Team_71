@@ -24,9 +24,10 @@ import { useState } from "react";
 // import {gapi} from 'gapi-script';
 // import GoogleLogin from "react-google-login";
 import jwt_decode from "jwt-decode";
-import PrivateRoute from "./PrivateRoute";
 import { useLocalState } from "./util/useLocalStorage";
 import { useNavigate } from "react-router-dom";
+import PrivateRouteManager from "./PrivateRoute";
+import PrivateRouteCashier from "./PrivateRoute/pricash";
 
 const client_id = "910012439370-t5574l8cl6b2jsg0n2t4n55dg4cgqp7l.apps.googleusercontent.com";
 //const google = window.google;
@@ -81,14 +82,18 @@ function App() {
                     <Home />
                 //</PrivateRoute>
                 } />
-                <Route key = "cashier" path="/cashier" element={<Cashier />} />
+                <Route key = "cashier" path="/cashier" element={
+                <PrivateRouteCashier><Cashier /></PrivateRouteCashier>
+                
+                
+                } />
                 <Route key = "cashier-meal" path="/cashier/meal" element={<CashierMeal />} />
                 <Route key = "cashier-drink" path="/cashier/drink" element={<CashierDrink />} />
                 <Route key = "cashier-seasonal" path="/cashier/seasonal" element={<CashierSeasonal />} />
                 <Route key = "manager" path="/manager" element={
-                    <PrivateRoute>
+                    <PrivateRouteManager>
                 <Manager />
-                </PrivateRoute>
+                </PrivateRouteManager>
                 } />
                 <Route key = "menu" path="/menu" element={<Menu />} />
                 <Route key = "customer" path="/customer" element={<Customer />} />
