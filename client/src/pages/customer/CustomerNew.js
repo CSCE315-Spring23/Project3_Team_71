@@ -68,16 +68,16 @@ function CustomerNew() {
               </button>
           ))}
 
-      <button className="complete" onClick={handleComplete}>
+      <button className="complete-customer" onClick={handleComplete}>
         Finish Order
       </button>
 
-      <button className="new" onClick={handleNewOrder}>
+      <button className="new-customer" onClick={handleNewOrder}>
         New Order
       </button>
 
 
-      <div className="price">Price: ${totalCost.toFixed(2)}</div>
+      <div className="price-customer">Price: ${totalCost.toFixed(2)}</div>
     </>
   
   )

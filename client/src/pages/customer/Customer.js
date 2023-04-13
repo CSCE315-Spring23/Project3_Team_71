@@ -45,203 +45,203 @@ const Customer = () => {
         <br></br>
         <h1>Entrees</h1>
         <h1>...</h1>
-        <div className="button-row-C">
-          <div className="items">
+        <div className="button-row-customer">
+          <div className="items-customer">
             <img
               src="/resource/CFASandwich.png"
               alt="Chick-Fil-A Sandwich"
-              className="hi"
+              className="item-image-customer"
             />
             <h1 className="txt" >Chick-Fil-A Sandwich</h1>
-            <span className="subtext" >${getMenuPrice(1, menu)}</span>
-            <button className="add-button" type="submit" name="completed" value="" onClick={handleClick} id="cs" ></button>
+            <span className="subtext-customer" >${getMenuPrice(1, menu)}</span>
+            <button className="add-button-customer" type="submit" name="completed" value="" onClick={handleClick} id="cs" ></button>
           </div>
-          <div className="items">
+          <div className="items-customer">
             <img
               src="/resource/DeluxeSandwich.png"
               alt="Chick-Fil-A Nuggets"
-              className="hi"
+              className="item-image-customer"
             />
             <h1 className="txt" >Chicken Sandwich Deluxe</h1>
-            <span className="subtext">${getMenuPrice(2, menu)}</span>
-            <button className="add-button" type="submit" name="completed" value="" id="csd" onClick={handleClick}></button>
+            <span className="subtext-customer">${getMenuPrice(2, menu)}</span>
+            <button className="add-button-customer" type="submit" name="completed" value="" id="csd" onClick={handleClick}></button>
           </div>
-          <div className="items">
+          <div className="items-customer">
             <img
               src="/resource/CFASpicySandwich.png"
               alt="Chick-Fil-A Nuggets"
-              className="hi"
+              className="item-image-customer"
             />
             <h1 className="txt" >Spicy Sandwich</h1>
-            <span className="subtext">${getMenuPrice(3, menu)}</span>
-            <button className="add-button" type="submit" name="completed" value="" id="scs" onClick={handleClick}></button>
+            <span className="subtext-customer">${getMenuPrice(3, menu)}</span>
+            <button className="add-button-customer" type="submit" name="completed" value="" id="scs" onClick={handleClick}></button>
           </div>
-          <div className="items">
+          <div className="items-customer">
             <img
               src="/resource/Spicy-Deluxe-Sandwich.png"
               alt="Chick-Fil-A Nuggets"
-              className="hi"
+              className="item-image-customer"
             />
             <h1 className="txt" >Spicy Sandwich Deluxe</h1>
-            <span className="subtext">${getMenuPrice(4, menu)}</span>
-            <button className="add-button" type="submit" name="completed" value="" id="scsd" onClick={handleClick}></button>
+            <span className="subtext-customer">${getMenuPrice(4, menu)}</span>
+            <button className="add-button-customer" type="submit" name="completed" value="" id="scsd" onClick={handleClick}></button>
           </div>
         </div>
 
-        <div className="button-row-C">
-          <div className="items">
+        <div className="button-row-customer">
+          <div className="items-customer">
             <img
               src="/resource/nuggets_8ct.png"
               alt="Chick-Fil-A Nuggets"
-              className="hi"
+              className="item-image-customer"
             />
             <h1 className="txt" >Chick-Fil-A Nuggets</h1>
-            <span className="subtext">8ct. ${getMenuPrice(6, menu)} | 12ct.  ${getMenuPrice(7, menu)}</span>
-            <div className="btn-holder">
-              <button className="add-button" type="submit" name="completed" value="" id="n8" onClick={handleClick}></button>
-              <button className="add-button" type="submit" name="completed" value="" id="n12" onClick={handleClick}></button>
+            <span className="subtext-customer">8ct. ${getMenuPrice(6, menu)} | 12ct.  ${getMenuPrice(7, menu)}</span>
+            <div className="btn-holder-customer">
+              <button className="add-button-customer" type="submit" name="completed" value="" id="n8" onClick={handleClick}></button>
+              <button className="add-button-customer" type="submit" name="completed" value="" id="n12" onClick={handleClick}></button>
             </div>
 
           </div>
-          <div className="items">
+          <div className="items-customer">
             <img
               src="/resource/grilledNuggets_8ct.png"
               alt="Chick-Fil-A Nuggets"
-              className="hi"
+              className="item-image-customer"
             />
             <h1 className="txt" >Chick-Fil-A Nuggets</h1>
-            <span className="subtext">8ct. ${getMenuPrice(16, menu)} | 12ct.  ${getMenuPrice(17, menu)}</span>
-            <div className="btn-holder">
-              <button className="add-button" type="submit" name="completed" value="" id="ng8" onClick={handleClick}></button>
-              <button className="add-button" type="submit" name="completed" value="" id="ng12" onClick={handleClick}></button>
+            <span className="subtext-customer">8ct. ${getMenuPrice(16, menu)} | 12ct.  ${getMenuPrice(17, menu)}</span>
+            <div className="btn-holder-customer">
+              <button className="add-button-customer" type="submit" name="completed" value="" id="ng8" onClick={handleClick}></button>
+              <button className="add-button-customer" type="submit" name="completed" value="" id="ng12" onClick={handleClick}></button>
             </div>
           </div>
-          <div className="items">
+          <div className="items-customer">
             <img
               src="/resource/Grilled-Deluxe-Sandwich_1085.png"
               alt="Chick-Fil-A Nuggets"
-              className="hi"
+              className="item-image-customer"
             />
             <h1 className="txt" >Sandwich Grilled</h1>
-            <span className="subtext">${getMenuPrice(18, menu)}</span>
-            <button className="add-button" type="submit" name="completed" value="" id="csg" onClick={handleClick}></button>
+            <span className="subtext-customer">${getMenuPrice(18, menu)}</span>
+            <button className="add-button-customer" type="submit" name="completed" value="" id="csg" onClick={handleClick}></button>
           </div>
-          <div className="items">
+          <div className="items-customer">
             <img
               src="/resource/grilledClub_colbyJack.png"
               alt="Chick-Fil-A Nuggets"
-              className="hi"
+              className="item-image-customer"
             />
             <h1 className="txt" >Grilled Club</h1>
-            <span className="subtext">${getMenuPrice(34, menu)}</span>
-            <button className="add-button" type="submit" name="completed" value="" id="csgc" onClick={handleClick}></button>
+            <span className="subtext-customer">${getMenuPrice(34, menu)}</span>
+            <button className="add-button-customer" type="submit" name="completed" value="" id="csgc" onClick={handleClick}></button>
           </div>
         </div>
 
-        <div className="button-row-C">
-          <div className="items">
+        <div className="button-row-customer">
+          <div className="items-customer">
             <img
               src="/resource/wrap.png"
               alt="Grilled Chicken Cool Wrap"
-              className="hi"
+              className="item-image-customer"
             />
             <h1 className="txt" >Grilled Chicken Cool Wrap</h1>
-            <span className="subtext">${getMenuPrice(37, menu)}</span>
-            <button className="add-button" type="submit" name="completed" value="" id="ccwg" onClick={handleClick}></button>
+            <span className="subtext-customer">${getMenuPrice(37, menu)}</span>
+            <button className="add-button-customer" type="submit" name="completed" value="" id="ccwg" onClick={handleClick}></button>
           </div>
-          <div className="items">
+          <div className="items-customer">
             <img
               src="/resource/marketSalad.png"
               alt="Market Salad"
-              className="hi"
+              className="item-image-customer"
             />
             <h1 className="txt" >Market Salad</h1>
-            <span className="subtext">${getMenuPrice(19, menu)}</span>
-            <button className="add-button" type="submit" name="completed" value="" id="sm" onClick={handleClick}></button>
+            <span className="subtext-customer">${getMenuPrice(19, menu)}</span>
+            <button className="add-button-customer" type="submit" name="completed" value="" id="sm" onClick={handleClick}></button>
           </div>
-          <div className="items">
+          <div className="items-customer">
             <img
               src="/resource/sswSalad.png"
               alt="Spicy Southwest Salad"
-              className="hi"
+              className="item-image-customer"
             />
             <h1 className="txt" >Spicy Southwest Salad</h1>
-            <span className="subtext">${getMenuPrice(39, menu)}</span>
-            <button className="add-button" type="submit" name="completed" value="" id="sss" onClick={handleClick}></button>
+            <span className="subtext-customer">${getMenuPrice(39, menu)}</span>
+            <button className="add-button-customer" type="submit" name="completed" value="" id="sss" onClick={handleClick}></button>
           </div>
-          <div className="items">
+          <div className="items-customer">
             <img
               src="/resource/cobbSalad.png"
               alt="Cobb Salad"
-              className="hi"
+              className="item-image-customer"
             />
             <h1 className="txt" >Cobb Salad</h1>
-            <span className="subtext">${getMenuPrice(38, menu)}</span>
-            <button className="add-button" type="submit" name="completed" value="" id="sc" onClick={handleClick}></button>
+            <span className="subtext-customer">${getMenuPrice(38, menu)}</span>
+            <button className="add-button-customer" type="submit" name="completed" value="" id="sc" onClick={handleClick}></button>
           </div>
         </div>
 
         <h1>Sides</h1>
         <h1>...</h1>
 
-        <div className="button-row-C">
+        <div className="button-row-customer">
 
-          <div className="items">
+          <div className="items-customer">
             <img
               src="/resource/Fruit-Cup.png"
               alt="Fruit Cup"
-              className="hi"
+              className="item-image-customer"
             />
             <h1 className="txt" >Fruit Cup</h1>
-            <span className="subtext">${getMenuPrice(54, menu)}</span>
-            <button className="add-button" type="submit" name="completed" value="" id="fc" onClick={handleClick}></button>
+            <span className="subtext-customer">${getMenuPrice(54, menu)}</span>
+            <button className="add-button-customer" type="submit" name="completed" value="" id="fc" onClick={handleClick}></button>
           </div>
-          <div className="items">
+          <div className="items-customer">
             <img
               src="/resource/sideSalad.png"
               alt="Side Salad"
-              className="hi"
+              className="item-image-customer"
             />
             <h1 className="txt" >Side Salad</h1>
-            <span className="subtext">${getMenuPrice(55, menu)}</span>
-            <button className="add-button" type="submit" name="completed" value="" id="side" onClick={handleClick}></button>
+            <span className="subtext-customer">${getMenuPrice(55, menu)}</span>
+            <button className="add-button-customer" type="submit" name="completed" value="" id="side" onClick={handleClick}></button>
           </div>
-          <div className="items">
+          <div className="items-customer">
             <img
               src="/resource/waffleFry.png"
               alt="Waffle Fries"
-              className="hi"
+              className="item-image-customer"
             />
             <h1 className="txt" >Waffle Fries</h1>
-            <span className="subtext">M: ${getMenuPrice(12, menu)} | L: ${getMenuPrice(52, menu)}</span>
-            <div className="btn-holder">
-              <button className="add-button" type="submit" name="completed" value="" id="wfm" onClick={handleClick}></button>
-              <button className="add-button" type="submit" name="completed" value="" id="wfl" onClick={handleClick}></button>
+            <span className="subtext-customer">M: ${getMenuPrice(12, menu)} | L: ${getMenuPrice(52, menu)}</span>
+            <div className="btn-holder-customer">
+              <button className="add-button-customer" type="submit" name="completed" value="" id="wfm" onClick={handleClick}></button>
+              <button className="add-button-customer" type="submit" name="completed" value="" id="wfl" onClick={handleClick}></button>
             </div>
           </div>
-          <div className="items">
+          <div className="items-customer">
             <img
               src="/resource/chips.png"
               alt="Chips"
-              className="hi"
+              className="item-image-customer"
             />
             <h1 className="txt" >Chips</h1>
-            <span className="subtext">${getMenuPrice(53, menu)}</span>
-            <button className="add-button" type="submit" name="completed" value="" id="wc" onClick={handleClick}></button>
+            <span className="subtext-customer">${getMenuPrice(53, menu)}</span>
+            <button className="add-button-customer" type="submit" name="completed" value="" id="wc" onClick={handleClick}></button>
           </div>
         </div>
       </div>
 
-      <button className="complete" onClick={handleComplete}>
+      <button className="complete-customer" onClick={handleComplete}>
         Finish Order
       </button>
 
 
-      <button className="new" onClick={handleNewOrder}>
+      <button className="new-customer" onClick={handleNewOrder}>
         New Order
       </button>
 
-      <div className="price">
+      <div className="price-customer">
         Price: ${totalCost.toFixed(2)}
       </div>
     </>
