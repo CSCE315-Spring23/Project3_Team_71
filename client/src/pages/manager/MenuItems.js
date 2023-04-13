@@ -14,7 +14,7 @@ const MenuItems = () => {
   }, []);
 
   return (
-    <div>
+    <div className="container">
       <h2>Menu</h2>
 
     <table className="table table-bordered text-white">

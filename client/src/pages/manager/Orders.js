@@ -55,7 +55,7 @@ const Orders = () => {
         />
         <button type ="button" onClick ={handleSubmit}>Output Orders</button>
       </form>
-
+    <div className="container">
       <table className="table table-bordered text-white">
       <thead>
         <tr>
@@ -76,6 +76,7 @@ const Orders = () => {
           ))}
       </tbody>
     </table>
+    </div>
     </div>
   )
 }
