@@ -18,7 +18,7 @@ const Header = ({ user, HandleSignOut }) => {
                         <ul>
                             <li>
                                 {Object.keys(user).length !== 0 && (
-                                    <button onClick={(e) => HandleSignOut(e)}>
+                                    <button className="login" onClick={(e) => HandleSignOut(e)}>
                                         Sign Out
                                     </button>
                                 )}

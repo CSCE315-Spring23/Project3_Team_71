@@ -4,6 +4,7 @@
 
 #signInDiv {
     position: absolute;
+    top: 10%;
 }
 
 #app {
