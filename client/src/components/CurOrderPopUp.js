@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import "../css/popup.css";
 
 const CurOrderPopUp = ({ curItems, handleSubtract, menu }) => {
 
