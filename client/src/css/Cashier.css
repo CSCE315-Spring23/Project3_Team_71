@@ -1,11 +1,28 @@
-.btn {
+.btn-cashier {
+    display: block;
     padding: 1rem 2rem;
     margin: 1rem;
+    width: 10rem;
+    height: 7rem;
+    color: #fff;
+    background-color: #e51636;
+    border: none;
+    transition: background-color 0.3s ease;
 }
 
-.button-row {
+.btn-img-cashier {
+    max-width: 4rem;
+    max-height: 4rem;
+}
+
+.btn-cashier:hover {
+    background-color: #940e23;
+}
+
+.button-row-cashier {
     display: flex;
-    justify-content: space-around;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .popup {
@@ -50,7 +67,4 @@
 .cur_item_display {
     display: block;
     margin: auto;
-}
-
-.cur_item_display > div {
 }

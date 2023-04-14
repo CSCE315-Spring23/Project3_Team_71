@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 const CurOrderPopUp = ({ curItems, handleSubtract, menu }) => {
 
-
+    useEffect(() => {
+        console.log(curItems);
+    }, [curItems]);
     return (
         <div className="cur_item_wrap">
             <h2>Current Order:</h2>

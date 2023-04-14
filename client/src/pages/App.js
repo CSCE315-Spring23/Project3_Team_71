@@ -121,12 +121,6 @@ function App() {
                 <button onClick={(e) => HandleSignOut(e)}>Sign Out</button>
             )}
 
-            {user && (
-                <div>
-                    <img src={user.picture} alt="profile"></img>
-                    <h3>{user.name}</h3>
-                </div>
-            )}
             <CurOrderContextProvider>
                 <RouterProvider router={router} />
             </CurOrderContextProvider>

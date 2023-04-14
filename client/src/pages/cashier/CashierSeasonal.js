@@ -11,13 +11,8 @@ const CashierSeasonal = () => {
     const { totalCost, setTotalCost, curItems, setCurItems } =
         useContext(CurOrderContext);
 
-    const { handleClickExtra, handleComplete, handleNewOrder, handleSubtract } = CashierHelper(
-        curItems,
-        menu,
-        totalCost,
-        setCurItems,
-        setTotalCost
-    );
+    const { handleClickExtra, handleComplete, handleNewOrder, handleSubtract } =
+        CashierHelper(curItems, menu, totalCost, setCurItems, setTotalCost);
 
     const [showPopUp, setShowPopUp] = useState(false);
 
@@ -32,7 +27,8 @@ const CashierSeasonal = () => {
 
             const newObj = {};
             for (const key in data) {
-                const { menu_item_id, menu_item_price, menu_item_name } = data[key];
+                const { menu_item_id, menu_item_price, menu_item_name } =
+                    data[key];
                 newObj[menu_item_id] = [menu_item_price, menu_item_name];
             }
 
@@ -48,37 +44,50 @@ const CashierSeasonal = () => {
                 .map((key) => ({
                     menuID: key,
                     price: menu[key][0],
-                    name: menu[key][1]
+                    name: menu[key][1],
                 }))
         );
-
     }, [menu]);
 
     return (
         <div>
             <CashierHeader />
-            {seasonMenu.map((button, index) => (
-                <button  className= "btn" key={index} id={button.menuID} onClick={(event) => handleClickExtra(event, 5)}>
-                    {button.name}
+
+            <div className="button-row-cashier">
+                {seasonMenu.map((button, index) => (
+                    <button
+                        className="btn-cashier"
+                        key={index}
+                        id={button.menuID}
+                        onClick={(event) => handleClickExtra(event, 5)}
+                    >
+                        {button.name}
+                    </button>
+                ))}
+                <div>
+                    {showPopUp && (
+                        <CurOrderPopUp
+                            curItems={curItems}
+                            handleSubtract={handleSubtract}
+                            menu={menu}
+                        />
+                    )}
+                </div>
+
+                <button className="complete" onClick={handleComplete}>
+                    Finish Order
                 </button>
-            ))}
-            <div>{showPopUp && <CurOrderPopUp curItems={curItems} handleSubtract={handleSubtract} menu={menu} />}</div>
 
-            <button className="complete" onClick={handleComplete}>
-                Finish Order
-            </button>
+                <button className="popup" onClick={handlePopUp}>
+                    CurOrder
+                </button>
 
-            <button className="popup" onClick={handlePopUp}>
-                CurOrder
-            </button>
+                <button className="new" onClick={handleNewOrder}>
+                    New Order
+                </button>
 
-            <button className="new" onClick={handleNewOrder}>
-                New Order
-            </button>
-
-
-            <div className="price">Price: ${totalCost.toFixed(2)}</div>
-
+                <div className="price">Price: ${totalCost.toFixed(2)}</div>
+            </div>
         </div>
     );
 };

@@ -1,5 +1,5 @@
 .header {
-    background-color: #e0e0e0;
+    background-color: white;
     display: flex;
     /* flex-direction: row;
     align-items: center;
@@ -9,6 +9,7 @@
     justify-content: space-between;
     padding-top: 5px;
     padding-bottom: 10px;
+    box-shadow: .1rem .15rem rgba(0, 0, 0, .2);
 }
 
 .header > div {
