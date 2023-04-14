@@ -35,7 +35,7 @@ const Cashier = () => {
     }, []);
 
     return (
-        <div>
+        <div className="btn-wrap">
             {/* <h1>{JSON.stringify(menu, null, 2)}</h1> */}
             <CashierHeader />
 
@@ -159,18 +159,6 @@ const Cashier = () => {
                     />
                     <h1>SC</h1>
                 </button>
-            </div>
-
-            <div className="button-row-cashier">
-
-                <button className="btn-cashier" id="fc" onClick={handleClick}>
-                    <img
-                        src="/resource/Fruit-Cup.png"
-                        alt="Fruit Cup"
-                        className="btn-img-cashier"
-                    />
-                    <h1>Fruit</h1>
-                </button>
                 <button className="btn-cashier" id="side" onClick={handleClick}>
                     <img
                         src="/resource/sideSalad.png"
@@ -182,6 +170,15 @@ const Cashier = () => {
             </div>
 
             <div className="button-row-cashier">
+                <button className="btn-cashier" id="fc" onClick={handleClick}>
+                    <img
+                        src="/resource/Fruit-Cup.png"
+                        alt="Fruit Cup"
+                        className="btn-img-cashier"
+                    />
+                    <h1>Fruit</h1>
+                </button>
+
                 <button className="btn-cashier" id="wfm" onClick={handleClick}>
                     <img
                         src="/resource/waffleFry.png"
@@ -218,15 +215,15 @@ const Cashier = () => {
             </div>
 
             <div className="edit-row-cashier">
-                <button className="complete-cashier" onClick={handleComplete}>
+                <button className="edit-button-cashier" onClick={handleComplete}>
                     Finish Order
                 </button>
 
-                <button className="popup-cashier" onClick={handlePopUp}>
+                <button className="edit-button-cashier" onClick={handlePopUp}>
                     CurOrder
                 </button>
 
-                <button className="new-cashier" onClick={handleNewOrder}>
+                <button className="edit-button-cashier" onClick={handleNewOrder}>
                     New Order
                 </button>
 

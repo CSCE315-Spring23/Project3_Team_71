@@ -257,19 +257,30 @@ const CashierDrink = () => {
                 )}
             </div>
 
-            <button className="complete" onClick={handleComplete}>
-                Finish Order
-            </button>
+            <div className="edit-row-cashier">
+                <button
+                    className="edit-button-cashier"
+                    onClick={handleComplete}
+                >
+                    Finish Order
+                </button>
 
-            <button className="popup" onClick={handlePopUp}>
-                CurOrder
-            </button>
+                <button className="edit-button-cashier" onClick={handlePopUp}>
+                    CurOrder
+                </button>
 
-            <button className="new" onClick={handleNewOrder}>
-                New Order
-            </button>
+                <button
+                    className="edit-button-cashier"
+                    onClick={handleNewOrder}
+                >
+                    New Order
+                </button>
 
-            <div className="price">Price: ${totalCost.toFixed(2)}</div>
+                <div className="price-cashier">
+                    Price: ${totalCost.toFixed(2)}
+                </div>
+            </div>
+
         </div>
     );
 };

@@ -1,19 +1,17 @@
 .header {
     background-color: white;
     display: flex;
-    /* flex-direction: row;
-    align-items: center;
-    justify-content: flex-end; */
     font-size: calc(10px + 2vmin);
     color: #e51636;
     justify-content: space-between;
     padding-top: 5px;
     padding-bottom: 10px;
     box-shadow: .1rem .15rem rgba(0, 0, 0, .2);
+    height: 4rem;
 }
 
 .header > div {
-    margin: 0 2rem;
+    margin: 0 1rem;
 }
 
 p {
