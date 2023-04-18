@@ -7,82 +7,38 @@ import { useEffect, useState } from "react";
 
 const columns = [
   {
-    Header: "Sales ID",
-    accessor: "sales_id",
+    Header: "Item Name",
+    accessor: "item_name",
   },
   {
-    Header: "Sales Date",
-    accessor: "sales_date",
+    Header: "Quantity",
+    accessor: "quantity",
   },
   {
-    Header: "Total Sales",
-    accessor: "total_sales",
-  },
-  {
-    Header: "Total Tax",
-    accessor: "total_tax",
-  },
+    Header: "Minimum Amount",
+    accessor: "min_amount",
+  }
 ];
 
-const SalesReports = () => {
-  const [sales, setSales] = useState([]);
-  const [zDate, setZDate] = useState('');
-  const [xprofit, setxprofit] = useState('Profits: ');
-  const [xtax, setxtax] = useState('Tax: ');
-
-  const handleZReport = async () => {
-    const res = await fetch("http://localhost:3001/zreport");
-    const data= await res.json();
-    setZDate(data);
-  };
-
-  const handleXReport = async () => {
-    console.log("zDate: "+ zDate);
-
-      const res1 = await fetch("http://localhost:3001/xreportdefault");
-      const data = await res1.json();
-      console.log(data);
-      const tax = data * 0.0825;
-      const profit = data - tax;
-      setxprofit('Profits: $' + profit.toFixed(2));
-      setxtax('Taxes: $' + tax.toFixed(2));
-    
-    /*else{
-      const res2 = await fetch("http://localhost:3001/xreport/"+zDate);
-      const data = await res2.json();
-      
-      const tax = data * 0.0825;
-      const profit = data - tax;
-      setxprofit('Profits: $' + profit.toFixed(2));
-      setxtax('Taxes: $' + tax.toFixed(2));
-    }*/
-
-
-
-  };
-
-
+const RestockReport = () => {
+  const [restock, setRes] = useState([]);
+  const [quantity, setQuantity] = useState('');
+  const [min_amount, setMinAmnt] = useState('Profits: ');
 
   useEffect(() => {
-    const getSales= async ()=> {
-      const res = await fetch ("http://localhost:3001/sales");
+    const getRestock= async ()=> {
+      const res = await fetch ("http://localhost:3001/restock");
       const data= await res.json();
-      setSales(data);
+      setRes(data);
     }
-    getSales();
+    getRestock();
   }, [])
 
-  const tableInstance = useTable({ columns, data: sales });
+  const tableInstance = useTable({ columns, data: restock });
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = tableInstance;
 
   return (
     <div className="container">
-      <button type ="button" onClick ={handleZReport}>Create Z Report</button>
-
-      <button type ="button" onClick ={handleXReport}>Create X Report</button>
-      <p>{xprofit}</p>
-      <p>{xtax}</p>
-
       <table {...getTableProps()}>
         <thead>
           {headerGroups.map((headerGroup) => (
@@ -110,4 +66,4 @@ const SalesReports = () => {
   );
 };
 
-export default SalesReports;
+export default RestockReport;
