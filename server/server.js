@@ -297,7 +297,44 @@ app.get("/xreportdefault", async (req, res) => {
         }
     }
 });
-/*Need Assistance to Test*/
+
+app.get("/excessReport/:beginning", async (req, res) => {
+
+    const date = getLocalDate();
+    const result = await pool.query(
+        "SELECT item_name, SUM(qty) AS qty, quantity FROM " +
+        "(SELECT coalesce(j.qty,0) AS qty, item_name, quantity FROM inventory FULL OUTER JOIN "+ 
+
+            "(SELECT inventory_id, quantity*count AS qty FROM "+
+                
+                "(SELECT m.menu_item_id, SUM(count) AS count FROM " +
+
+                    "(SELECT order_items.menu_item_id, quantity*count(*) AS count FROM order_items JOIN orders ON " +
+                            "orders.order_id=order_items.order_id JOIN menu_items ON order_items.menu_item_id = menu_items.menu_item_id "
+                            +
+                            "WHERE order_time::date >= '" + req.params.beginning + "' AND order_time::date <= '" + date
+                        + "' GROUP BY order_items.menu_item_id, quantity ORDER BY menu_item_id) m"+
+
+                    " GROUP BY menu_item_id) k " +
+
+                "JOIN recipes ON k.menu_item_id = recipes.menu_item_id GROUP BY inventory_id, qty) j"+
+        
+            " ON j.inventory_id = inventory.item_id" +
+            " WHERE quantity > 0" +
+            " GROUP BY item_name, qty, quantity ORDER BY item_name) n"+ 
+
+        " GROUP BY item_name, quantity" +
+        " HAVING SUM(qty) < 0.1 * (SUM(qty) + quantity);" ,
+        (err, result) => {
+            if (err) {
+                return res.status(500).send("cant retrieve from db");
+            } else {
+                return res.send(result.rows);
+            }
+        }
+    );
+});
+
 app.get("/xreport/:date", async (req, res) => {
     //const id = await pool.query("SELECT sales_date FROM sales WHERE sales_id=(SELECT max(sales_id) FROM sales)");
     console.log(req.params.date);
