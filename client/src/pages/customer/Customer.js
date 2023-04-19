@@ -3,12 +3,13 @@ import { CashierHelper } from "../../hooks/CashierHelper";
 import "../../css/Customer.css";
 import { CurOrderContext } from "../../hooks/CurOrderContext";
 import CustomerHeader from "./CustomerHeader";
+import CurOrderPopUp from "../../components/CurOrderPopUp";
 
 const Customer = () => {
     const { totalCost, setTotalCost, curItems, setCurItems } =
         useContext(CurOrderContext);
     const [menu, setMenu] = useState("");
-    const { handleClick, handleComplete, handleNewOrder } = CashierHelper(
+    const { handleClick, handleComplete, handleNewOrder, handleSubtract } = CashierHelper(
         curItems,
         menu,
         totalCost,
@@ -16,15 +17,22 @@ const Customer = () => {
         setTotalCost
     );
 
+    const [showPopUp, setShowPopUp] = useState(false);
+
+    const handlePopUp = () => {
+        setShowPopUp(!showPopUp);
+    };
     useEffect(() => {
         const getMenu = async () => {
             const res = await fetch("http://localhost:3001/menu");
             const data = await res.json();
 
+
             const newObj = {};
             for (const key in data) {
-                const { menu_item_id, menu_item_price } = data[key];
-                newObj[menu_item_id] = menu_item_price;
+                const { menu_item_id, menu_item_price, menu_item_name } =
+                    data[key];
+                newObj[menu_item_id] = [menu_item_price, menu_item_name];
             }
 
             setMenu(newObj);
@@ -378,6 +386,15 @@ const Customer = () => {
                             ></button>
                         </div>
                     </div>
+                    <div>
+                {showPopUp && (
+                    <CurOrderPopUp
+                        curItems={curItems}
+                        handleSubtract={handleSubtract}
+                        menu={menu}
+                    />
+                )}
+            </div>
                     <div className="items-customer">
                         <img
                             src="/resource/chips.png"
@@ -403,6 +420,10 @@ const Customer = () => {
             <button className="complete-customer" onClick={handleComplete}>
                 Finish Order
             </button>
+
+            <button className="edit-button-customer" onClick={handlePopUp}>
+                    CurOrder
+                </button>
 
             <button className="new-customer" onClick={handleNewOrder}>
                 New Order

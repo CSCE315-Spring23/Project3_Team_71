@@ -3,19 +3,26 @@ import { CashierHelper } from "../../hooks/CashierHelper";
 import CashierHeader from "./CustomerHeader";
 import "../../css/Customer.css";
 import { CurOrderContext } from "../../hooks/CurOrderContext";
+import CurOrderPopUp from "../../components/CurOrderPopUp";
 
 const CustomerMeal = () => {
     const [menu, setMenu] = useState("");
     const { totalCost, setTotalCost, curItems, setCurItems } =
         useContext(CurOrderContext);
 
-    const { handleClick, handleComplete, handleNewOrder } = CashierHelper(
+    const { handleClick, handleComplete, handleNewOrder, handleSubtract} = CashierHelper(
         curItems,
         menu,
         totalCost,
         setCurItems,
         setTotalCost
     );
+    
+    const [showPopUp, setShowPopUp] = useState(false);
+
+    const handlePopUp = () => {
+        setShowPopUp(!showPopUp);
+    };
 
     useEffect(() => {
         const getMenu = async () => {
@@ -146,6 +153,15 @@ const CustomerMeal = () => {
                             
                         </button>
                     </div>
+                    <div>
+                {showPopUp && (
+                    <CurOrderPopUp
+                        curItems={curItems}
+                        handleSubtract={handleSubtract}
+                        menu={menu}
+                    />
+                )}
+            </div>
                     <div className="items-customer">
                         <img
                             src="/resource/grilledClub_colbyJack.png"
@@ -179,6 +195,10 @@ const CustomerMeal = () => {
             <button className="complete-customer" onClick={handleComplete}>
                 Finish Order
             </button>
+
+            <button className="edit-button-customer" onClick={handlePopUp}>
+                    CurOrder
+                </button>
 
             <button className="new-customer" onClick={handleNewOrder}>
                 New Order
