@@ -7,6 +7,9 @@ import ChangeMenu from "./ChangeMenu";
 import ChangeIngredient from "./ChangeIngredient";
 import AddMenuItem from "./AddMenuItem";
 import AddIngredient from "./AddIngredient";
+import ExcessReport from "./ExcessReport";
+import RestockReport from "./RestockReport";
+
 import "../../css/Manager.css";
 
 const Manager = () => {
@@ -58,6 +61,16 @@ const Manager = () => {
                 </button>
             </div>
 
+            <div className ="button-row-3">
+            <button className="m-btn" onClick={() => handleManagerFunction('excessReport')}>
+                    {activeFunction === 'excessReport' ? 'Hide Excess Report' : 'Excess Report'} 
+                </button>
+
+                <button className="m-btn" onClick={() => handleManagerFunction('RestockReport')}>
+                    {activeFunction === 'RestockReport' ? 'Hide Excess Report' : 'Restock Report'} 
+                </button>
+            </div>
+
             {activeFunction === 'orderFunction' && <Orders />}
             {activeFunction === 'menuItemsFunction' && <MenuItems />}
             {activeFunction === 'inventoryFunction' && <Inventory />}
@@ -66,6 +79,8 @@ const Manager = () => {
             {activeFunction === 'changeIngredientFunction' && <ChangeIngredient />}
             {activeFunction === 'addMenuItemFunction' && <AddMenuItem />}
             {activeFunction === 'addIngredientFunction' && <AddIngredient />}
+            {activeFunction === 'excessReport' && <ExcessReport />}
+            {activeFunction === 'RestockReport' && <RestockReport />}
         </div>
     );
 };

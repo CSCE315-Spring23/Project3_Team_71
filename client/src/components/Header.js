@@ -1,18 +1,28 @@
-import "../css/Header.css"
+import "../css/Header.css";
 import React from "react";
 
-const Header = () => {
+const Header = ({ user, HandleSignOut }) => {
     return (
         <div>
             <header className="header">
-                <div className ="h1">
-                <a href={`/`}>
-                <img className='navImg' src='../../resource/logo.png'></img>
-                </a>
+                <div className="h1">
+                    <a href={`/`}>
+                        <img
+                            className="navImg"
+                            src="../../resource/logo.png"
+                        ></img>
+                    </a>
                 </div>
                 <div className="h2">
                     <nav>
                         <ul>
+                            <li>
+                                {Object.keys(user).length !== 0 && (
+                                    <button className="login" onClick={(e) => HandleSignOut(e)}>
+                                        Sign Out
+                                    </button>
+                                )}
+                            </li>
                             <li>
                                 <a href={`/`}>Home</a>
                             </li>

@@ -1,56 +1,79 @@
-.btn {
+/*BUTTONS*/
+.btn-wrap {
+    height: calc(100vh - 5rem);
+}
+.btn-cashier {
+    display: block;
     padding: 1rem 2rem;
     margin: 1rem;
+    width: 10rem;
+    height: 7rem;
+    color: #fff;
+    background-color: #e51636;
+    border: none;
+    border-radius: 1rem;
+    transition: background-color 0.3s ease;
 }
 
-.button-row {
+.btn-img-cashier {
+    max-width: 4rem;
+    max-height: 4rem;
+}
+
+.btn-cashier:hover {
+    background-color: #940e23;
+    cursor: pointer;
+}
+
+.btn-header-cashier {
+    border: none;
+    background-color: white;
+    margin: 1rem 3rem;
+    color: #e51636;
+}
+
+.btn-header-cashier:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.btn-header-row-cashier {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
 }
 
-.popup {
-    position: fixed;
-    bottom: 0;
-    left: 10%;
-    font-size: 1.5rem;
-    padding: 1.5rem;
-    margin: 0;
+.button-row-cashier {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
-.complete {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    font-size: 1.5rem;
-    padding: 1.5rem;
-    margin: 0;
-}
-
-.new {
-    position: fixed;
-    bottom: 0;
-    left: 45%;
-    font-size: 1.5rem;
-    padding: 1.5rem;
-    margin: 0;
-}
-.price {
-    position: fixed;
+/*PRICE DISPLAY*/
+.edit-row-cashier {
+    display: flex;
+    align-items: center;
+    font-size: 3rem;
+    position: absolute;
     bottom: 0;
     right: 0;
-    font-size: 1.5rem;
-    padding: 1.5rem;
-    background-color: red;
+}
+
+.edit-row-cashier > .price-cashier {
+    text-align: start;
+    margin: 0 1rem;
+    width: 18rem;
+}
+
+.edit-button-cashier {
     color: white;
+    background-color: #e51636;
+    border: none;
+    font-size: 1.5rem;
+    padding: 2rem 2rem;
+    transition: background-color 0.3s ease;
 }
 
-.cur_item_wrap {
-    background-color: #e0e0e0;
-}
-.cur_item_display {
-    display: block;
-    margin: auto;
-}
-
-.cur_item_display > div {
+.edit-button-cashier:hover {
+    cursor: pointer;
+    background-color: #940e23;
 }

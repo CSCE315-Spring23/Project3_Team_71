@@ -10,13 +10,8 @@ const CashierDrink = () => {
     const { totalCost, setTotalCost, curItems, setCurItems } =
         useContext(CurOrderContext);
 
-    const { handleClick, handleComplete, handleNewOrder, handleSubtract } = CashierHelper(
-        curItems,
-        menu,
-        totalCost,
-        setCurItems,
-        setTotalCost
-    );
+    const { handleClick, handleComplete, handleNewOrder, handleSubtract } =
+        CashierHelper(curItems, menu, totalCost, setCurItems, setTotalCost);
 
     const [showPopUp, setShowPopUp] = useState(false);
 
@@ -31,7 +26,8 @@ const CashierDrink = () => {
 
             const newObj = {};
             for (const key in data) {
-                const { menu_item_id, menu_item_price, menu_item_name } = data[key];
+                const { menu_item_id, menu_item_price, menu_item_name } =
+                    data[key];
                 newObj[menu_item_id] = [menu_item_price, menu_item_name];
             }
 
@@ -45,75 +41,246 @@ const CashierDrink = () => {
             {/* <h1>{JSON.stringify(menu, null, 2)}</h1> */}
             <CashierHeader />
 
-            <div className="button-row">
-                <button className= "btn" id="milkchoc" onClick={handleClick}>
-                    milkchoc
+            <div className="button-row-cashier">
+                <button
+                    className="btn-cashier"
+                    id="milkchoc"
+                    onClick={handleClick}
+                >
+                    <img
+                        src="/resource/ChocolateMilkshake-1080.png"
+                        alt="Hand-Spun Chocolate Milkshake"
+                        className="btn-img-cashier"
+                    />
+                    <h1>Ch</h1>
                 </button>
-                <button className= "btn" id="milkvan" onClick={handleClick}>
-                    mlkvan
+                <button
+                    className="btn-cashier"
+                    id="milkvan"
+                    onClick={handleClick}
+                >
+                    <img
+                        src="/resource/VanillaMilkshake-1080.png"
+                        alt="Hand-Spun Vanilla Milkshake"
+                        className="btn-img-cashier"
+                    />
+                    <h1>V</h1>
                 </button>
-                <button className= "btn" id="milkstraw" onClick={handleClick}>
-                    milkstraw
+                <button
+                    className="btn-cashier"
+                    id="milkstraw"
+                    onClick={handleClick}
+                >
+                    <img
+                        src="/resource/16oz_StrawberryMilkshake-1080.png"
+                        alt="Hand-Spun Strawberry Milkshake"
+                        className="btn-img-cashier"
+                    />
+                    <h1>S</h1>
                 </button>
-                <button className= "btn" id="milkcook" onClick={handleClick}>
-                    milkcook
+                <button
+                    className="btn-cashier"
+                    id="milkcook"
+                    onClick={handleClick}
+                >
+                    <img
+                        src="/resource/16oz_C&C_Milkshake-1080.png"
+                        alt="Hand-Spun Cookies & Cream Milkshake"
+                        className="btn-img-cashier"
+                    />
+                    <h1>CC</h1>
                 </button>
-                <button className= "btn" id="lem" onClick={handleClick}>
-                    lemoade m
+                <button className="btn-cashier" id="lem" onClick={handleClick}>
+                    <img
+                        src="/resource/lemonade.png"
+                        alt="Chick-Fil-A Lemondade"
+                        className="btn-img-cashier"
+                    />
+                    <h1>M</h1>
+                </button>
+                <button
+                    className="btn-cashier"
+                    id="brown"
+                    onClick={handleClick}
+                >
+                    <img
+                        src="/resource/031717_FudgeChunkBrownie_PDP.png"
+                        alt="Chocolate Fudge Cookie"
+                        className="btn-img-cashier"
+                    />
+                    <h1>B</h1>
                 </button>
             </div>
 
-            <div className="button-row">
-                <button className= "btn" id="softm" onClick={handleClick}>
-                    soda m
+            <div className="button-row-cashier">
+                <button
+                    className="btn-cashier"
+                    id="softm"
+                    onClick={handleClick}
+                >
+                    <img
+                        src="/resource/Drinks_Coca-cola.png"
+                        alt="Soft Drink"
+                        className="btn-img-cashier"
+                    />
+                    <h1>M</h1>
                 </button>
-                <button className= "btn" id="softl" onClick={handleClick}>
-                    soda lar
+                <button
+                    className="btn-cashier"
+                    id="softl"
+                    onClick={handleClick}
+                >
+                    <img
+                        src="/resource/Drinks_Coca-cola.png"
+                        alt="Soft Drink"
+                        className="btn-img-cashier"
+                    />
+                    <h1>L</h1>
                 </button>
-                <button className= "btn" id="team" onClick={handleClick}>
-                    tea med
+                <button className="btn-cashier" id="team" onClick={handleClick}>
+                    <img
+                        src="/resource/tea.png"
+                        alt="Freshly-Brewed Iced Tea"
+                        className="btn-img-cashier"
+                    />
+                    <h1>M</h1>
                 </button>
-                <button className= "btn" id="teal" onClick={handleClick}>
-                    teal large
+                <button className="btn-cashier" id="teal" onClick={handleClick}>
+                    <img
+                        src="/resource/tea.png"
+                        alt="Freshly-Brewed Iced Tea"
+                        className="btn-img-cashier"
+                    />
+                    <h1>L</h1>
                 </button>
-                <button className= "btn" id="leml" onClick={handleClick}>
-                    lemonade large
+                <button className="btn-cashier" id="leml" onClick={handleClick}>
+                    <img
+                        src="/resource/lemonade.png"
+                        alt="Chick-Fil-A Lemondade"
+                        className="btn-img-cashier"
+                    />
+                    <h1>L</h1>
+                </button>
+                <button
+                    className="btn-cashier"
+                    id="cookie"
+                    onClick={handleClick}
+                >
+                    <img
+                        src="/resource/CCCookie.png"
+                        alt="Chocolate Chunk Cookie"
+                        className="btn-img-cashier"
+                    />
+                    <h1>COOKIE</h1>
                 </button>
             </div>
 
-            <div className="button-row">
-                <button className= "btn" id="sunjoym" onClick={handleClick}>
-                    sunjoy m
+            <div className="button-row-cashier">
+                <button
+                    className="btn-cashier"
+                    id="sunjoym"
+                    onClick={handleClick}
+                >
+                    <img
+                        src="/resource/sunjoy.png"
+                        alt="Chick-Fil-A Sunjoy"
+                        className="btn-img-cashier"
+                    />
+                    <h1>M</h1>
                 </button>
-                <button className= "btn" id="sunjoyl" onClick={handleClick}>
-                    sunjoy l
+                <button
+                    className="btn-cashier"
+                    id="sunjoyl"
+                    onClick={handleClick}
+                >
+                    <img
+                        src="/resource/sunjoy.png"
+                        alt="Chick-Fil-A Sunjoy"
+                        className="btn-img-cashier"
+                    />
+                    <h1>L</h1>
                 </button>
-                <button className= "btn" id="cofice" onClick={handleClick}>
-                    coffee ice
+                <button
+                    className="btn-cashier"
+                    id="cofice"
+                    onClick={handleClick}
+                >
+                    <img
+                        src="/resource/2022IcedCoffee.png"
+                        alt="Cold Brew Iced Coffee"
+                        className="btn-img-cashier"
+                    />
+                    <h1>CI</h1>
                 </button>
-                <button className= "btn" id="lemfrost" onClick={handleClick}>
-                    lemonade frost
+                <button
+                    className="btn-cashier"
+                    id="lemfrost"
+                    onClick={handleClick}
+                >
+                    <img
+                        src="/resource/Frosted-Lemonade.png"
+                        alt="Frosted Lemonade"
+                        className="btn-img-cashier"
+                    />
+                    <h1>LF</h1>
                 </button>
-                <button className= "btn" id="cofrost" onClick={handleClick}>
-                    coffee frost
+                <button
+                    className="btn-cashier"
+                    id="cofrost"
+                    onClick={handleClick}
+                >
+                    <img
+                        src="/resource/Frosted-Coffee.png"
+                        alt="Frosted Coffee"
+                        className="btn-img-cashier"
+                    />
+                    <h1>CF</h1>
+                </button>
+
+                <button className="btn-cashier" id="ic" onClick={handleClick}>
+                    <img
+                        src="/resource/Ice-Dream.png"
+                        alt="Icedream Cone"
+                        className="btn-img-cashier"
+                    />
+                    <h1>ICE</h1>
                 </button>
             </div>
 
-            <div>{showPopUp && <CurOrderPopUp curItems={curItems} handleSubtract={handleSubtract} menu={menu} />}</div>
+            <div>
+                {showPopUp && (
+                    <CurOrderPopUp
+                        curItems={curItems}
+                        handleSubtract={handleSubtract}
+                        menu={menu}
+                    />
+                )}
+            </div>
 
-            <button className="complete" onClick={handleComplete}>
-                Finish Order
-            </button>
+            <div className="edit-row-cashier">
+                <button
+                    className="edit-button-cashier"
+                    onClick={handleComplete}
+                >
+                    Finish Order
+                </button>
 
-            <button className="popup" onClick={handlePopUp}>
-                CurOrder
-            </button>
+                <button className="edit-button-cashier" onClick={handlePopUp}>
+                    CurOrder
+                </button>
 
-            <button className="new" onClick={handleNewOrder}>
-                New Order
-            </button>
+                <button
+                    className="edit-button-cashier"
+                    onClick={handleNewOrder}
+                >
+                    New Order
+                </button>
 
-            <div className="price">Price: ${totalCost.toFixed(2)}</div>
+                <div className="price-cashier">
+                    Price: ${totalCost.toFixed(2)}
+                </div>
+            </div>
+
         </div>
     );
 };

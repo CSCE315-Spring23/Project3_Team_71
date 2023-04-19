@@ -41,8 +41,9 @@ export const CashierHelper = (
     };
 
     const handleClick = (event) => {
-        const bID = event.target.id;
+        const bID = event.target.closest('button').id;
         console.log(bID);
+        console.log("asdfase");
 
         switch (bID) {
             case "cs":

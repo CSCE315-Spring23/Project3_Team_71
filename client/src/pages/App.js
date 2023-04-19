@@ -22,6 +22,8 @@ import jwt_decode from "jwt-decode";
 import { useLocalState } from "./util/useLocalStorage";
 import PrivateRouteManager from "./PrivateRoute/privateManager";
 import PrivateRouteCashier from "./PrivateRoute/privateCashier";
+import Header from "../components/Header";
+
 
 function App() {
     const [user, setUser] = useLocalState("", "user");
@@ -116,17 +118,10 @@ function App() {
 
     return (
         <div id="app">
-            <div id="signInDiv"></div>
-            {Object.keys(user).length !== 0 && (
-                <button onClick={(e) => HandleSignOut(e)}>Sign Out</button>
-            )}
+            <Header user={user} HandleSignOut={HandleSignOut} />
+            <div id="signInDiv" />
 
-            {user && (
-                <div>
-                    <img src={user.picture} alt="profile"></img>
-                    <h3>{user.name}</h3>
-                </div>
-            )}
+
             <CurOrderContextProvider>
                 <RouterProvider router={router} />
             </CurOrderContextProvider>
