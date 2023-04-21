@@ -68,6 +68,8 @@ box-shadow: 0 0 5px #999; */
     display: inline-block;
     border-radius: 10px;
     border-width: 1px;
+
+    border: none;
 }
 .add-button-customer:hover {
     background-color: #e51636;

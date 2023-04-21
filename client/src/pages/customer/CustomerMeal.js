@@ -54,7 +54,6 @@ const CustomerMeal = () => {
             <div className="c1">
                 <br></br>
                 <h1>Meals</h1>
-                <h1>...</h1>
                 <div className="button-row-customer">
                     <div className="items-customer">
                         <img

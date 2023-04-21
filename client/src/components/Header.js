@@ -50,9 +50,6 @@ const Header = ({ user, HandleSignOut }) => {
                                 )}
                             </li>
                             <li>
-                                data
-                            </li>
-                            <li>
                                 <a href={`/`}>Home</a>
                             </li>
                             <li>

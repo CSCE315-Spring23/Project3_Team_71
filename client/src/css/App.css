@@ -2,10 +2,6 @@
     text-align: center;
 }
 
-#signInDiv {
-    position: absolute;
-    top: 10%;
-}
 
 #app {
     height: inherit;

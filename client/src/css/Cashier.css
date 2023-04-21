@@ -1,3 +1,4 @@
+
 /*BUTTONS*/
 .btn-wrap {
     height: calc(100vh - 5rem);
@@ -50,10 +51,10 @@
 
 /*PRICE DISPLAY*/
 .edit-row-cashier {
+    position: fixed;
     display: flex;
     align-items: center;
     font-size: 3rem;
-    position: absolute;
     bottom: 0;
     right: 0;
 }
@@ -77,3 +78,4 @@
     cursor: pointer;
     background-color: #940e23;
 }
+

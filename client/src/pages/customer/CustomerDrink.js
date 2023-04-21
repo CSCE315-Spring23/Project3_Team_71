@@ -54,7 +54,7 @@ const CustomerDrink = () => {
             <div className="c1">
                 <br></br>
                 <h1>Drinks</h1>
-                <h1>...</h1>
+
                 <div className="button-row-customer">
                     <div className="items-customer">
                         <img
@@ -329,7 +329,6 @@ const CustomerDrink = () => {
 
                 <br></br>
                 <h1>Treats</h1>
-                <h1>...</h1>
                 <div className="button-row-customer">
                     <div className="items-customer">
                         <img

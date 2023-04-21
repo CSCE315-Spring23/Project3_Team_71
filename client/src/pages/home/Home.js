@@ -1,15 +1,36 @@
-import React from 'react'
+import React, { useEffect } from "react";
+import jwt_decode from "jwt-decode";
+import "../../css/Home.css";
 
+const Home = ({ user, setUser }) => {
+    function handleCallbackREsponse(response) {
+        console.log("Encode JWT ID Google" + response.credential);
+        var userObject = jwt_decode(response.credential);
+        console.log(userObject);
+        setUser(userObject);
+        console.log("logged in: ", user.email);
+    }
 
-const Home = () => {
-  return (
-    <>
+    useEffect(() => {
+        const google = window.google;
+        google.accounts.id.initialize({
+            client_id:
+                "910012439370-t5574l8cl6b2jsg0n2t4n55dg4cgqp7l.apps.googleusercontent.com",
+            callback: handleCallbackREsponse,
+        });
 
-     <div><h1>Home</h1></div>
-     <img className='homeImg' src='../../resource/logo.png'></img>
-    </>
-    
-  )
-}
+        google.accounts.id.renderButton(document.getElementById("signInDiv"), {
+            theme: "outline",
+            size: "large",
+        });
+    }, []);
 
-export default Home
+    return (
+        <div className="wrapper-home">
+            <h1>asdfasfd</h1>
+            <div id="signInDiv" />
+        </div>
+    );
+};
+
+export default Home;

@@ -215,7 +215,10 @@ const Cashier = () => {
             </div>
 
             <div className="edit-row-cashier">
-                <button className="edit-button-cashier" onClick={handleComplete}>
+                <button
+                    className="edit-button-cashier"
+                    onClick={handleComplete}
+                >
                     Finish Order
                 </button>
 
@@ -223,7 +226,10 @@ const Cashier = () => {
                     CurOrder
                 </button>
 
-                <button className="edit-button-cashier" onClick={handleNewOrder}>
+                <button
+                    className="edit-button-cashier"
+                    onClick={handleNewOrder}
+                >
                     New Order
                 </button>
 

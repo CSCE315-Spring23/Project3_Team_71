@@ -9,13 +9,8 @@ const Customer = () => {
     const { totalCost, setTotalCost, curItems, setCurItems } =
         useContext(CurOrderContext);
     const [menu, setMenu] = useState("");
-    const { handleClick, handleComplete, handleNewOrder, handleSubtract } = CashierHelper(
-        curItems,
-        menu,
-        totalCost,
-        setCurItems,
-        setTotalCost
-    );
+    const { handleClick, handleComplete, handleNewOrder, handleSubtract } =
+        CashierHelper(curItems, menu, totalCost, setCurItems, setTotalCost);
 
     const [showPopUp, setShowPopUp] = useState(false);
 
@@ -23,10 +18,10 @@ const Customer = () => {
         setShowPopUp(!showPopUp);
     };
     useEffect(() => {
+
         const getMenu = async () => {
             const res = await fetch("http://localhost:3001/menu");
             const data = await res.json();
-
 
             const newObj = {};
             for (const key in data) {
@@ -41,7 +36,10 @@ const Customer = () => {
     }, []);
 
     const getMenuPrice = (menuItemId, menu) => {
-        return menu[menuItemId];
+        if (menu.hasOwnProperty(menuItemId)) {
+            return menu[menuItemId][0];
+        }
+        return null;
     };
 
     useEffect(() => {
@@ -54,7 +52,6 @@ const Customer = () => {
             <div className="c1">
                 <br></br>
                 <h1>Entrees</h1>
-                <h1>...</h1>
                 <div className="button-row-customer">
                     <div className="items-customer">
                         <img
@@ -315,7 +312,6 @@ const Customer = () => {
                 </div>
 
                 <h1>Sides</h1>
-                <h1>...</h1>
 
                 <div className="button-row-customer">
                     <div className="items-customer">
@@ -387,14 +383,14 @@ const Customer = () => {
                         </div>
                     </div>
                     <div>
-                {showPopUp && (
-                    <CurOrderPopUp
-                        curItems={curItems}
-                        handleSubtract={handleSubtract}
-                        menu={menu}
-                    />
-                )}
-            </div>
+                        {showPopUp && (
+                            <CurOrderPopUp
+                                curItems={curItems}
+                                handleSubtract={handleSubtract}
+                                menu={menu}
+                            />
+                        )}
+                    </div>
                     <div className="items-customer">
                         <img
                             src="/resource/chips.png"
@@ -422,8 +418,8 @@ const Customer = () => {
             </button>
 
             <button className="edit-button-customer" onClick={handlePopUp}>
-                    CurOrder
-                </button>
+                CurOrder
+            </button>
 
             <button className="new-customer" onClick={handleNewOrder}>
                 New Order
