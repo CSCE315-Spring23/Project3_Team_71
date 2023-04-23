@@ -8,6 +8,7 @@ const Header = ({ user, HandleSignOut }) => {
     const [lat, setLat] = useState([]);
     const [long, setLong] = useState([]);
     const [data, setData] = useState([]);
+    const apiKey = process.env.REACT_APP_WEATHER_API_KEY;
 
     useEffect(() => {
         const fetchData = async () => {
@@ -16,16 +17,16 @@ const Header = ({ user, HandleSignOut }) => {
             setLong(position.coords.longitude);
           });
     
-          await fetch(`/weather/?lat=${lat}&lon=${long}&units=imperial&appid=8055724633e109d30c148d36ea2352b0`)
-          .then(res => res.json())
-          .then(result => {
-            setData(result)
-            console.log(result);
-          });
-        }
+        await fetch(`https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${long}&units=imperial&appid=${apiKey}`)
+        .then((res) => res.json())
+        .then((result) => {
+            setData(result);
+        });
+        };
         fetchData();
-      }, [lat,long])
-
+    }, [lat,long])
+      
+    const weatherIcon = `https://openweathermap.org/img/wn/${data.current.weather[0].icon}@2x.png`
 
 
     return (
@@ -48,6 +49,12 @@ const Header = ({ user, HandleSignOut }) => {
                                         Sign Out
                                     </button>
                                 )}
+                            </li>
+                            <li>
+                                <div className="weatherDisplay">
+                                    {data.current.temp}°F
+                                    <img className="weatherIcon" src={weatherIcon} alt="current temprature"></img>
+                                </div>
                             </li>
                             <li>
                                 <a href={`/`}>Home</a>

@@ -12,16 +12,16 @@ const pool = new Pool({
     port: 5432,
 });
 
+// const apiKey = process.env.REACT_APP_WEATHER_API_KEY
 app.use(cors());
 app.use(express.json());
 app.get("/weather/:lat/:lon", async (req, res) => {
     const result = await fetch(
-        `https://api.openweathermap.org/data/3.0/onecall?lat=${req.params.lat}&lon=${req.params.lon}&units=imperial&appid=8055724633e109d30c148d36ea2352b0
-        `
+        `https://api.openweathermap.org/data/3.0/onecall?lat=${req.params.lat}&lon=${req.params.lon}&appid=${apiKey}`
     );
 
     const data = await result.json();
-    return res.json(data);
+    return res.send(data);
 });
 
 app.get("/menu", async (req, res) => {
@@ -183,7 +183,7 @@ app.post("/addToGo", async (req, res) => {
             if (err) {
                 return res.status(500).send("Fail to update DB");
             } else {
-                return res.send("sucess");
+                return res.send("success");
             }
         }
     );
