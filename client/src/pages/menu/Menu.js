@@ -53,17 +53,17 @@ export default function Menu() {
     return (
         <>
             {/* <header><h1>Menu</h1></header> */}
-            <div class="bdy">
+            <div className="bdy">
                 
-                <div class="b1">
+                <div className="b1">
                 <br></br>
 
                     <h2>Entrees & Meals</h2>
                     <h1>...</h1>
-                    <div class="s1">
-                        <div class="sandwich1">
+                    <div className="s1">
+                        <div className="sandwich1">
                             <img
-                                class="menuImg" src="/resource/sand.jpg"
+                                className="menuImg" src="/resource/sand.jpg"
                                 alt="Chick-fil-A Chicken Sandwich"
                             ></img>
                             <h3>{getMenuName(1, menu1)}</h3>
@@ -73,7 +73,7 @@ export default function Menu() {
                             <h3>{getMenuName(2, menu1)}</h3>
                             <h4> ${getMenuPrice(26, menu)} Meal | ${getMenuPrice(2, menu)} Entree</h4>
                             <br></br>
-                            <img class="menuImg" src="/resource/spicysSand.jpg"></img>
+                            <img className="menuImg" src="/resource/spicysSand.jpg"></img>
                             <h3>{getMenuName(3, menu1)}</h3>
                             <h4> ${getMenuPrice(27, menu)} Meal | ${getMenuPrice(3, menu)} Entree</h4>
                             <br></br>
@@ -81,56 +81,56 @@ export default function Menu() {
                             <h3>{getMenuName(4, menu1)}</h3>
                             <h4> ${getMenuPrice(28, menu)} Meal | ${getMenuPrice(4, menu)} Entree</h4>
                         </div>
-                        <div class="sandwich2">
-                            <img class="menuImg" src="/resource/grilledsand.jpg"></img>
+                        <div className="sandwich2">
+                            <img className="menuImg" src="/resource/grilledsand.jpg"></img>
                             <h3>{getMenuName(18, menu1)}</h3>
                             <h4> ${getMenuPrice(29, menu)} Meal | ${getMenuPrice(18, menu)} Entree</h4>
                             <br></br>
                             <h3>{getMenuName(34, menu1)}</h3>
                             <h4> ${getMenuPrice(35, menu)} Meal | ${getMenuPrice(34, menu)} Entree</h4>
                             <br></br>
-                            <img class="menuImg" src="/resource/nuggs.jpg"></img>
+                            <img className="menuImg" src="/resource/nuggs.jpg"></img>
                             <h3>{getMenuName(6, menu1)}</h3>
                             <h4> 8ct: ${getMenuPrice(30, menu)} Meal | ${getMenuPrice(6, menu)} Entree</h4>
                             <h4> 12ct: ${getMenuPrice(31, menu)} Meal | ${getMenuPrice(7, menu)} Entree</h4>
                             <br></br>
-                            {/* <img class= "menuImg" src="/resource/grilledNuggets_8ct.png"></img> */}
+                            {/* <img className= "menuImg" src="/resource/grilledNuggets_8ct.png"></img> */}
                             <h3>{getMenuName(16, menu1)}</h3>
                             <h4> 8ct: ${getMenuPrice(32, menu)} Meal | ${getMenuPrice(16, menu)} Entree</h4>
                             <h4> 12ct: ${getMenuPrice(33, menu)} Meal | ${getMenuPrice(17, menu)} Entree</h4>
                         </div>
                     </div>
                 </div>
-                <div class="b">
+                <div className="b">
                 <br></br>
 
                     <h2>Salads</h2>
                     <h1>...</h1>
-                    <div class="s">
-                        <div class="salads">
-                            <img class="menuImg" src="/resource/wrap.png"></img>
+                    <div className="s">
+                        <div className="salads">
+                            <img className="menuImg" src="/resource/wrap.png"></img>
                             <h3>{getMenuName(36, menu1)}</h3>
                             <h4> ${getMenuPrice(36, menu)} Meal | ${getMenuPrice(37, menu)} Entree</h4>
-                            <img class="menuImg" src="/resource/cobbSalad.png"></img>
+                            <img className="menuImg" src="/resource/cobbSalad.png"></img>
                             <h3>{getMenuName(38, menu1)}</h3>
                             <h4>${getMenuPrice(38, menu)}</h4>
-                            <img class="menuImg" src="/resource/marketSalad.png"></img>
+                            <img className="menuImg" src="/resource/marketSalad.png"></img>
                             <h3>{getMenuName(19, menu1)}</h3>
                             <h4>${getMenuPrice(19, menu)}</h4>
-                            <img class="menuImg" src="/resource/sswSalad.png"></img>
+                            <img className="menuImg" src="/resource/sswSalad.png"></img>
                             <h3>{getMenuName(39, menu1)}</h3>
                             <h4>${getMenuPrice(39, menu)}</h4>
                         </div>
                     </div>
                 </div>
-                <div class="b">
+                <div className="b">
                 <br></br>
 
                     <h2>Drinks</h2>
                     <h1>...</h1>
-                    <div class="s">
-                        <div class="drinks">
-                            <img class="menuImg" src="/resource/Screenshot 2023-04-12 095510.jpg"></img>
+                    <div className="s">
+                        <div className="drinks">
+                            <img className="menuImg" src="/resource/Screenshot 2023-04-12 095510.jpg"></img>
                             <h3>Freshly-Brewed Iced Tea</h3>
                             <h4>M: ${getMenuPrice(40, menu)} | L: ${getMenuPrice(41, menu)}</h4>
                             <br></br>
@@ -152,14 +152,14 @@ export default function Menu() {
                         </div>
                     </div>
                 </div>
-                <div class="b">
+                <div className="b">
                 <br></br>
 
                     <h2>Treats</h2>
                     <h1>...</h1>
-                    <div class="s">
-                        <div class="Treats">
-                            <img class="menuImg" src="/resource/desserts.jpeg"></img>
+                    <div className="s">
+                        <div className="Treats">
+                            <img className="menuImg" src="/resource/desserts.jpeg"></img>
                             <h3>Hand-Spun Milkshakes</h3>
                             <h4>${getMenuPrice(22, menu)}</h4>
                             <h3>{getMenuName(47, menu1)}</h3>
@@ -177,27 +177,27 @@ export default function Menu() {
                 </div>
             </div>
             <div className='bdy2'>
-                <div class="sides">
+                <div className="sides">
                 <h1>Sides</h1>
                 <h1>...</h1>
                     <div className="sidewrapper">
-                    <div class="side">
-                        <img class="menuImg" src="/resource/waffleFry.png"></img>
+                    <div className="side">
+                        <img className="menuImg" src="/resource/waffleFry.png"></img>
                         <h3>{getMenuName(12, menu1)}</h3>
                         <h4>M: ${getMenuPrice(12, menu)}| L: ${getMenuPrice(52, menu)}</h4>
                     </div>
-                    <div class="side">
-                        <img class="menuImg" src="/resource/chips.png"></img>
+                    <div className="side">
+                        <img className="menuImg" src="/resource/chips.png"></img>
                         <h3>{getMenuName(53, menu1)}</h3>
                         <h4>${getMenuPrice(53, menu)}</h4>
                     </div>
-                    <div class="side">
-                        <img class="menuImg" src="/resource/sideSalad.png"></img>
+                    <div className="side">
+                        <img className="menuImg" src="/resource/sideSalad.png"></img>
                         <h3>{getMenuName(55, menu1)}</h3>
                         <h4>${getMenuPrice(55, menu)}</h4>
                     </div>
-                    <div class="side">
-                        <img class="menuImg" src="/resource/Fruit-Cup.png"></img>
+                    <div className="side">
+                        <img className="menuImg" src="/resource/Fruit-Cup.png"></img>
                         <h3>{getMenuName(54, menu1)}</h3>
                         <h4>${getMenuPrice(54, menu)}</h4>
                     </div>

@@ -7,27 +7,36 @@ const Header = ({ user, HandleSignOut }) => {
     // const [weather, setWeather] = useState("");
     const [lat, setLat] = useState([]);
     const [long, setLong] = useState([]);
-    const [data, setData] = useState([]);
+    // const [data,setData] = useState([]);
+    const [temp, setTemp] = useState("");
+    const [icon, setIcon] = useState("");
+
     const apiKey = process.env.REACT_APP_WEATHER_API_KEY;
 
     useEffect(() => {
-        const fetchData = async () => {
-          navigator.geolocation.getCurrentPosition(function(position) {
+        const fetchData =  () => {
+            navigator.geolocation.getCurrentPosition(function(position) {
             setLat(position.coords.latitude);
             setLong(position.coords.longitude);
+            console.log(lat);
+            console.log(long);
           });
-    
-        await fetch(`https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${long}&units=imperial&appid=${apiKey}`)
-        .then((res) => res.json())
-        .then((result) => {
-            setData(result);
-        });
         };
+        
         fetchData();
-    }, [lat,long])
-    // console.log(data.current.weather[0].icon);
-      
-    const weatherIcon = `https://openweathermap.org/img/wn/${data.current.weather[0].icon}@2x.png`
+    },[]);
+
+    useEffect(() => {
+        const hi = async () => {
+            await fetch(`https://api.openweathermap.org/data/3.0/onecall?lat=30&lon=-96&units=imperial&appid=${apiKey}`)
+            .then((res) => res.json())
+            .then( (result) =>  {
+                setTemp(result.current.temp);
+                setIcon(`https://openweathermap.org/img/wn/${result.current.weather[0].icon}@2x.png`);
+            });  
+        };
+        hi();       
+    },[]);
 
 
     return (
@@ -53,8 +62,8 @@ const Header = ({ user, HandleSignOut }) => {
                             </li>
                             <li>
                                 <div className="weatherDisplay">
-                                    {data.current.temp}°F
-                                    <img className="weatherIcon" src={weatherIcon} alt="current temperature"></img>
+                                    {temp}°F
+                                    <img className="weatherIcon" src={icon} alt="current temperature"></img>
                                 </div>
                             </li>
                             <li>
