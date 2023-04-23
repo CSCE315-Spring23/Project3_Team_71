@@ -3,14 +3,37 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.card-home {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+    height: 25rem;
+    width: 40rem;
+    background-color: #e51636;
+    color: white;
+    border-radius: 1rem;
+    box-shadow: 1rem;
+
+    box-shadow: 0 8px 5px rgba(0, 0, 0, 0.3);
+
+    font-size: 2em;
+
 
 }
 
-.wrapper-home > * {
-    display: block;
+.backdrop-img-home {
+    position: fixed;
+    width: 100%;
+    backdrop-filter: blur(5px);
+    filter: blur(5px);
+    z-index: -1;
 }
 
 #signInDiv {
-    position: inherit;
     display: block;
+    border: none;
 }

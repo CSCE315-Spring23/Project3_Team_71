@@ -76,6 +76,7 @@ box-shadow: 0 0 5px #999; */
     color: white;
     border-radius: 80% !important;
     transition: all 0.2s ease;
+    cursor: pointer;
 }
 .add-button-customer::after {
     content: "Add";

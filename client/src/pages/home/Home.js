@@ -27,8 +27,11 @@ const Home = ({ user, setUser }) => {
 
     return (
         <div className="wrapper-home">
-            <h1>asdfasfd</h1>
-            <div id="signInDiv" />
+            <img src="/resource/food4.jpg" alt="backdrop" className="backdrop-img-home" />
+            <div className="card-home">
+                <h1>Log In</h1>
+                <div id="signInDiv" />
+            </div>
         </div>
     );
 };
