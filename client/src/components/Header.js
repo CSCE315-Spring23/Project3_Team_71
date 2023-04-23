@@ -54,18 +54,19 @@ const Header = ({ user, HandleSignOut }) => {
                     <nav>
                         <ul>
                             <li>
+                                <div className="weatherDisplay">
+                                    {temp}°F
+                                    <img className="weatherIcon" src={icon} alt="current temperature"></img>
+                                </div>
+                            </li>
+                            <li>
                                 {Object.keys(user).length !== 0 && (
                                     <button className="login" onClick={(e) => HandleSignOut(e)}>
                                         Sign Out
                                     </button>
                                 )}
                             </li>
-                            <li>
-                                <div className="weatherDisplay">
-                                    {temp}°F
-                                    <img className="weatherIcon" src={icon} alt="current temperature"></img>
-                                </div>
-                            </li>
+                           
                             <li>
                                 <a href={`/`}>Home</a>
                             </li>

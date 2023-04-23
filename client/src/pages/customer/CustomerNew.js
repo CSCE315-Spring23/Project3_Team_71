@@ -76,11 +76,18 @@ function CustomerNew() {
   return (
     <>
       <CashierHeader/>
+      <div className="new-btn-container">
+
+      
       {seasonMenu.map((button, index) => (
-              <button  className= "btn" key={index} id={button.menuID} onClick={(event) => handleClickExtra(event, 5)}>
+            <div className="new-btn-div">
+                <button  className= "btn-new" key={index} id={button.menuID} onClick={(event) => handleClickExtra(event, 5)}>
                   {button.name}
               </button>
+            </div>
+              
           ))}
+        </div>
 
       <button className="complete-customer" onClick={handleComplete}>
         Finish Order

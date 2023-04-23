@@ -147,3 +147,23 @@ box-shadow: 0 0 5px #999; */
 .nav-customer {
     color: white;
 }
+.new-btn-container {
+    padding:2vw;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+.btn-new {
+    padding: 2vw;
+    border: none;
+    border-radius: 8px;
+}
+.btn-new:hover {
+    background-color: #e51636;
+    color: white;
+    transition: 0.2s;
+}
+.new-btn-div {
+    padding:2vw;
+
+}
