@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 
 const Header = ({ user, HandleSignOut }) => {
 
-    const [weather, setWeather] = useState("");
+    // const [weather, setWeather] = useState("");
     const [lat, setLat] = useState([]);
     const [long, setLong] = useState([]);
     const [data, setData] = useState([]);
@@ -25,6 +25,7 @@ const Header = ({ user, HandleSignOut }) => {
         };
         fetchData();
     }, [lat,long])
+    // console.log(data.current.weather[0].icon);
       
     const weatherIcon = `https://openweathermap.org/img/wn/${data.current.weather[0].icon}@2x.png`
 
@@ -53,7 +54,7 @@ const Header = ({ user, HandleSignOut }) => {
                             <li>
                                 <div className="weatherDisplay">
                                     {data.current.temp}°F
-                                    <img className="weatherIcon" src={weatherIcon} alt="current temprature"></img>
+                                    <img className="weatherIcon" src={weatherIcon} alt="current temperature"></img>
                                 </div>
                             </li>
                             <li>
