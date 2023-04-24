@@ -102,10 +102,21 @@ box-shadow: 0 0 5px #999; */
 .edit-row-customer {
     position: fixed;
     display: flex;
+    justify-content: space-between;
+
     align-items: center;
     font-size: 3rem;
     bottom: 0;
     right: 0;
+
+    width: 35%;
+    height: 10%;
+
+    border-top: solid 4px red;
+    border-left: solid 4px red;
+    border-top-left-radius: 1rem;
+
+    background-color: white;
 }
 
 .edit-row-customer > .price-customer {

@@ -31,8 +31,9 @@ const CustomerDrink = () => {
 
             const newObj = {};
             for (const key in data) {
-                const { menu_item_id, menu_item_price } = data[key];
-                newObj[menu_item_id] = menu_item_price;
+                const { menu_item_id, menu_item_price, menu_item_name } =
+                    data[key];
+                newObj[menu_item_id] = [menu_item_price, menu_item_name];
             }
 
             setMenu(newObj);
@@ -41,7 +42,10 @@ const CustomerDrink = () => {
     }, []);
 
     const getMenuPrice = (menuItemId, menu) => {
-        return menu[menuItemId];
+        if (menu.hasOwnProperty(menuItemId)) {
+            return menu[menuItemId][0];
+        }
+        return null;
     };
 
     useEffect(() => {

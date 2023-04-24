@@ -58,15 +58,7 @@ function CustomerNew() {
     useEffect(() => {
         console.log(curItems);
     }, [curItems]);
-    <div>
-        {showPopUp && (
-            <CurOrderPopUp
-                curItems={curItems}
-                handleSubtract={handleSubtract}
-                menu={menu}
-            />
-        )}
-    </div>;
+
     return (
         <>
             <CashierHeader />
@@ -84,7 +76,16 @@ function CustomerNew() {
                     </div>
                 ))}
             </div>
-
+            <div>
+                {showPopUp && (
+                    <CurOrderPopUp
+                        curItems={curItems}
+                        handleSubtract={handleSubtract}
+                        menu={menu}
+                    />
+                )}
+            </div>
+            ;
             <div className="edit-row-customer">
                 <button
                     className="edit-button-customer"
