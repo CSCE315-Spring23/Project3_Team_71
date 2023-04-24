@@ -11,6 +11,8 @@ const Header = ({ user, HandleSignOut }) => {
     const [temp, setTemp] = useState("");
     const [icon, setIcon] = useState("");
 
+
+    // fetch weather data
     useEffect(() => {
         console.log(apiKey);
         const fetchData = () => {

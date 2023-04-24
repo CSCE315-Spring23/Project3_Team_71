@@ -203,12 +203,8 @@ const CashierMeal = () => {
                     CurOrder
                 </button>
 
-                <button className="edit-button-cashier" onClick={handleNewOrder}>
-                    New Order
-                </button>
-
                 <div className="price-cashier">
-                    Price: ${totalCost.toFixed(2)}
+                    ${Math.abs(totalCost).toFixed(2)}
                 </div>
             </div>
 

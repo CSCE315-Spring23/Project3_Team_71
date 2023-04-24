@@ -1,7 +1,7 @@
 .header {
-    background-color: rgb(245, 243, 241);
+    background-color: rgb(235, 220, 206);
     display: flex;
-    font-size: calc(3vmin);
+    font-size: calc(10px + 2vmin);
     color: #e51636;
     justify-content: space-between;
     align-items: center;

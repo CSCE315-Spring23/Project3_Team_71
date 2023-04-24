@@ -62,7 +62,7 @@
 .edit-row-cashier > .price-cashier {
     text-align: start;
     margin: 0 1rem;
-    width: 18rem;
+    width: 10rem;
 }
 
 .edit-button-cashier {
@@ -70,7 +70,9 @@
     background-color: #e51636;
     border: none;
     font-size: 1.5rem;
-    padding: 2rem 2rem;
+    padding: 1.5rem;
+    margin: .5rem;
+    border-radius: 30px;
     transition: background-color 0.3s ease;
 }
 
