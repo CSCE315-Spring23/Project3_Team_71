@@ -11,30 +11,30 @@ const Header = ({ user, HandleSignOut }) => {
     const [temp, setTemp] = useState("");
     const [icon, setIcon] = useState("");
 
-    useEffect(() => {
-        console.log(apiKey);
-        const fetchData = () => {
-            navigator.geolocation.getCurrentPosition(function (position) {
-                setLat(position.coords.latitude);
-                setLong(position.coords.longitude);
-                console.log(lat);
-                console.log(long);
-            });
-        };
+    // useEffect(() => {
+    //     console.log(apiKey);
+    //     const fetchData = () => {
+    //         navigator.geolocation.getCurrentPosition(function (position) {
+    //             setLat(position.coords.latitude);
+    //             setLong(position.coords.longitude);
+    //             console.log(lat);
+    //             console.log(long);
+    //         });
+    //     };
         
-        fetchData();
-    },[]);
+    //     fetchData();
+    // },[]);
 
     useEffect(() => {
-        const hi = async () => {
-            await fetch(`https://api.openweathermap.org/data/3.0/onecall?lat=30&lon=-96&units=imperial&appid=${apiKey}`)
+        const weather = async () => {
+            await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=30.621&lon=-96.34&units=imperial&appid=${apiKey}`)
             .then((res) => res.json())
             .then( (result) =>  {
-                setTemp(result.current.temp);
-                setIcon(`https://openweathermap.org/img/wn/${result.current.weather[0].icon}@2x.png`);
+                setTemp(result.main.temp);
+                setIcon(`https://openweathermap.org/img/wn/${result.weather[0].icon}@2x.png`);
             });  
         };
-        hi();       
+        weather();       
     },[]);
 
 
