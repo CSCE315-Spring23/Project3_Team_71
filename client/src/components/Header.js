@@ -28,15 +28,17 @@ const Header = ({ user, HandleSignOut }) => {
 
     useEffect(() => {
         const hi = async () => {
-            await fetch(`https://api.openweathermap.org/data/3.0/onecall?lat=30&lon=-96&units=imperial&appid=${apiKey}`)
+            await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=30&lon=-96&units=imperial&appid=${apiKey}`)
             .then((res) => res.json())
             .then( (result) =>  {
-                setTemp(result.current.temp);
-                setIcon(`https://openweathermap.org/img/wn/${result.current.weather[0].icon}@2x.png`);
+                setTemp(result.main.temp);
+                setIcon(`https://openweathermap.org/img/wn/${result.weather[0].icon}@2x.png`);
+                console.log(result.main.temp);
             });  
         };
+        
         hi();       
-    },[]);
+    },[lat, long]);
 
 
     return (
