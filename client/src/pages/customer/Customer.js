@@ -3,13 +3,16 @@ import { CashierHelper } from "../../hooks/CashierHelper";
 import "../../css/Customer.css";
 import { CurOrderContext } from "../../hooks/CurOrderContext";
 import CustomerHeader from "./CustomerHeader";
-import CurOrderPopUp from "../../components/CurOrderPopUp";
 
+import AdPopUp from "../../components/AdPopUp";
+import CurOrderPopUp from "../../components/CurOrderPopUp";
 const Customer = () => {
     const { totalCost, setTotalCost, curItems, setCurItems } =
         useContext(CurOrderContext);
     const [menu, setMenu] = useState("");
-    const { handleClick, handleComplete, handleNewOrder, handleSubtract } = CashierHelper(
+
+    const [ stringID, setStringID] = useState("");
+    const { handleClick, handleComplete, handleNewOrder, handleSubtract} = CashierHelper(
         curItems,
         menu,
         totalCost,
@@ -18,6 +21,20 @@ const Customer = () => {
     );
 
     const [showPopUp, setShowPopUp] = useState(false);
+
+    const [showAdPopUp, setAdPopUp] = useState(false);
+
+    const handlePopUpClick = (event) => {
+        const bID = event.target.closest('button').id;
+        console.log(bID);
+        setStringID(bID);
+        handlePopUpState();
+        
+    };
+
+    const handlePopUpState = () => {
+        setAdPopUp(true);
+    };
 
     const handlePopUp = () => {
         setShowPopUp(!showPopUp);
@@ -51,6 +68,15 @@ const Customer = () => {
     return (
         <>
             <CustomerHeader />
+            <div>
+                {showAdPopUp && (
+                    <AdPopUp
+                        stringID = {stringID}
+                        handleClick = {handleClick}
+                        setAdPopUp = {setAdPopUp}
+                    />
+                )}
+            </div>
             <div className="c1">
                 <br></br>
                 <h1>Entrees</h1>
@@ -71,7 +97,7 @@ const Customer = () => {
                             type="submit"
                             name="completed"
                             value=""
-                            onClick={handleClick}
+                            onClick={handlePopUpClick}
                             id="cs"
                         ></button>
                     </div>
@@ -91,7 +117,7 @@ const Customer = () => {
                             name="completed"
                             value=""
                             id="csd"
-                            onClick={handleClick}
+                            onClick={handlePopUpClick}
                         ></button>
                     </div>
                     <div className="items-customer">
@@ -110,7 +136,7 @@ const Customer = () => {
                             name="completed"
                             value=""
                             id="scs"
-                            onClick={handleClick}
+                            onClick={handlePopUpClick}
                         ></button>
                     </div>
                     <div className="items-customer">
@@ -129,7 +155,7 @@ const Customer = () => {
                             name="completed"
                             value=""
                             id="scsd"
-                            onClick={handleClick}
+                            onClick={handlePopUpClick}
                         ></button>
                     </div>
                 </div>
@@ -153,7 +179,7 @@ const Customer = () => {
                                 name="completed"
                                 value=""
                                 id="n8"
-                                onClick={handleClick}
+                                onClick={handlePopUpClick}
                             ></button>
                             <button
                                 className="add-button-customer"
@@ -161,7 +187,7 @@ const Customer = () => {
                                 name="completed"
                                 value=""
                                 id="n12"
-                                onClick={handleClick}
+                                onClick={handlePopUpClick}
                             ></button>
                         </div>
                     </div>
@@ -183,7 +209,7 @@ const Customer = () => {
                                 name="completed"
                                 value=""
                                 id="ng8"
-                                onClick={handleClick}
+                                onClick={handlePopUpClick}
                             ></button>
                             <button
                                 className="add-button-customer"
@@ -191,7 +217,7 @@ const Customer = () => {
                                 name="completed"
                                 value=""
                                 id="ng12"
-                                onClick={handleClick}
+                                onClick={handlePopUpClick}
                             ></button>
                         </div>
                     </div>
@@ -211,7 +237,7 @@ const Customer = () => {
                             name="completed"
                             value=""
                             id="csg"
-                            onClick={handleClick}
+                            onClick={handlePopUpClick}
                         ></button>
                     </div>
                     <div className="items-customer">
@@ -230,7 +256,7 @@ const Customer = () => {
                             name="completed"
                             value=""
                             id="csgc"
-                            onClick={handleClick}
+                            onClick={handlePopUpClick}
                         ></button>
                     </div>
                 </div>
@@ -252,7 +278,7 @@ const Customer = () => {
                             name="completed"
                             value=""
                             id="ccwg"
-                            onClick={handleClick}
+                            onClick={handlePopUpClick}
                         ></button>
                     </div>
                     <div className="items-customer">
@@ -431,6 +457,7 @@ const Customer = () => {
 
             <div className="price-customer">Price: ${totalCost.toFixed(2)}</div>
         </>
+        
     );
 };
 export default Customer;

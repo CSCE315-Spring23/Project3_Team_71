@@ -40,8 +40,15 @@ export const CashierHelper = (
         addItem(parseInt(bID));
     };
 
-    const handleClick = (event) => {
-        const bID = event.target.closest('button').id;
+    const handleClick = (event, id = '') => {
+        var bID;
+        if (id === '') {
+        bID = event.target.closest('button').id;
+        }
+        else{
+            bID = id;
+        }
+
         console.log(bID);
         console.log("asdfase");
 
@@ -245,6 +252,6 @@ export const CashierHelper = (
         handleComplete,
         handleClick,
         handleClickExtra,
-        handleSubtract,
+        handleSubtract
     };
 };
