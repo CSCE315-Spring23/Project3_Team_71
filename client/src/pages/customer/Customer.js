@@ -11,6 +11,7 @@ const Customer = () => {
         useContext(CurOrderContext);
     const [menu, setMenu] = useState("");
 
+
     const [ stringID, setStringID] = useState("");
     const { handleClick, handleComplete, handleNewOrder, handleSubtract} = CashierHelper(
         curItems,
@@ -19,6 +20,7 @@ const Customer = () => {
         setCurItems,
         setTotalCost
     );
+
 
     const [showPopUp, setShowPopUp] = useState(false);
 
@@ -58,7 +60,10 @@ const Customer = () => {
     }, []);
 
     const getMenuPrice = (menuItemId, menu) => {
-        return menu[menuItemId];
+        if (menu.hasOwnProperty(menuItemId)) {
+            return menu[menuItemId][0];
+        }
+        return null;
     };
 
     useEffect(() => {
@@ -80,7 +85,6 @@ const Customer = () => {
             <div className="c1">
                 <br></br>
                 <h1>Entrees</h1>
-                <h1>...</h1>
                 <div className="button-row-customer">
                     <div className="items-customer">
                         <img
@@ -413,14 +417,14 @@ const Customer = () => {
                         </div>
                     </div>
                     <div>
-                {showPopUp && (
-                    <CurOrderPopUp
-                        curItems={curItems}
-                        handleSubtract={handleSubtract}
-                        menu={menu}
-                    />
-                )}
-            </div>
+                        {showPopUp && (
+                            <CurOrderPopUp
+                                curItems={curItems}
+                                handleSubtract={handleSubtract}
+                                menu={menu}
+                            />
+                        )}
+                    </div>
                     <div className="items-customer">
                         <img
                             src="/resource/chips.png"
@@ -443,19 +447,22 @@ const Customer = () => {
                 </div>
             </div>
 
-            <button className="complete-customer" onClick={handleComplete}>
-                Finish Order
-            </button>
+            <div className="edit-row-customer">
+                <button
+                    className="edit-button-customer"
+                    onClick={handleComplete}
+                >
+                    Finish Order
+                </button>
 
-            <button className="edit-button-customer" onClick={handlePopUp}>
+                <button className="edit-button-customer" onClick={handlePopUp}>
                     CurOrder
                 </button>
 
-            <button className="new-customer" onClick={handleNewOrder}>
-                New Order
-            </button>
-
-            <div className="price-customer">Price: ${totalCost.toFixed(2)}</div>
+                <div className="price-customer">
+                    ${Math.abs(totalCost).toFixed(2)}
+                </div>
+            </div>
         </>
         
     );

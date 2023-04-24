@@ -10,14 +10,9 @@ const CustomerMeal = () => {
     const { totalCost, setTotalCost, curItems, setCurItems } =
         useContext(CurOrderContext);
 
-    const { handleClick, handleComplete, handleNewOrder, handleSubtract} = CashierHelper(
-        curItems,
-        menu,
-        totalCost,
-        setCurItems,
-        setTotalCost
-    );
-    
+    const { handleClick, handleComplete, handleNewOrder, handleSubtract } =
+        CashierHelper(curItems, menu, totalCost, setCurItems, setTotalCost);
+
     const [showPopUp, setShowPopUp] = useState(false);
 
     const handlePopUp = () => {
@@ -31,8 +26,9 @@ const CustomerMeal = () => {
 
             const newObj = {};
             for (const key in data) {
-                const { menu_item_id, menu_item_price } = data[key];
-                newObj[menu_item_id] = menu_item_price;
+                const { menu_item_id, menu_item_price, menu_item_name } =
+                    data[key];
+                newObj[menu_item_id] = [menu_item_price, menu_item_name];
             }
 
             setMenu(newObj);
@@ -41,7 +37,10 @@ const CustomerMeal = () => {
     }, []);
 
     const getMenuPrice = (menuItemId, menu) => {
-        return menu[menuItemId];
+        if (menu.hasOwnProperty(menuItemId)) {
+            return menu[menuItemId][0];
+        }
+        return null;
     };
 
     useEffect(() => {
@@ -54,7 +53,6 @@ const CustomerMeal = () => {
             <div className="c1">
                 <br></br>
                 <h1>Meals</h1>
-                <h1>...</h1>
                 <div className="button-row-customer">
                     <div className="items-customer">
                         <img
@@ -62,11 +60,18 @@ const CustomerMeal = () => {
                             alt="Chick-Fil-A Sandwich Meal"
                             className="item-image-customer"
                         />
-                        <h1 className="txt" >Chick-Fil-A Sandwich Meal</h1>
-                        <span className="subtext-customer" >${getMenuPrice(25, menu)}</span>
-                        <button className="add-button-customer" type="submit" name="completed" value="" id="csmeal" onClick={handleClick}>
-                            
-                        </button>
+                        <h1 className="txt">Chick-Fil-A Sandwich Meal</h1>
+                        <span className="subtext-customer">
+                            ${getMenuPrice(25, menu)}
+                        </span>
+                        <button
+                            className="add-button-customer"
+                            type="submit"
+                            name="completed"
+                            value=""
+                            id="csmeal"
+                            onClick={handleClick}
+                        ></button>
                     </div>
                     <div className="items-customer">
                         <img
@@ -74,11 +79,18 @@ const CustomerMeal = () => {
                             alt="Chick-Fil-A Deluxe Meal"
                             className="item-image-customer"
                         />
-                        <h1 className="txt" >Chick-Fil-A Deluxe Meal</h1>
-                        <span className="subtext-customer" >${getMenuPrice(26, menu)}</span>
-                        <button className="add-button-customer" type="submit" name="completed" value="" id="csdmeal" onClick={handleClick}>
-                            
-                        </button>
+                        <h1 className="txt">Chick-Fil-A Deluxe Meal</h1>
+                        <span className="subtext-customer">
+                            ${getMenuPrice(26, menu)}
+                        </span>
+                        <button
+                            className="add-button-customer"
+                            type="submit"
+                            name="completed"
+                            value=""
+                            id="csdmeal"
+                            onClick={handleClick}
+                        ></button>
                     </div>
                     <div className="items-customer">
                         <img
@@ -86,11 +98,18 @@ const CustomerMeal = () => {
                             alt="Spicy Chicken Meal"
                             className="item-image-customer"
                         />
-                        <h1 className="txt" >Spicy Chicken Sandwich Meal</h1>
-                        <span className="subtext-customer" >${getMenuPrice(27, menu)}</span>
-                        <button className="add-button-customer" type="submit" name="completed" value="" id="cssmeal" onClick={handleClick}>
-                            
-                        </button>
+                        <h1 className="txt">Spicy Chicken Sandwich Meal</h1>
+                        <span className="subtext-customer">
+                            ${getMenuPrice(27, menu)}
+                        </span>
+                        <button
+                            className="add-button-customer"
+                            type="submit"
+                            name="completed"
+                            value=""
+                            id="cssmeal"
+                            onClick={handleClick}
+                        ></button>
                     </div>
                     <div className="items-customer">
                         <img
@@ -98,11 +117,18 @@ const CustomerMeal = () => {
                             alt="Spicy Deluxe Sandwich Meal"
                             className="item-image-customer"
                         />
-                        <h1 className="txt" >Spicy Deluxe Sandwich Meal</h1>
-                        <span className="subtext-customer" >${getMenuPrice(28, menu)}</span>
-                        <button className="add-button-customer" type="submit" name="completed" value="" id="cssdmeal" onClick={handleClick}>
-                            
-                        </button>
+                        <h1 className="txt">Spicy Deluxe Sandwich Meal</h1>
+                        <span className="subtext-customer">
+                            ${getMenuPrice(28, menu)}
+                        </span>
+                        <button
+                            className="add-button-customer"
+                            type="submit"
+                            name="completed"
+                            value=""
+                            id="cssdmeal"
+                            onClick={handleClick}
+                        ></button>
                     </div>
                 </div>
                 <div className="button-row-customer">
@@ -112,17 +138,29 @@ const CustomerMeal = () => {
                             alt="Chick-Fil-A Nuggets Meal"
                             className="item-image-customer"
                         />
-                        <h1 className="txt" >Chick-Fil-A Nuggets Meal</h1>
-                        <span className="subtext-customer" >8ct. meal: ${getMenuPrice(30, menu)} | 12ct. meal: ${getMenuPrice(31, menu)} </span>
+                        <h1 className="txt">Chick-Fil-A Nuggets Meal</h1>
+                        <span className="subtext-customer">
+                            8ct. meal: ${getMenuPrice(30, menu)} | 12ct. meal: $
+                            {getMenuPrice(31, menu)}{" "}
+                        </span>
                         <div className="btn-holder-customer">
-                            <button className="add-button-customer" type="submit" name="completed" value="" id="8nmeal" onClick={handleClick}>
-                                
-                            </button>
-                            <button className="add-button-customer" type="submit" name="completed" value="" id="12nmeal" onClick={handleClick}>
-                                
-                            </button>
+                            <button
+                                className="add-button-customer"
+                                type="submit"
+                                name="completed"
+                                value=""
+                                id="8nmeal"
+                                onClick={handleClick}
+                            ></button>
+                            <button
+                                className="add-button-customer"
+                                type="submit"
+                                name="completed"
+                                value=""
+                                id="12nmeal"
+                                onClick={handleClick}
+                            ></button>
                         </div>
-
                     </div>
                     <div className="items-customer">
                         <img
@@ -130,13 +168,28 @@ const CustomerMeal = () => {
                             alt="Grilled Nuggets Meal"
                             className="item-image-customer"
                         />
-                        <h1 className="txt" >Grilled Nuggets Meal</h1>
-                        <span className="subtext-customer" >8ct. meal: ${getMenuPrice(32, menu)} | 12ct. meal: ${getMenuPrice(33, menu)}</span>
+                        <h1 className="txt">Grilled Nuggets Meal</h1>
+                        <span className="subtext-customer">
+                            8ct. meal: ${getMenuPrice(32, menu)} | 12ct. meal: $
+                            {getMenuPrice(33, menu)}
+                        </span>
                         <div className="btn-holder-customer">
-                            <button className="add-button-customer" type="submit" name="completed" value="" id="8ngmeal" onClick={handleClick}>
-                            </button>
-                            <button className="add-button-customer" type="submit" name="completed" value="" id="12ngmeal" onClick={handleClick}>
-                            </button>
+                            <button
+                                className="add-button-customer"
+                                type="submit"
+                                name="completed"
+                                value=""
+                                id="8ngmeal"
+                                onClick={handleClick}
+                            ></button>
+                            <button
+                                className="add-button-customer"
+                                type="submit"
+                                name="completed"
+                                value=""
+                                id="12ngmeal"
+                                onClick={handleClick}
+                            ></button>
                         </div>
                     </div>
                 </div>
@@ -147,32 +200,46 @@ const CustomerMeal = () => {
                             alt="Grilled Chicken Sandwich Meal"
                             className="item-image-customer"
                         />
-                        <h1 className="txt" >Grilled Chicken Sandwich Meal</h1>
-                        <span className="subtext-customer" >${getMenuPrice(29, menu)}</span>
-                        <button className="add-button-customer" type="submit" name="completed" value="" id="csgmeal" onClick={handleClick}>
-                            
-                        </button>
+                        <h1 className="txt">Grilled Chicken Sandwich Meal</h1>
+                        <span className="subtext-customer">
+                            ${getMenuPrice(29, menu)}
+                        </span>
+                        <button
+                            className="add-button-customer"
+                            type="submit"
+                            name="completed"
+                            value=""
+                            id="csgmeal"
+                            onClick={handleClick}
+                        ></button>
                     </div>
                     <div>
-                {showPopUp && (
-                    <CurOrderPopUp
-                        curItems={curItems}
-                        handleSubtract={handleSubtract}
-                        menu={menu}
-                    />
-                )}
-            </div>
+                        {showPopUp && (
+                            <CurOrderPopUp
+                                curItems={curItems}
+                                handleSubtract={handleSubtract}
+                                menu={menu}
+                            />
+                        )}
+                    </div>
                     <div className="items-customer">
                         <img
                             src="/resource/grilledClub_colbyJack.png"
                             alt="Grilled Chicken Club Meal"
                             className="item-image-customer"
                         />
-                        <h1 className="txt" >Grilled Chicken Club Meal</h1>
-                        <span className="subtext-customer" >${getMenuPrice(35, menu)}</span>
-                        <button className="add-button-customer" type="submit" name="completed" value="" id="csgdmeal" onClick={handleClick}>
-                            
-                        </button>
+                        <h1 className="txt">Grilled Chicken Club Meal</h1>
+                        <span className="subtext-customer">
+                            ${getMenuPrice(35, menu)}
+                        </span>
+                        <button
+                            className="add-button-customer"
+                            type="submit"
+                            name="completed"
+                            value=""
+                            id="csgdmeal"
+                            onClick={handleClick}
+                        ></button>
                     </div>
                     <div className="items-customer">
                         <img
@@ -180,31 +247,38 @@ const CustomerMeal = () => {
                             alt="Grilled Chicken Cool Wrap Meal"
                             className="item-image-customer"
                         />
-                        <h1 className="txt" >Grilled Chicken Cool Wrap Meal</h1>
-                        <span className="subtext-customer" >${getMenuPrice(36, menu)}</span>
-                        <button className="add-button-customer" type="submit" name="completed" value="" id="wrpmeal" onClick={handleClick}>
-                            
-                        </button>
+                        <h1 className="txt">Grilled Chicken Cool Wrap Meal</h1>
+                        <span className="subtext-customer">
+                            ${getMenuPrice(36, menu)}
+                        </span>
+                        <button
+                            className="add-button-customer"
+                            type="submit"
+                            name="completed"
+                            value=""
+                            id="wrpmeal"
+                            onClick={handleClick}
+                        ></button>
                     </div>
                 </div>
-                
             </div>
 
+            <div className="edit-row-customer">
+                <button
+                    className="edit-button-customer"
+                    onClick={handleComplete}
+                >
+                    Finish Order
+                </button>
 
-
-            <button className="complete-customer" onClick={handleComplete}>
-                Finish Order
-            </button>
-
-            <button className="edit-button-customer" onClick={handlePopUp}>
+                <button className="edit-button-customer" onClick={handlePopUp}>
                     CurOrder
                 </button>
 
-            <button className="new-customer" onClick={handleNewOrder}>
-                New Order
-            </button>
-
-            <div className="price-customer">Price: ${totalCost.toFixed(2)}</div>
+                <div className="price-customer">
+                    ${Math.abs(totalCost).toFixed(2)}
+                </div>
+            </div>
         </div>
     );
 };

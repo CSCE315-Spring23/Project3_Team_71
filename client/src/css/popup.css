@@ -1,20 +1,58 @@
-
 /*POPUP*/
 
-.cur_item_wrap {
+.cur-item-wrap {
     position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 10rem;
+    right: 0;
+    bottom: 10%;
+    height: calc(90vh - 5rem);
+    width: 35%;
     background-color: white;
-    color: #e51636;
-    border-radius: 1rem;
-    box-shadow: 0.5rem 0.5rem rgba(0, 0, 0, 0.8);
+
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+    border-top: solid 4px red;
+    border-left: solid 4px red;
+    border-bottom: solid 4px red;
+
+    text-align: center;
+
+    overflow: auto;
+}
+
+.cur-item-wrap > div {
+    text-align: start;
+    margin: 0 2rem;
+    font-size: 1.8em;
+}
+
+.cur-item-wrap > h1 {
+    padding: 2rem;
 }
 
 
-.cur_item_display {
+.cur-item-display {
     display: block;
     margin: auto;
+}
+
+.cur-item-display > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cur-item-display > div > button {
+    padding: 0 1rem;
+    max-height: 2rem;
+    font-size: 2rem;
+    background-color: #e51636;
+    color: white;
+    border: none;
+    border-radius: 2rem;
+    transition: background-color 0.3s ease;
+}
+
+.cur-item-display > div > button:hover {
+    cursor: pointer;
+    background-color: #940e23;
 }

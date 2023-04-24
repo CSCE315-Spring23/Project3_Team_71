@@ -31,8 +31,9 @@ const CustomerDrink = () => {
 
             const newObj = {};
             for (const key in data) {
-                const { menu_item_id, menu_item_price } = data[key];
-                newObj[menu_item_id] = menu_item_price;
+                const { menu_item_id, menu_item_price, menu_item_name } =
+                    data[key];
+                newObj[menu_item_id] = [menu_item_price, menu_item_name];
             }
 
             setMenu(newObj);
@@ -41,7 +42,10 @@ const CustomerDrink = () => {
     }, []);
 
     const getMenuPrice = (menuItemId, menu) => {
-        return menu[menuItemId];
+        if (menu.hasOwnProperty(menuItemId)) {
+            return menu[menuItemId][0];
+        }
+        return null;
     };
 
     useEffect(() => {
@@ -54,7 +58,7 @@ const CustomerDrink = () => {
             <div className="c1">
                 <br></br>
                 <h1>Drinks</h1>
-                <h1>...</h1>
+
                 <div className="button-row-customer">
                     <div className="items-customer">
                         <img
@@ -329,7 +333,6 @@ const CustomerDrink = () => {
 
                 <br></br>
                 <h1>Treats</h1>
-                <h1>...</h1>
                 <div className="button-row-customer">
                     <div className="items-customer">
                         <img
@@ -400,19 +403,22 @@ const CustomerDrink = () => {
                 </div>
             </div>
 
-            <button className="complete-customer" onClick={handleComplete}>
-                Finish Order
-            </button>
+            <div className="edit-row-customer">
+                <button
+                    className="edit-button-customer"
+                    onClick={handleComplete}
+                >
+                    Finish Order
+                </button>
 
-            <button className="edit-button-customer" onClick={handlePopUp}>
+                <button className="edit-button-customer" onClick={handlePopUp}>
                     CurOrder
                 </button>
 
-            <button className="new-customer" onClick={handleNewOrder}>
-                New Order
-            </button>
-
-            <div className="price-customer">Price: ${totalCost.toFixed(2)}</div>
+                <div className="price-customer">
+                    ${Math.abs(totalCost).toFixed(2)}
+                </div>
+            </div>
         </div>
     );
 };

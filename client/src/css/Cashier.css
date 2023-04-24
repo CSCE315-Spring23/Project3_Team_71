@@ -1,3 +1,4 @@
+
 /*BUTTONS*/
 .btn-wrap {
     height: calc(100vh - 5rem);
@@ -50,18 +51,28 @@
 
 /*PRICE DISPLAY*/
 .edit-row-cashier {
+    position: fixed;
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    font-size: 3rem;
-    position: absolute;
     bottom: 0;
     right: 0;
+
+    width: 35%;
+    height: 10%;
+
+    border-top: solid 4px red;
+    border-left: solid 4px red;
+    border-top-left-radius: 1rem;
+
+    background-color: white;
+
 }
 
 .edit-row-cashier > .price-cashier {
     text-align: start;
     margin: 0 1rem;
-    width: 18rem;
+    width: 10rem;
 }
 
 .edit-button-cashier {
@@ -69,7 +80,9 @@
     background-color: #e51636;
     border: none;
     font-size: 1.5rem;
-    padding: 2rem 2rem;
+    padding: 1.5rem;
+    margin: .5rem;
+    border-radius: 30px;
     transition: background-color 0.3s ease;
 }
 
@@ -77,3 +90,4 @@
     cursor: pointer;
     background-color: #940e23;
 }
+

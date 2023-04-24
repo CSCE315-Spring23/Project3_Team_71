@@ -2,16 +2,15 @@ import React, { useEffect } from "react";
 import "../css/popup.css";
 
 const CurOrderPopUp = ({ curItems, handleSubtract, menu }) => {
-
     useEffect(() => {
         console.log(curItems);
     }, [curItems]);
     return (
-        <div className="cur_item_wrap">
-            <h2>Current Order:</h2>
+        <div className="cur-item-wrap">
+            <h1>CURRENT ORDER</h1>
             {Object.entries(curItems).map(([item, quantity]) => (
-                <div key={item} className="cur_item_display">
-                    <div >
+                <div key={item} className="cur-item-display">
+                    <div>
                         {menu[item][1]}: {quantity}
                         <button onClick={() => handleSubtract(item)}>-</button>
                     </div>
