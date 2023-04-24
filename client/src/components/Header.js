@@ -1,9 +1,9 @@
 import "../css/Header.css";
 import React, { useEffect, useState } from "react";
 
+const apiKey = process.env.REACT_APP_WEATHER_API_KEY;
 
 const Header = ({ user, HandleSignOut }) => {
-
     // const [weather, setWeather] = useState("");
     const [lat, setLat] = useState([]);
     const [long, setLong] = useState([]);
@@ -11,16 +11,15 @@ const Header = ({ user, HandleSignOut }) => {
     const [temp, setTemp] = useState("");
     const [icon, setIcon] = useState("");
 
-    const apiKey = process.env.REACT_APP_WEATHER_API_KEY;
-
     useEffect(() => {
-        const fetchData =  () => {
-            navigator.geolocation.getCurrentPosition(function(position) {
-            setLat(position.coords.latitude);
-            setLong(position.coords.longitude);
-            console.log(lat);
-            console.log(long);
-          });
+        console.log(apiKey);
+        const fetchData = () => {
+            navigator.geolocation.getCurrentPosition(function (position) {
+                setLat(position.coords.latitude);
+                setLong(position.coords.longitude);
+                console.log(lat);
+                console.log(long);
+            });
         };
         
         fetchData();
@@ -28,17 +27,15 @@ const Header = ({ user, HandleSignOut }) => {
 
     useEffect(() => {
         const hi = async () => {
-            await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=30&lon=-96&units=imperial&appid=${apiKey}`)
+            await fetch(`https://api.openweathermap.org/data/3.0/onecall?lat=30&lon=-96&units=imperial&appid=${apiKey}`)
             .then((res) => res.json())
             .then( (result) =>  {
-                setTemp(result.main.temp);
-                setIcon(`https://openweathermap.org/img/wn/${result.weather[0].icon}@2x.png`);
-                console.log(result.main.temp);
+                setTemp(result.current.temp);
+                setIcon(`https://openweathermap.org/img/wn/${result.current.weather[0].icon}@2x.png`);
             });  
         };
-        
         hi();       
-    },[lat, long]);
+    },[]);
 
 
     return (
@@ -51,27 +48,29 @@ const Header = ({ user, HandleSignOut }) => {
                             src="../../resource/logo.png"
                         ></img>
                     </a>
+                    <div className="weatherDisplay">
+                        <img
+                            className="weatherIcon"
+                            src={icon}
+                            alt="current temperature"
+                        ></img>
+                        <div className="weather-temp">{temp}°F</div>
+                    </div>
                 </div>
                 <div className="h2">
                     <nav>
                         <ul>
                             <li>
-                                <div className="weatherDisplay">
-                                    {temp}°F
-                                    <img className="weatherIcon" src={icon} alt="current temperature"></img>
-                                </div>
-                            </li>
-                            <li>
                                 {Object.keys(user).length !== 0 && (
-                                    <button className="login" onClick={(e) => HandleSignOut(e)}>
+                                    <button
+                                        className="login"
+                                        onClick={(e) => HandleSignOut(e)}
+                                    >
                                         Sign Out
                                     </button>
                                 )}
                             </li>
-                           
-                            <li>
-                                <a href={`/`}>Home</a>
-                            </li>
+
                             <li>
                                 <a href={`/cashier`}>Cashier</a>
                             </li>
