@@ -18,7 +18,6 @@ const Customer = () => {
         setShowPopUp(!showPopUp);
     };
     useEffect(() => {
-
         const getMenu = async () => {
             const res = await fetch("http://localhost:3001/menu");
             const data = await res.json();
@@ -413,19 +412,22 @@ const Customer = () => {
                 </div>
             </div>
 
-            <button className="complete-customer" onClick={handleComplete}>
-                Finish Order
-            </button>
+            <div className="edit-row-customer">
+                <button
+                    className="edit-button-customer"
+                    onClick={handleComplete}
+                >
+                    Finish Order
+                </button>
 
-            <button className="edit-button-customer" onClick={handlePopUp}>
-                CurOrder
-            </button>
+                <button className="edit-button-customer" onClick={handlePopUp}>
+                    CurOrder
+                </button>
 
-            <button className="new-customer" onClick={handleNewOrder}>
-                New Order
-            </button>
-
-            <div className="price-customer">Price: ${totalCost.toFixed(2)}</div>
+                <div className="price-customer">
+                    ${Math.abs(totalCost).toFixed(2)}
+                </div>
+            </div>
         </>
     );
 };

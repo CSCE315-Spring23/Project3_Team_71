@@ -6,20 +6,13 @@ import { CurOrderContext } from "../../hooks/CurOrderContext";
 import CurOrderPopUp from "../../components/CurOrderPopUp";
 
 function CustomerNew() {
-
-
     const [menu, setMenu] = useState({});
     const [seasonMenu, setSeasonMenu] = useState([]);
     const { totalCost, setTotalCost, curItems, setCurItems } =
         useContext(CurOrderContext);
 
-    const { handleClickExtra, handleComplete, handleNewOrder, handleSubtract } = CashierHelper(
-        curItems,
-        menu,
-        totalCost,
-        setCurItems,
-        setTotalCost
-    );
+    const { handleClickExtra, handleComplete, handleNewOrder, handleSubtract } =
+        CashierHelper(curItems, menu, totalCost, setCurItems, setTotalCost);
 
     const [showPopUp, setShowPopUp] = useState(false);
 
@@ -34,7 +27,8 @@ function CustomerNew() {
 
             const newObj = {};
             for (const key in data) {
-                const { menu_item_id, menu_item_price, menu_item_name } = data[key];
+                const { menu_item_id, menu_item_price, menu_item_name } =
+                    data[key];
                 newObj[menu_item_id] = [menu_item_price, menu_item_name];
             }
 
@@ -50,7 +44,7 @@ function CustomerNew() {
                 .map((key) => ({
                     menuID: key,
                     price: menu[key][0],
-                    name: menu[key][1]
+                    name: menu[key][1],
                 }))
         );
 
@@ -65,47 +59,50 @@ function CustomerNew() {
         console.log(curItems);
     }, [curItems]);
     <div>
-    {showPopUp && (
-        <CurOrderPopUp
-            curItems={curItems}
-            handleSubtract={handleSubtract}
-            menu={menu}
-        />
-    )}
-</div>
-  return (
-    <>
-      <CashierHeader/>
-      <div className="new-btn-container">
-
-      
-      {seasonMenu.map((button, index) => (
-            <div className="new-btn-div">
-                <button  className= "btn-new" key={index} id={button.menuID} onClick={(event) => handleClickExtra(event, 5)}>
-                  {button.name}
-              </button>
+        {showPopUp && (
+            <CurOrderPopUp
+                curItems={curItems}
+                handleSubtract={handleSubtract}
+                menu={menu}
+            />
+        )}
+    </div>;
+    return (
+        <>
+            <CashierHeader />
+            <div className="new-btn-container">
+                {seasonMenu.map((button, index) => (
+                    <div className="new-btn-div">
+                        <button
+                            className="btn-new"
+                            key={index}
+                            id={button.menuID}
+                            onClick={(event) => handleClickExtra(event, 5)}
+                        >
+                            {button.name}
+                        </button>
+                    </div>
+                ))}
             </div>
-              
-          ))}
-        </div>
 
-      <button className="complete-customer" onClick={handleComplete}>
-        Finish Order
-      </button>
+            <div className="edit-row-customer">
+                <button
+                    className="edit-button-customer"
+                    onClick={handleComplete}
+                >
+                    Finish Order
+                </button>
 
-      <button className="edit-button-customer" onClick={handlePopUp}>
+                <button className="edit-button-customer" onClick={handlePopUp}>
                     CurOrder
                 </button>
 
-      <button className="new-customer" onClick={handleNewOrder}>
-        New Order
-      </button>
-
-
-      <div className="price-customer">Price: ${totalCost.toFixed(2)}</div>
-    </>
-  
-  )
+                <div className="price-customer">
+                    ${Math.abs(totalCost).toFixed(2)}
+                </div>
+            </div>
+        </>
+    );
 }
 
-export default CustomerNew
+export default CustomerNew;

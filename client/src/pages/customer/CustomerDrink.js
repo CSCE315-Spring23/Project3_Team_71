@@ -399,19 +399,22 @@ const CustomerDrink = () => {
                 </div>
             </div>
 
-            <button className="complete-customer" onClick={handleComplete}>
-                Finish Order
-            </button>
+            <div className="edit-row-customer">
+                <button
+                    className="edit-button-customer"
+                    onClick={handleComplete}
+                >
+                    Finish Order
+                </button>
 
-            <button className="edit-button-customer" onClick={handlePopUp}>
+                <button className="edit-button-customer" onClick={handlePopUp}>
                     CurOrder
                 </button>
 
-            <button className="new-customer" onClick={handleNewOrder}>
-                New Order
-            </button>
-
-            <div className="price-customer">Price: ${totalCost.toFixed(2)}</div>
+                <div className="price-customer">
+                    ${Math.abs(totalCost).toFixed(2)}
+                </div>
+            </div>
         </div>
     );
 };
