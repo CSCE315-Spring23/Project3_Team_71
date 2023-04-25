@@ -40,8 +40,15 @@ export const CashierHelper = (
         addItem(parseInt(bID));
     };
 
-    const handleClick = (event) => {
-        const bID = event.target.closest('button').id;
+    const handleClick = (event, id = '') => {
+        var bID;
+        if (id === '') {
+        bID = event.target.closest('button').id;
+        }
+        else{
+            bID = id;
+        }
+
         console.log(bID);
         console.log("asdfase");
 
@@ -52,25 +59,25 @@ export const CashierHelper = (
             case "csd":
                 addItem(2);
                 break;
-            case "scs":
+            case "css":
                 addItem(3);
                 break;
             case "scsd":
                 addItem(4);
                 break;
-            case "n8":
+            case "8n":
                 addItem(6);
                 break;
-            case "n12":
+            case "12n":
                 addItem(7);
                 break;
             case "wfm":
                 addItem(12);
                 break;
-            case "ng8":
+            case "8ng":
                 addItem(16);
                 break;
-            case "ng12":
+            case "12ng":
                 addItem(17);
                 break;
             case "csg":
@@ -130,16 +137,16 @@ export const CashierHelper = (
             case "cssmeal":
                 addItem(27);
                 break;
-            case "cssdmeal":
+            case "scsdmeal":
                 addItem(28);
                 break;
             case "csgmeal":
                 addItem(29);
                 break;
-            case "csgdmeal":
+            case "csgcmeal":
                 addItem(35);
                 break;
-            case "wrpmeal":
+            case "ccwgmeal":
                 addItem(36);
                 break;
             case "csmeal":
@@ -245,6 +252,6 @@ export const CashierHelper = (
         handleComplete,
         handleClick,
         handleClickExtra,
-        handleSubtract,
+        handleSubtract
     };
 };

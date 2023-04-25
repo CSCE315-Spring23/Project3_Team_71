@@ -3,16 +3,40 @@ import { CashierHelper } from "../../hooks/CashierHelper";
 import "../../css/Customer.css";
 import { CurOrderContext } from "../../hooks/CurOrderContext";
 import CustomerHeader from "./CustomerHeader";
-import CurOrderPopUp from "../../components/CurOrderPopUp";
 
+import AdPopUp from "../../components/AdPopUp";
+import CurOrderPopUp from "../../components/CurOrderPopUp";
 const Customer = () => {
     const { totalCost, setTotalCost, curItems, setCurItems } =
         useContext(CurOrderContext);
     const [menu, setMenu] = useState("");
-    const { handleClick, handleComplete, handleNewOrder, handleSubtract } =
-        CashierHelper(curItems, menu, totalCost, setCurItems, setTotalCost);
+
+
+    const [ stringID, setStringID] = useState("");
+    const { handleClick, handleComplete, handleNewOrder, handleSubtract} = CashierHelper(
+        curItems,
+        menu,
+        totalCost,
+        setCurItems,
+        setTotalCost
+    );
+
 
     const [showPopUp, setShowPopUp] = useState(false);
+
+    const [showAdPopUp, setAdPopUp] = useState(false);
+
+    const handlePopUpClick = (event) => {
+        const bID = event.target.closest('button').id;
+        console.log(bID);
+        setStringID(bID);
+        handlePopUpState();
+        
+    };
+
+    const handlePopUpState = () => {
+        setAdPopUp(true);
+    };
 
     const handlePopUp = () => {
         setShowPopUp(!showPopUp);
@@ -21,6 +45,7 @@ const Customer = () => {
         const getMenu = async () => {
             const res = await fetch("http://localhost:3001/menu");
             const data = await res.json();
+
 
             const newObj = {};
             for (const key in data) {
@@ -48,6 +73,15 @@ const Customer = () => {
     return (
         <>
             <CustomerHeader />
+            <div>
+                {showAdPopUp && (
+                    <AdPopUp
+                        stringID = {stringID}
+                        handleClick = {handleClick}
+                        setAdPopUp = {setAdPopUp}
+                    />
+                )}
+            </div>
             <div className="c1">
                 <br></br>
                 <h1>Entrees</h1>
@@ -67,7 +101,7 @@ const Customer = () => {
                             type="submit"
                             name="completed"
                             value=""
-                            onClick={handleClick}
+                            onClick={handlePopUpClick}
                             id="cs"
                         ></button>
                     </div>
@@ -87,7 +121,7 @@ const Customer = () => {
                             name="completed"
                             value=""
                             id="csd"
-                            onClick={handleClick}
+                            onClick={handlePopUpClick}
                         ></button>
                     </div>
                     <div className="items-customer">
@@ -105,8 +139,8 @@ const Customer = () => {
                             type="submit"
                             name="completed"
                             value=""
-                            id="scs"
-                            onClick={handleClick}
+                            id="css"
+                            onClick={handlePopUpClick}
                         ></button>
                     </div>
                     <div className="items-customer">
@@ -125,7 +159,7 @@ const Customer = () => {
                             name="completed"
                             value=""
                             id="scsd"
-                            onClick={handleClick}
+                            onClick={handlePopUpClick}
                         ></button>
                     </div>
                 </div>
@@ -148,16 +182,16 @@ const Customer = () => {
                                 type="submit"
                                 name="completed"
                                 value=""
-                                id="n8"
-                                onClick={handleClick}
+                                id="8n"
+                                onClick={handlePopUpClick}
                             ></button>
                             <button
                                 className="add-button-customer"
                                 type="submit"
                                 name="completed"
                                 value=""
-                                id="n12"
-                                onClick={handleClick}
+                                id="12n"
+                                onClick={handlePopUpClick}
                             ></button>
                         </div>
                     </div>
@@ -178,16 +212,16 @@ const Customer = () => {
                                 type="submit"
                                 name="completed"
                                 value=""
-                                id="ng8"
-                                onClick={handleClick}
+                                id="8ng"
+                                onClick={handlePopUpClick}
                             ></button>
                             <button
                                 className="add-button-customer"
                                 type="submit"
                                 name="completed"
                                 value=""
-                                id="ng12"
-                                onClick={handleClick}
+                                id="12ng"
+                                onClick={handlePopUpClick}
                             ></button>
                         </div>
                     </div>
@@ -207,7 +241,7 @@ const Customer = () => {
                             name="completed"
                             value=""
                             id="csg"
-                            onClick={handleClick}
+                            onClick={handlePopUpClick}
                         ></button>
                     </div>
                     <div className="items-customer">
@@ -226,7 +260,7 @@ const Customer = () => {
                             name="completed"
                             value=""
                             id="csgc"
-                            onClick={handleClick}
+                            onClick={handlePopUpClick}
                         ></button>
                     </div>
                 </div>
@@ -248,7 +282,7 @@ const Customer = () => {
                             name="completed"
                             value=""
                             id="ccwg"
-                            onClick={handleClick}
+                            onClick={handlePopUpClick}
                         ></button>
                     </div>
                     <div className="items-customer">
@@ -311,6 +345,7 @@ const Customer = () => {
                 </div>
 
                 <h1>Sides</h1>
+                <h1>...</h1>
 
                 <div className="button-row-customer">
                     <div className="items-customer">
@@ -429,6 +464,7 @@ const Customer = () => {
                 </div>
             </div>
         </>
+        
     );
 };
 export default Customer;
