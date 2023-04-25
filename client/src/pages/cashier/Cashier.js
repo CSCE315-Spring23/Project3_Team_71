@@ -36,7 +36,6 @@ const Cashier = () => {
 
     return (
         <div className="btn-wrap">
-            {/* <h1>{JSON.stringify(menu, null, 2)}</h1> */}
             <CashierHeader />
 
             <div className="button-row-cashier">

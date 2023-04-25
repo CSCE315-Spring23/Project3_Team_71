@@ -7,8 +7,7 @@
     display: block;
     padding: 1rem 2rem;
     margin: 1rem;
-    width: 10rem;
-    height: 7rem;
+
     color: #fff;
     background-color: #e51636;
     border: none;
@@ -26,6 +25,7 @@
     cursor: pointer;
 }
 
+/*TABS*/
 .btn-header-cashier {
     border: none;
     background-color: white;

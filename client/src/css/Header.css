@@ -1,5 +1,5 @@
 .header {
-    background-color: rgb(235, 220, 206);
+    background-color: white;
     display: flex;
     font-size: calc(10px + 2vmin);
     color: #e51636;
@@ -81,6 +81,11 @@ nav {
     justify-content: center;
     height: inherit;
     margin-left: 2rem;
+    padding-right: 1rem;
+    
+    background-color: #f02745;
+    color: white;
+    box-shadow: -10px 0px 10px -10px #f02745, 10px 0px 10px -10px #f02745;
 
 }
 
