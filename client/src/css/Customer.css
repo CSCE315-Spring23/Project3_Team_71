@@ -127,10 +127,11 @@ box-shadow: 0 0 5px #999; */
 
 .edit-button-customer {
     color: white;
+    /* max-height: 60%; */
     background-color: #e51636;
     border: none;
-    font-size: 1.5rem;
-    padding: 1.5rem;
+    font-size: 1.2rem;
+    padding: 1.3rem;
     margin: .5rem;
     border-radius: 30px;
     transition: background-color 0.3s ease;
@@ -139,4 +140,28 @@ box-shadow: 0 0 5px #999; */
 .edit-button-customer:hover {
     cursor: pointer;
     background-color: #940e23;
+}
+.new-btn-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    
+}
+.btn-new {
+    padding:1.5vw;
+    border:none;
+    border-radius: 10%;
+    margin: 1vw;
+}
+.btn-new:hover {
+    padding:1.5vw;
+    border:none;
+    border-radius: 10%;
+    margin: 1vw;
+    color: white; 
+    background-color: #e51636;
+    transition: background-color 0.3s ease;
+
+
 }

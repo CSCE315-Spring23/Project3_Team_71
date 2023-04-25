@@ -41,17 +41,17 @@ const Header = ({ user, HandleSignOut }) => {
 
 
     // fetch weather data
-    // useEffect(() => {
-    //     const weather = async () => {
-    //         await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=30.621&lon=-96.34&units=imperial&appid=${apiKey}`)
-    //         .then((res) => res.json())
-    //         .then( (result) =>  {
-    //             setTemp(result.main.temp);
-    //             setIcon(`https://openweathermap.org/img/wn/${result.weather[0].icon}@2x.png`);
-    //         });  
-    //     };
-    //     weather();       
-    // },[]);
+    useEffect(() => {
+        const weather = async () => {
+            await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=30.621&lon=-96.34&units=imperial&appid=${apiKey}`)
+            .then((res) => res.json())
+            .then( (result) =>  {
+                setTemp(result.main.temp);
+                setIcon(`https://openweathermap.org/img/wn/${result.weather[0].icon}@2x.png`);
+            });  
+        };
+        weather();       
+    },[]);
 
 
     return (
@@ -68,7 +68,7 @@ const Header = ({ user, HandleSignOut }) => {
                         <img
                             className="weatherIcon"
                             src={icon}
-                            alt="current temperature"
+                            alt="current temperature icon"
                         ></img>
                         <div className="weather-temp">{temp}°F</div>
                     </div>
