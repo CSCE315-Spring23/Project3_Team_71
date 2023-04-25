@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
-import "../css/adpopup.css";
 const AdPopUp = (stringID, handleClick, setAdPopUp) => {
     const mealid = stringID.stringID + "meal";
 
     function handleClicker (event) {
+        console.log(event.target.closest('button').id)
         stringID.handleClick(event);
         stringID.setAdPopUp(false);
     }

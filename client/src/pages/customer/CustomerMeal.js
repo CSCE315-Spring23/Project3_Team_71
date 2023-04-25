@@ -126,7 +126,7 @@ const CustomerMeal = () => {
                             type="submit"
                             name="completed"
                             value=""
-                            id="cssdmeal"
+                            id="scsdmeal"
                             onClick={handleClick}
                         ></button>
                     </div>
@@ -237,7 +237,7 @@ const CustomerMeal = () => {
                             type="submit"
                             name="completed"
                             value=""
-                            id="csgdmeal"
+                            id="csgcmeal"
                             onClick={handleClick}
                         ></button>
                     </div>
@@ -256,7 +256,7 @@ const CustomerMeal = () => {
                             type="submit"
                             name="completed"
                             value=""
-                            id="wrpmeal"
+                            id="ccwgmeal"
                             onClick={handleClick}
                         ></button>
                     </div>

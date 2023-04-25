@@ -139,7 +139,7 @@ const Customer = () => {
                             type="submit"
                             name="completed"
                             value=""
-                            id="scs"
+                            id="css"
                             onClick={handlePopUpClick}
                         ></button>
                     </div>
@@ -182,7 +182,7 @@ const Customer = () => {
                                 type="submit"
                                 name="completed"
                                 value=""
-                                id="n8"
+                                id="8n"
                                 onClick={handlePopUpClick}
                             ></button>
                             <button
@@ -190,7 +190,7 @@ const Customer = () => {
                                 type="submit"
                                 name="completed"
                                 value=""
-                                id="n12"
+                                id="12n"
                                 onClick={handlePopUpClick}
                             ></button>
                         </div>
@@ -212,7 +212,7 @@ const Customer = () => {
                                 type="submit"
                                 name="completed"
                                 value=""
-                                id="ng8"
+                                id="8ng"
                                 onClick={handlePopUpClick}
                             ></button>
                             <button
@@ -220,7 +220,7 @@ const Customer = () => {
                                 type="submit"
                                 name="completed"
                                 value=""
-                                id="ng12"
+                                id="12ng"
                                 onClick={handlePopUpClick}
                             ></button>
                         </div>
