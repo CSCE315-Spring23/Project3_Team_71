@@ -12,6 +12,7 @@ const Home = ({ user, setUser }) => {
         console.log(userObject);
         setUser(userObject);
         console.log("logged in: ", user.email);
+        document.location.assign("/customer");
     }
 
     useEffect(() => {

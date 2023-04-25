@@ -42,6 +42,7 @@ const PrivateRouteManager = React.memo(({ children }) => {
                 // do something here if success
                 // setShouldRender(true); // not needed
                 setShouldRender(true);
+
             } else {
                 console.log("priv failed");
                 // do something here if it failed

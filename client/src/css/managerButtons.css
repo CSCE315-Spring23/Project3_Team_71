@@ -1,0 +1,68 @@
+.m-btn {
+    height: calc(100vh - 5rem);
+}
+.m-btn {
+  display: block;
+  padding: 1rem 2rem;
+  margin: 1rem;
+  width: 10rem;
+  height: 7rem;
+  color: #fff;
+  background-color: #e51636;
+  border: none;
+  border-radius: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.btn-img-cashier {
+    max-width: 4rem;
+    max-height: 4rem;
+}
+
+.m-btn:hover {
+    background-color: #940e23;
+    cursor: pointer;
+}
+
+.navbar {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(245, 243, 241);
+    color: #fff;
+    padding: 10px;
+    width: 10%;
+    max-height: 1080px;
+    overflow-y: auto;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  @media only screen and (max-width: 600px) {
+    .navbar {
+      font-size: 12px;
+    }
+  }
+  /* Set up styles for the buttons within the nav bar */
+  /*
+  .navbar button {
+    display: block;
+    background-color: #444;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    margin: 5px 0;
+    cursor: pointer;
+  }
+  */
+  /* Set up hover styles for the buttons */
+  /*
+  .navbar button:hover {
+    background-color: #555;
+  }
+  */
+
+  /* Set up active styles for the selected button */
+  .navbar button.active {
+    background-color: #fff;
+    color: #333;
+  }

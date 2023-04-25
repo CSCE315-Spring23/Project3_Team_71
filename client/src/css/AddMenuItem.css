@@ -1,0 +1,73 @@
+#menuadder {
+    margin:0px;
+    margin-left: 400px;
+    margin-top: 100px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    position: absolute;
+  }
+  
+  #menuadder h3 {
+    margin-top: 0;
+  }
+  
+  #menuadder-form {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  #menuadder-form label {
+    margin-right: 10px;
+    margin-top: 10px;
+  }
+  
+  #menuadder-form input[type="text"],
+  #menuadder-form input[type="number"] {
+    padding: 5px;
+    margin-top: 10px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    flex: 1;
+    max-width: 300px;
+  }
+  
+  #menuadder-form button[type="button"] {
+    padding: 5px 10px;
+    margin-top: 10px;
+    background-color: rgb(240, 46, 46);
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  #menuadder-form button[type="button"]:hover {
+    background-color: rgb(249, 3, 3);
+  }
+  
+  #menuadder-form ul {
+    margin-top: 10px;
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  #menuadder-form li {
+    margin-bottom: 5px;
+  }
+  
+  #menuadder-form button[type="button"].done-button {
+    margin-top: 10px;
+    padding: 5px 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  #menuadder-form button[type="button"].done-button:hover {
+    background-color: rgb(231, 74, 74);
+  }

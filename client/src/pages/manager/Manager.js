@@ -10,7 +10,8 @@ import AddIngredient from "./AddIngredient";
 import ExcessReport from "./ExcessReport";
 import RestockReport from "./RestockReport";
 
-import "../../css/Manager.css";
+
+import "../../css/managerButtons.css";
 
 const Manager = () => {
     const [activeFunction, setFunction] = useState(null);
@@ -29,7 +30,8 @@ const Manager = () => {
     };
     return (
         <div>
-            <div className="button-row-1">
+        <div className = "navbar">
+
                 <button
                     className="m-btn"
                     onClick={() => handleManagerFunction("orderFunction")}
@@ -64,9 +66,9 @@ const Manager = () => {
                         ? "Hide Sales Report"
                         : "Sales Report"}
                 </button>
-            </div>
 
-            <div className="button-row-2">
+
+
                 <button
                     className="m-btn"
                     onClick={() => handleManagerFunction("changeMenuFunction")}
@@ -103,9 +105,9 @@ const Manager = () => {
                         ? "Hide Add Ingredient"
                         : "Change Add Ingredient"}
                 </button>
-            </div>
 
-            <div className="button-row-3">
+
+
                 <button
                     className="m-btn"
                     onClick={() => handleManagerFunction("excessReport")}
@@ -123,8 +125,7 @@ const Manager = () => {
                         ? "Hide Excess Report"
                         : "Restock Report"}
                 </button>
-            </div>
-
+                </div>
             {activeFunction === "orderFunction" && <Orders />}
             {activeFunction === "menuItemsFunction" && <MenuItems />}
             {activeFunction === "inventoryFunction" && <Inventory />}
