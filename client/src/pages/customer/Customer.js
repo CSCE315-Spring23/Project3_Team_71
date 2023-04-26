@@ -456,7 +456,7 @@ const Customer = () => {
                 </button>
 
                 <button className="edit-button-customer" onClick={handlePopUp}>
-                    CurOrder
+                    Current Order
                 </button>
 
                 <div className="price-customer">

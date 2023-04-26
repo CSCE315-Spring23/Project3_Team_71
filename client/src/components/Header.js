@@ -68,7 +68,7 @@ const Header = ({ user, HandleSignOut }) => {
                         <img
                             className="weatherIcon"
                             src={icon}
-                            alt="current temperature"
+                            alt="current temperature icon"
                         ></img>
                         <div className="weather-temp">{temp}°F</div>
                     </div>
