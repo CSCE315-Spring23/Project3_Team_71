@@ -122,7 +122,7 @@ const Manager = () => {
                     onClick={() => handleManagerFunction("RestockReport")}
                 >
                     {activeFunction === "RestockReport"
-                        ? "Hide Excess Report"
+                        ? "Hide Restock Report"
                         : "Restock Report"}
                 </button>
                 </div>
