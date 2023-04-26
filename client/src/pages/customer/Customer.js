@@ -73,15 +73,6 @@ const Customer = () => {
     return (
         <>
             <CustomerHeader />
-            <div>
-                {showAdPopUp && (
-                    <AdPopUp
-                        stringID = {stringID}
-                        handleClick = {handleClick}
-                        setAdPopUp = {setAdPopUp}
-                    />
-                )}
-            </div>
             <div className="c1">
                 <br></br>
                 <h1>Entrees</h1>
@@ -462,6 +453,16 @@ const Customer = () => {
                 <div className="price-customer">
                     ${Math.abs(totalCost).toFixed(2)}
                 </div>
+            </div>
+
+            <div>
+                {showAdPopUp && (
+                    <AdPopUp
+                        stringID = {stringID}
+                        handleClick = {handleClick}
+                        setAdPopUp = {setAdPopUp}
+                    />
+                )}
             </div>
         </>
         

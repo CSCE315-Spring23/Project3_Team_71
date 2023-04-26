@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import "../css/ad.css";
 const AdPopUp = (stringID, handleClick, setAdPopUp) => {
     const mealid = stringID.stringID + "meal";
 
@@ -10,9 +11,13 @@ const AdPopUp = (stringID, handleClick, setAdPopUp) => {
     
     return (
         <>
-        <div>
-            <h2>Do you want to make this a meal? Do it...</h2>
+        <div id="adwrap">
+            <div className="heading">
+            <h2>Do you want to make this a meal? Do it... you know you want to</h2>
+            </div>
+            <div className="new-btn-container">
             <button
+                className="btn-new"
                 type="submit"
                 name="completed"
                 value=""
@@ -20,12 +25,14 @@ const AdPopUp = (stringID, handleClick, setAdPopUp) => {
                 onClick={handleClicker}
             >Yes</button>
             <button
+                className="btn-new"
                 type="submit"
                 name="completed"
                 value=""
                 id = {stringID.stringID}
                 onClick={handleClicker}
             >No</button>
+            </div>
         </div>
         </>
     );
