@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-
+import "../../css/AddMenuItem.css";
 
 const ChangeIngredient = () => {
 
@@ -33,9 +33,10 @@ const ChangeIngredient = () => {
 
 
   return (
-    <div>
-      <h2>Change a Ingredient</h2>
-      <form>
+    <div id = "menuadder">
+
+      <h3>Change a Ingredient</h3>
+      <form id = 'menuadder-form'>
         <input 
         type = "text"
         id = "ingredientID" 
@@ -64,8 +65,8 @@ const ChangeIngredient = () => {
         <button type ="button" onClick ={handleSubmit}>Change Ingredient</button>
       </form>
 
+  </div>
 
-    </div>
   )
 }
 

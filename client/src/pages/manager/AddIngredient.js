@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "../../css/AddMenuItem.css";
 
 function UserInputLogger() {
   const [inputValue, setInputValue] = useState("");
@@ -12,9 +13,11 @@ function UserInputLogger() {
   };
 
   return (
-    <div>
+    <div id = "menuadder">
+    <div id = "menuadder-form">
       <input type="text" value={inputValue} onChange={handleInputChange} />
       <button onClick={handleButtonClick}>Log Input Value</button>
+    </div>
     </div>
   );
 }

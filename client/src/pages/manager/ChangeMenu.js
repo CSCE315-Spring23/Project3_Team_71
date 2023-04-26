@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-
+import "../../css/AddMenuItem.css";
 const ChangeMenu = () => {
   const [id, setId] = useState('');
   const [price, setPrice] = useState('');
@@ -30,9 +30,9 @@ const ChangeMenu = () => {
     setName(event.target.value);
   };
   return (
-    <div>
-      <h2>Change a Menu Item</h2>
-      <form>
+    <div id = "menuadder">
+    <h3>Change a Menu Item</h3>
+      <form id = "menuadder-form">
         <input 
         type = "text"
         id = "menuID" 
@@ -60,7 +60,8 @@ const ChangeMenu = () => {
         />
         <button type ="button" onClick ={handleSubmit}>Change Menu Item</button>
       </form>
-    </div>
+      </div>
+
   )
 }
 

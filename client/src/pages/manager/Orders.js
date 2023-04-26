@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "../../css/Manager.css"
 //YYYY-MM-DD FORMAT
 
+import "../../css/order.css"
 const Orders = () => {
   const [items, setOrders] = useState([]);
 
@@ -26,15 +27,16 @@ const Orders = () => {
   };
   return (
     <div>
+      <div id = "menuadder1">
       <h2>Orders</h2>
-
+      
       {/* <p>To use, enter the beginning and end dates in a YYYY-MM-DD Format</p> */}
+      
       <div className="prompt-orders">
         <p>Enter the beginning and end date</p>
       </div>
-      
-
-      <form>
+    
+      <form id = "menuadder-form1">
         <input 
         type = "date"
         id = "beginningdate" 
@@ -55,6 +57,8 @@ const Orders = () => {
         />
         <button type ="button" onClick ={handleSubmit}>Output Orders</button>
       </form>
+      </div>
+    
     <div className="container">
       <table className="table table-bordered text-white">
       <thead>
@@ -78,6 +82,7 @@ const Orders = () => {
     </table>
     </div>
     </div>
+
   )
 }
 
