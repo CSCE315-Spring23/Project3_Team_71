@@ -443,11 +443,11 @@ const Customer = () => {
                     className="edit-button-customer"
                     onClick={handleComplete}
                 >
-                    Finish Order
+                    Finish
                 </button>
 
                 <button className="edit-button-customer" onClick={handlePopUp}>
-                    Current Order
+                    Edit
                 </button>
 
                 <div className="price-customer">

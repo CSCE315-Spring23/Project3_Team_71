@@ -196,11 +196,11 @@ const CashierMeal = () => {
 
             <div className="edit-row-cashier">
                 <button className="edit-button-cashier" onClick={handleComplete}>
-                    Finish Order
+                    Finish
                 </button>
 
                 <button className="edit-button-cashier" onClick={handlePopUp}>
-                    CurOrder
+                    Edit
                 </button>
 
                 <div className="price-cashier">

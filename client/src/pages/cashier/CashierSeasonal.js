@@ -61,7 +61,7 @@ const CashierSeasonal = () => {
                         id={button.menuID}
                         onClick={(event) => handleClickExtra(event, 5)}
                     >
-                        {button.name}
+                        <h2>{button.name}</h2>
                     </button>
                 ))}
                 <div>
@@ -79,14 +79,14 @@ const CashierSeasonal = () => {
                         className="edit-button-cashier"
                         onClick={handleComplete}
                     >
-                        Finish Order
+                        Finish
                     </button>
 
                     <button
                         className="edit-button-cashier"
                         onClick={handlePopUp}
                     >
-                        CurOrder
+                        Edit
                     </button>
 
                     <div className="price-cashier">

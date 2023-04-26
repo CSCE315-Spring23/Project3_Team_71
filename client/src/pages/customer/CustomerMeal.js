@@ -268,11 +268,11 @@ const CustomerMeal = () => {
                     className="edit-button-customer"
                     onClick={handleComplete}
                 >
-                    Finish Order
+                    Finish
                 </button>
 
                 <button className="edit-button-customer" onClick={handlePopUp}>
-                    CurOrder
+                    Edit
                 </button>
 
                 <div className="price-customer">

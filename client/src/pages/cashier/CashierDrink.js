@@ -171,7 +171,7 @@ const CashierDrink = () => {
                         alt="Chocolate Chunk Cookie"
                         className="btn-img-cashier"
                     />
-                    <h1>COOKIE</h1>
+                    <h1>C</h1>
                 </button>
             </div>
 
@@ -262,11 +262,11 @@ const CashierDrink = () => {
                     className="edit-button-cashier"
                     onClick={handleComplete}
                 >
-                    Finish Order
+                    Finish
                 </button>
 
                 <button className="edit-button-cashier" onClick={handlePopUp}>
-                    CurOrder
+                    Edit
                 </button>
 
                 <div className="price-cashier">

@@ -109,12 +109,15 @@ box-shadow: 0 0 5px #999; */
     bottom: 0;
     right: 0;
 
-    width: 35%;
+    width: 35rem;
     height: 10%;
 
     border-top: solid 4px red;
     border-left: solid 4px red;
     border-top-left-radius: 1rem;
+
+    box-shadow: -5px 0 5px rgba(0, 0, 0, .2);
+
 
     background-color: white;
 }
@@ -127,12 +130,11 @@ box-shadow: 0 0 5px #999; */
 
 .edit-button-customer {
     color: white;
-    /* max-height: 60%; */
     background-color: #e51636;
     border: none;
-    font-size: 1.2rem;
-    padding: 1.3rem;
-    margin: .5rem;
+    font-size: 1.5rem;
+    padding: 1.2rem 2.5rem;
+    margin: 1rem;
     border-radius: 30px;
     transition: background-color 0.3s ease;
 }
