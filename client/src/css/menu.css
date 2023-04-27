@@ -1,30 +1,67 @@
 *{
     padding: 0;
     margin: 0;
+    /* border:#e51636;
+    border-style: solid; */
+
 }
 .header{
     align-items: center;
 }
 .bdy {
-    padding-left: 10px;
-    margin:0%;
+    padding: 10px;
+    margin:2%;
     display: flex;
     flex: 0 100%;
     flex-direction: row;
+    height:max-content;
+    /* font-family: 'apercu',sans-serif; */
+    /* font-family: 'Helvetica', 'Arial', sans-serif; */
+    font-family: 'Lato', sans-serif;
+/* font-family: 'Montserrat', sans-serif; */
+    background-color: white;
+
 }
 .b1 {
     display: flex;
-    flex: 40%;
+    flex: 20%;
     flex-wrap: wrap;
     flex-direction: column;
-    height: 100%;
+    height:max-content;
+    margin-top: 10px;
+    /* box-shadow: -5px 0 2px -2px rgba(0, 0, 0, 0.453), 5px 0 2px -2px rgba(0, 0, 0, 0.453); */
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.453);
+    /* height: fit-content; */
+}
+
+.b1 h2 {
+    font-weight:bold;
+    /* font-size: larger; */
+    font-size: xx-large;
+}
+.b1 h3 {
+    font-weight:bold;
+    font-size: x-large;
+
+}
+.b1 h4 {
+    font-weight:bold;
+    font-size: large;
+
 }
 .b {
     display: flex;
     flex: 20%;
     flex-wrap: wrap;
     flex-direction: column;
+    /* padding: 10px; */
+    margin: 10px;
+
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.453);
+
+
 }
+
 .s1 {
     flex: 20%;
     display: flex;
@@ -32,16 +69,7 @@
     flex-direction: row;
   
 }
-.sandwich1 {
-    flex: 50%;
-    flex-wrap: wrap;
-    align-items: stretch;
-    
-}
-.sandwich2 {
-    flex: 50%;
-    flex-wrap: wrap;
-}
+
 .s {
     flex: 20%;
     flex-wrap: wrap;
@@ -51,26 +79,57 @@
     border-color: black;
 }
 
-.sides {
+
+.uppermenu {
+    display: flex;
+    /* flex: 60%; */
+}
+.rhs-menu {
+    flex: 60%;
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
-    align-items: stretch;
-}
-.side {
-    padding-left: 20px;
-}
-.sidewrapper {
-    display: flex;
-    flex: auto;
-    flex-direction: row;
-}
 
+    /* overflow: hidden; */
+}
+.rhs-menu h2 {
+    font-size: xx-large;
+}
+.rhs-menu h3 {
+    font-size: x-large;
+}
+.rhs-menu h4 {
+    font-size: large;
+}
 
 
 .menuImg {
-    max-width: 100px;
-    max-height: 100px;
+    max-width: 10vw;
+    max-height: 8vw;
+    justify-self: center;
+    align-self: center;
+}
+.menuImg1 {
+    max-width: 14vw;
+    max-height: 10vw;
+    justify-self: center;
+    align-self: center;
+}
+
+.rhs {
+    display:flex;
+    flex-direction: column;
+    margin-left: 5px;
+}
+.lhs {
+    display:flex;
+    flex-direction: column;
+    margin-right: 5px;
+}
+.lhs1 {
+    display:flex;
+    flex-direction: column;
+    background-color: #f0f0f0;
+
 }
 .newitems {
     list-style-type: none;
@@ -78,15 +137,73 @@
     padding-bottom: 10px;
     tab-size: 4;
 }
-.bdy2 {
+.lowermenu {
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
-    justify-content:space-around ;
+    /* flex-wrap: wrap; */
+    justify-content:space-between !important;
+    /* width: fit-content; */
+    /* border: #e51636;
+    border-width:medium ;
+    border-style: solid;
+    border-radius: 2%; */
+    width: 90%;
+    height: 100%;
+    padding:1vw;
+    margin:2vw 1vw 1vw 3vw;
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.453);
+
+
+    /* align-items: stretch; */
 }
 
-@media (max-width: 800px) {
-    .sandwich1, .sandwich2 {
-      flex: 100%;
-    }
+.sidewrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
 }
+.sidewrapper lhs {
+    padding-right: 5%;
+}
+
+.containerR {
+    display: flex;
+    justify-content: space-between;
+    background-color: #f0f0f0;
+
+}
+
+.containerR1{
+    display: flex;
+    justify-content: space-between;
+}
+.containerL {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+}
+.containerL1 {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    background-color: #f0f0f0;
+
+}
+
+
+.item-list{
+    display: flex;
+    flex-direction: column;
+    /* flex-wrap: wrap; */
+    height: 12vw;
+}
+
+rect {
+    fill:#e51636;
+
+}
+svg {
+    height: 30px;
+}
+
+
