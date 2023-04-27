@@ -55,7 +55,7 @@ const Cashier = () => {
                     />
                     <h1>CSD</h1>
                 </button>
-                <button className="btn-cashier" id="scs" onClick={handleClick}>
+                <button className="btn-cashier" id="css" onClick={handleClick}>
                     <img
                         src="/resource/CFASpicySandwich.png"
                         alt="Chick-Fil-A Nuggets"
@@ -71,7 +71,7 @@ const Cashier = () => {
                     />
                     <h1>SSD</h1>
                 </button>
-                <button className="btn-cashier" id="n8" onClick={handleClick}>
+                <button className="btn-cashier" id="8n" onClick={handleClick}>
                     <img
                         src="/resource/nuggets_8ct.png"
                         alt="Chick-Fil-A Nuggets"
@@ -82,7 +82,7 @@ const Cashier = () => {
             </div>
 
             <div className="button-row-cashier">
-                <button className="btn-cashier" id="n12" onClick={handleClick}>
+                <button className="btn-cashier" id="12n" onClick={handleClick}>
                     <img
                         src="/resource/nuggets_8ct.png"
                         alt="Chick-Fil-A Nuggets"
@@ -90,7 +90,7 @@ const Cashier = () => {
                     />
                     <h1>N12</h1>
                 </button>
-                <button className="btn-cashier" id="ng8" onClick={handleClick}>
+                <button className="btn-cashier" id="8ng" onClick={handleClick}>
                     <img
                         src="/resource/grilledNuggets_8ct.png"
                         alt="Chick-Fil-A Nuggets"
@@ -98,7 +98,7 @@ const Cashier = () => {
                     />
                     <h1>G8</h1>
                 </button>
-                <button className="btn-cashier" id="ng12" onClick={handleClick}>
+                <button className="btn-cashier" id="12ng" onClick={handleClick}>
                     <img
                         src="/resource/grilledNuggets_8ct.png"
                         alt="Chick-Fil-A Nuggets"

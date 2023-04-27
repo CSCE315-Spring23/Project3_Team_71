@@ -133,7 +133,7 @@ const CashierMeal = () => {
                 </button>
                 <button
                     className="btn-cashier"
-                    id="cssdmeal"
+                    id="csdmeal"
                     onClick={handleClick}
                 >
                     <img
@@ -157,7 +157,7 @@ const CashierMeal = () => {
                 </button>
                 <button
                     className="btn-cashier"
-                    id="csgdmeal"
+                    id="csgcmeal"
                     onClick={handleClick}
                 >
                     <img
@@ -172,7 +172,7 @@ const CashierMeal = () => {
             <div className="button-row-cashier">
                 <button
                     className="btn-cashier"
-                    id="wrpmeal"
+                    id="ccwgmeal"
                     onClick={handleClick}
                 >
                     <img
