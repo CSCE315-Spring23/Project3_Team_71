@@ -1,8 +1,9 @@
 .container {
     position: absolute;
-    top: 450px;
-    left: 50%;
-    max-height: 500px;
+    top: 53vh;
+    left: 107vh;
+    max-height: 75vh;
+    max-width:110vh;
     overflow-y: scroll;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);

@@ -18,3 +18,7 @@
     display: flex;
     
 }
+.body{
+    overflow:auto;
+    display: flex;
+}
