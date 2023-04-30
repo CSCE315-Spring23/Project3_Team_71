@@ -46,7 +46,7 @@ const Customer = () => {
             const res = await fetch("http://localhost:3001/menu");
             const data = await res.json();
 
-
+            console.log(res);
             const newObj = {};
             for (const key in data) {
                 const { menu_item_id, menu_item_price, menu_item_name } =

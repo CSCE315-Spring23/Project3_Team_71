@@ -12,6 +12,24 @@ export const CashierHelper = (
         setTotalCost(0);
     };
 
+    const handleInventory = async (key) => {
+        const result3 = await fetch(`http://localhost:3001/recipe/${key}`);
+        const data = await result3.json();
+
+        data.forEach(async (item) => {
+            console.log(item.inventory_id);
+            const result4 = await fetch(
+                `http://localhost:3001/updateInventory/${
+                    curItems[key] * item.quantity
+                }/${item.inventory_id}`
+            );
+
+            console.log(result4);
+        });
+
+        console.log("asgegege\n\n");
+    };
+
     const handleComplete = async () => {
         const result = await fetch(
             `http://localhost:3001/addOrderItems/${totalCost}/${true}`
@@ -27,7 +45,8 @@ export const CashierHelper = (
             const result2 = await fetch(
                 `http://localhost:3001/createOrder/${data[0].order_id}/${key}/${curItems[key]}`
             );
-            console.log(result2);
+
+            handleInventory(key);
         }
 
         handleNewOrder();
@@ -40,12 +59,11 @@ export const CashierHelper = (
         addItem(parseInt(bID));
     };
 
-    const handleClick = (event, id = '') => {
+    const handleClick = (event, id = "") => {
         var bID;
-        if (id === '') {
-        bID = event.target.closest('button').id;
-        }
-        else{
+        if (id === "") {
+            bID = event.target.closest("button").id;
+        } else {
             bID = id;
         }
 
@@ -252,6 +270,6 @@ export const CashierHelper = (
         handleComplete,
         handleClick,
         handleClickExtra,
-        handleSubtract
+        handleSubtract,
     };
 };
