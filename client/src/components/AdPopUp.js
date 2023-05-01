@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "../css/ad.css";
-const AdPopUp = ({ stringID, handleClick, setAdPopUp, menu, handleClickExtra }) => {
+const AdPopUp = ({ stringID, handleClick, setAdPopUp, menu, handleClickExtra, showAd }) => {
 
     const [sauceMenu, setSauceMenu] = useState([]);
     
@@ -29,6 +29,15 @@ const AdPopUp = ({ stringID, handleClick, setAdPopUp, menu, handleClickExtra }) 
     return (
         <>
             <div id="adwrap">
+                
+                <div className ="exit">
+                <button
+                        onClick={(event) => {setAdPopUp(false)}}
+                    >
+                        Exit
+                    </button>
+                </div>
+                {showAd && (<div>
                 <div className="heading">
                     <h2>
                         Do you want to make this a meal? Do it... you know you
@@ -51,7 +60,7 @@ const AdPopUp = ({ stringID, handleClick, setAdPopUp, menu, handleClickExtra }) 
                         No
                     </button>
                 </div>
-
+                </div>)}
                 {sauceMenu.map((button, index) => (
                     <button
                         className="btn-cashier"

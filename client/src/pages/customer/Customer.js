@@ -19,6 +19,8 @@ const Customer = () => {
 
     const [showAdPopUp, setAdPopUp] = useState(false);
 
+    const [showAd, setAd] = useState(true);
+
     const handlePopUpClick = (event) => {
         const bID = event.target.closest("button").id;
         console.log(bID);
@@ -26,8 +28,14 @@ const Customer = () => {
         handlePopUpState();
     };
 
+    const handlePopupNoAd = () => {
+        setAdPopUp(true);
+        setAd(false);
+    }
+
     const handlePopUpState = () => {
         setAdPopUp(true);
+        setAd(true);
     };
 
     const handlePopUp = () => {
@@ -455,6 +463,7 @@ const Customer = () => {
                         setAdPopUp={setAdPopUp}
                         menu={menu}
                         handleClickExtra={handleClickExtra}
+                        showAd = {showAd}
                     />
                 )}
             </div>

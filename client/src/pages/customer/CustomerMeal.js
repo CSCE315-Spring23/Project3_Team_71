@@ -5,15 +5,29 @@ import "../../css/Customer.css";
 import { CurOrderContext } from "../../hooks/CurOrderContext";
 import CurOrderPopUp from "../../components/CurOrderPopUp";
 
+import AdPopUp from "../../components/AdPopUp";
+
 const CustomerMeal = () => {
     const [menu, setMenu] = useState("");
     const { totalCost, setTotalCost, curItems, setCurItems } =
         useContext(CurOrderContext);
 
-    const { handleClick, handleComplete, handleNewOrder, handleSubtract } =
+    const [stringID, setStringID] = useState("");
+
+    const { handleClick, handleComplete, handleNewOrder, handleSubtract, handleClickExtra } =
         CashierHelper(curItems, menu, totalCost, setCurItems, setTotalCost);
 
     const [showPopUp, setShowPopUp] = useState(false);
+
+    const [showAdPopUp, setAdPopUp] = useState(false);
+
+    const [showAd, setAd] = useState(true);
+
+    const handlePopupNoAd = (event) => {
+        setAdPopUp(true);
+        setAd(false);
+        handleClick(event);
+    }
 
     const handlePopUp = () => {
         setShowPopUp(!showPopUp);
@@ -70,7 +84,7 @@ const CustomerMeal = () => {
                             name="completed"
                             value=""
                             id="csmeal"
-                            onClick={handleClick}
+                            onClick={handlePopupNoAd}
                         ></button>
                     </div>
                     <div className="items-customer">
@@ -89,7 +103,7 @@ const CustomerMeal = () => {
                             name="completed"
                             value=""
                             id="csdmeal"
-                            onClick={handleClick}
+                            onClick={handlePopupNoAd}
                         ></button>
                     </div>
                     <div className="items-customer">
@@ -108,7 +122,7 @@ const CustomerMeal = () => {
                             name="completed"
                             value=""
                             id="cssmeal"
-                            onClick={handleClick}
+                            onClick={handlePopupNoAd}
                         ></button>
                     </div>
                     <div className="items-customer">
@@ -127,7 +141,7 @@ const CustomerMeal = () => {
                             name="completed"
                             value=""
                             id="scsdmeal"
-                            onClick={handleClick}
+                            onClick={handlePopupNoAd}
                         ></button>
                     </div>
                 </div>
@@ -150,7 +164,7 @@ const CustomerMeal = () => {
                                 name="completed"
                                 value=""
                                 id="8nmeal"
-                                onClick={handleClick}
+                                onClick={handlePopupNoAd}
                             ></button>
                             <button
                                 className="add-button-customer"
@@ -158,7 +172,7 @@ const CustomerMeal = () => {
                                 name="completed"
                                 value=""
                                 id="12nmeal"
-                                onClick={handleClick}
+                                onClick={handlePopupNoAd}
                             ></button>
                         </div>
                     </div>
@@ -180,7 +194,7 @@ const CustomerMeal = () => {
                                 name="completed"
                                 value=""
                                 id="8ngmeal"
-                                onClick={handleClick}
+                                onClick={handlePopupNoAd}
                             ></button>
                             <button
                                 className="add-button-customer"
@@ -188,7 +202,7 @@ const CustomerMeal = () => {
                                 name="completed"
                                 value=""
                                 id="12ngmeal"
-                                onClick={handleClick}
+                                onClick={handlePopupNoAd}
                             ></button>
                         </div>
                     </div>
@@ -238,7 +252,7 @@ const CustomerMeal = () => {
                             name="completed"
                             value=""
                             id="csgcmeal"
-                            onClick={handleClick}
+                            onClick={handlePopupNoAd}
                         ></button>
                     </div>
                     <div className="items-customer">
@@ -257,7 +271,7 @@ const CustomerMeal = () => {
                             name="completed"
                             value=""
                             id="ccwgmeal"
-                            onClick={handleClick}
+                            onClick={handlePopupNoAd}
                         ></button>
                     </div>
                 </div>
@@ -278,6 +292,18 @@ const CustomerMeal = () => {
                 <div className="price-customer">
                     ${Math.abs(totalCost).toFixed(2)}
                 </div>
+            </div>
+            <div>
+                {showAdPopUp && (
+                    <AdPopUp
+                        stringID={stringID}
+                        handleClick={handleClick}
+                        setAdPopUp={setAdPopUp}
+                        menu={menu}
+                        handleClickExtra={handleClickExtra}
+                        showAd = {showAd}
+                    />
+                )}
             </div>
         </div>
     );
