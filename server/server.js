@@ -436,13 +436,6 @@ app.post("/addmenu/completeMenu", async (req, res) => {
 app.post("/addMenu", async (req, res) => {
     console.log("hello");
     const ingredients = req.body.ingredients;
-    // Item.create({ name: req.body.name, price: req.body.price })
-    //   .then(() => res.send('Item added'))
-    //   .catch((error) => {
-    //     console.error(error);
-    //     res.status(500).send('Error adding item');
-    //   });
-
     console.log(ingredients);
     const result = await pool.query("select * from inventory;");
     let ingNames = {};
@@ -452,6 +445,7 @@ app.post("/addMenu", async (req, res) => {
     console.log(result);
     console.log("separation");
     console.log(ingNames);
+    let ingredientNotFound = false;
     if (!("peep" in ingNames)) {
         console.log("true");
     }
@@ -482,9 +476,17 @@ app.post("/addMenu", async (req, res) => {
                     }
                 }
             );
+        }else{
+            console.log("ing not found");
+            ingredientNotFound = true;
+            //res.status(500).send("Ingredient doesn't exist");
         }
     }
-    res.status(200).json({ message: "Ingredients received" });
+    if (ingredientNotFound) {
+        res.status(500).send("Ingredient doesn't exist");
+    } else {
+        res.status(200).json({ message: "Ingredients received" });
+    }
 });
 
 app.post("/check-authorization", async (req, res) => {
