@@ -69,7 +69,7 @@ function CustomerNew() {
                             className="btn-new"
                             key={index}
                             id={button.menuID}
-                            onClick={(event) => handleClickExtra(event, 5)}
+                            onClick={(event) => handleClickExtra(event)}
                         >
                             {button.name}
                         </button>

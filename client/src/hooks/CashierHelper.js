@@ -31,6 +31,12 @@ export const CashierHelper = (
     };
 
     const handleComplete = async () => {
+
+        if (totalCost === 0) {
+            console.log("no items bought");
+            return;
+        }
+        
         const result = await fetch(
             `http://localhost:3001/addOrderItems/${totalCost}/${true}`
         );
@@ -52,9 +58,10 @@ export const CashierHelper = (
         handleNewOrder();
     };
 
-    const handleClickExtra = (event, num) => {
-        const bID = event.target.id;
-        console.log(num, bID);
+    const handleClickExtra = (event) => {
+        var bID = event.target.closest("button").id;
+
+        console.log(bID);
 
         addItem(parseInt(bID));
     };

@@ -11,27 +11,19 @@ const Customer = () => {
         useContext(CurOrderContext);
     const [menu, setMenu] = useState("");
 
-
-    const [ stringID, setStringID] = useState("");
-    const { handleClick, handleComplete, handleNewOrder, handleSubtract} = CashierHelper(
-        curItems,
-        menu,
-        totalCost,
-        setCurItems,
-        setTotalCost
-    );
-
+    const [stringID, setStringID] = useState("");
+    const { handleClick, handleComplete, handleSubtract, handleClickExtra } =
+        CashierHelper(curItems, menu, totalCost, setCurItems, setTotalCost);
 
     const [showPopUp, setShowPopUp] = useState(false);
 
     const [showAdPopUp, setAdPopUp] = useState(false);
 
     const handlePopUpClick = (event) => {
-        const bID = event.target.closest('button').id;
+        const bID = event.target.closest("button").id;
         console.log(bID);
         setStringID(bID);
         handlePopUpState();
-        
     };
 
     const handlePopUpState = () => {
@@ -458,14 +450,15 @@ const Customer = () => {
             <div>
                 {showAdPopUp && (
                     <AdPopUp
-                        stringID = {stringID}
-                        handleClick = {handleClick}
-                        setAdPopUp = {setAdPopUp}
+                        stringID={stringID}
+                        handleClick={handleClick}
+                        setAdPopUp={setAdPopUp}
+                        menu={menu}
+                        handleClickExtra={handleClickExtra}
                     />
                 )}
             </div>
         </>
-        
     );
 };
 export default Customer;
