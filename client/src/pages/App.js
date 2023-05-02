@@ -64,6 +64,10 @@ function App() {
                             element={<CashierSeasonal />}
                         />
                         <Route
+                            path="/cashier/sauce"
+                            element={<CashierSauce />}
+                        />
+                        <Route
                             path="/manager"
                             element={
                                 <PrivateRouteManager>

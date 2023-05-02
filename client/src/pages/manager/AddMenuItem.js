@@ -14,6 +14,7 @@ function MenuAdder() {
   const [itemName, setItemName] = useState("");
   const [price, setPrice] = useState("");
   const [ingredients, setIngredients] = useState([]);
+  const[ingDone , setIngDone] = useState(false);
 
   const handleAddIngredient = () => {
     const newIngredient = { name: ingredient, quantity: quantity };
@@ -21,6 +22,8 @@ function MenuAdder() {
     setIngredient("");
     setQuantity("");
   };
+
+  
 
   const handleDoneIngredients = () => {
 
@@ -38,13 +41,14 @@ function MenuAdder() {
         console.log("fault");
       }
       const form = document.getElementById("menuadder-form");
-    form.innerHTML = `
-      <label htmlFor="item-name">Item Name:</label>
-      <input type="text" id="item-name" name="item-name" value="${itemName}" onChange={handleItemNameChange} required />
-      <label htmlFor="price">Price:</label>
-      <input type="number" id="price" name="price" value="${price}" onChange={handlePriceChange} required />
-      <button type="button" onClick={handleAddOrder}>Add Order</button>
-    `;
+    form.innerHTML = ``;
+    //   <label htmlFor="item-name">Item Name:</label>
+    //   <input type="text" id="item-name" name="item-name" value="${itemName}" onChange={handleItemNameChange} required />
+    //   <label htmlFor="price">Price:</label>
+    //   <input type="number" id="price" name="price" value="${price}" onChange={handlePriceChange} required />
+    //   <button type="button" onClick={handleAddOrder}>Add Order</button>
+    // ;
+    setIngDone(true);
     })
     .catch(error => {
       
@@ -66,7 +70,15 @@ function MenuAdder() {
 
   const handleAddOrder = () => {
     // Do something with the item name and price (e.g. add them to an order list)
-
+    fetch("http://localhost:3001/addmenu/completeMenu", {
+      method: 'POST',
+      headers:{
+        'Content-Type': 'application/json'
+      },
+      body:JSON.stringify({'name':itemName , 'price':price})
+    }) .then(response => response.json())
+    .then(data => {console.log(data);})
+    .catch(error => { console.error(error); });
     // Reset the form to add ingredients again
     const form = document.getElementById("menuadder-form");
     form.innerHTML = `
@@ -126,6 +138,17 @@ function MenuAdder() {
         {ingredients.length > 0 && (
           <button type="button" onClick={handleDoneIngredients}>Done with Ingredients</button>
         )}
+        
+        {ingDone && (
+          <div>
+          <label htmlFor="item-name">Item Name:</label>
+          <input type="text" id="item-name" name="item-name" value={itemName} onChange={handleItemNameChange} required />
+          <label htmlFor="price">Price:</label>
+          <input type="number" id="price" name="price" value={price} onChange={handlePriceChange} required />
+          <button type="button" onClick={handleAddOrder}>Add Order</button>
+          </div>
+        )}
+        
       </form>
     </div>
   );

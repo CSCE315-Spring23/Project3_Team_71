@@ -229,6 +229,30 @@ export const CashierHelper = (
             case "cofrost":
                 addItem(48);
                 break;
+            case "cfaS":
+                break;
+                addItem(56);
+            case "pS":
+                addItem(57);
+                break;
+            case "hmS":
+                addItem(58);
+                break;
+            case "ghrS":
+                addItem(59);
+                break;
+            case "bqS":
+                addItem(61);
+                break;
+            case "zbS":
+                addItem(60);
+                break;
+            case "srS":
+                addItem(62);
+                break;
+            case "hbqS":
+                addItem(63);
+                break
             default:
                 console.log("ERROR w/ switching");
         }

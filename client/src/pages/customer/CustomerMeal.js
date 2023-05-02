@@ -278,20 +278,20 @@ const CustomerMeal = () => {
             </div>
 
             <div className="edit-row-customer">
-                <button
-                    className="edit-button-customer"
-                    onClick={handleComplete}
-                >
-                    Finish
-                </button>
 
                 <button className="edit-button-customer" onClick={handlePopUp}>
                     Edit
                 </button>
 
-                <div className="price-customer">
-                    ${Math.abs(totalCost).toFixed(2)}
-                </div>
+                <button
+                    className="edit-button-customer bigger"
+                    onClick={handleComplete}
+                >
+                    <div>Checkout:</div>
+                    <div className="price-customer">
+                        ${Math.abs(totalCost).toFixed(2)}
+                    </div>
+                </button>
             </div>
             <div>
                 {showAdPopUp && (

@@ -89,20 +89,12 @@ box-shadow: 0 0 5px #999; */
     transition: all;
 }
 
-.edit-row-cashier {
-    position: fixed;
-    display: flex;
-    align-items: center;
-    font-size: 3rem;
-    bottom: 0;
-    right: 0;
-}
 
 /*DISPLAY*/
 .edit-row-customer {
     position: fixed;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
 
     align-items: center;
     font-size: 3rem;
@@ -132,38 +124,29 @@ box-shadow: 0 0 5px #999; */
     color: white;
     background-color: #e51636;
     border: none;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     padding: 1.2rem 2.5rem;
     margin: 1rem;
     border-radius: 30px;
     transition: background-color 0.3s ease;
+
+    display: flex;
+    justify-content: start;
 }
 
 .edit-button-customer:hover {
     cursor: pointer;
     background-color: #940e23;
 }
-.new-btn-container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    
+
+.price-customer {
+    text-align: start;
+    margin: 0 1rem;
+    width: 10rem;
 }
+
 .btn-new {
-    padding:1.5vw;
-    border:none;
-    border-radius: 10%;
-    margin: 1vw;
-}
-.btn-new:hover {
-    padding:1.5vw;
-    border:none;
-    border-radius: 10%;
-    margin: 1vw;
-    color: white; 
-    background-color: #e51636;
+    border-radius: 1rem;
+    cursor: pointer;
     transition: background-color 0.3s ease;
-
-
 }
