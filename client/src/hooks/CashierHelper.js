@@ -1,4 +1,7 @@
 import { useEffect } from "react";
+import AdPopUp from "../components/AdPopUp";
+
+
 
 export const CashierHelper = (
     curItems,
@@ -30,8 +33,11 @@ export const CashierHelper = (
         console.log("asgegege\n\n");
     };
 
-    const handleComplete = async () => {
-
+    const handleComplete = async (z = "cashier") => {
+        if(z == "customer"){
+            console.log("IT KNOWS");
+            
+        }
         if (totalCost === 0) {
             console.log("no items bought");
             return;

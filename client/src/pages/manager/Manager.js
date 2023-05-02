@@ -67,16 +67,7 @@ const Manager = () => {
                         : "Sales Report"}
                 </button>
 
-
-
-                <button
-                    className="m-btn"
-                    onClick={() => handleManagerFunction("changeMenuFunction")}
-                >
-                    {activeFunction === "changeMenyFunction"
-                        ? "Hide Change Menu Item"
-                        : "Change Menu Item"}
-                </button>
+        
                 <button
                     className="m-btn"
                     onClick={() =>
@@ -85,7 +76,7 @@ const Manager = () => {
                 >
                     {activeFunction === "changeIngredientFunction"
                         ? "Hide Change Ingredient Item"
-                        : "Change Ingredient Item"}
+                        : "Change Ingredient/Menu Item Item"}
                 </button>
                 <button
                     className="m-btn"
@@ -126,11 +117,12 @@ const Manager = () => {
                         : "Restock Report"}
                 </button>
                 </div>
+
             {activeFunction === "orderFunction" && <Orders />}
             {activeFunction === "menuItemsFunction" && <MenuItems />}
             {activeFunction === "inventoryFunction" && <Inventory />}
             {activeFunction === "salesReportsFunction" && <SalesReports />}
-            {activeFunction === "changeMenuFunction" && <ChangeMenu />}
+
             {activeFunction === "changeIngredientFunction" && (
                 <ChangeIngredient />
             )}

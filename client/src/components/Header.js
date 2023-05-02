@@ -1,7 +1,7 @@
 import "../css/Header.css";
 import React, { useEffect, useState } from "react";
 
-const apiKey = process.env.REACT_APP_WEATHER_API_KEY;
+const apiKey =  '60ea3e0d4ae18a97f73bdcd78fc41e8d';;
 
 const Header = ({ user, HandleSignOut }) => {
     // const [weather, setWeather] = useState("");

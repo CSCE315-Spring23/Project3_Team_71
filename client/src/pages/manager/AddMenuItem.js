@@ -4,6 +4,10 @@ import "../../css/AddMenuItem.css"
 // const app =express();
 // app.use(express.json)
 
+/**
+ * Description
+ * @returns {any}
+ */
 function MenuAdder() {
   const [ingredient, setIngredient] = useState("");
   const [quantity, setQuantity] = useState("");
@@ -19,6 +23,7 @@ function MenuAdder() {
   };
 
   const handleDoneIngredients = () => {
+
     console.log(ingredients);
     fetch("http://localhost:3001/addMenu", {
       method: 'POST',
@@ -27,11 +32,12 @@ function MenuAdder() {
       },
       body:JSON.stringify({ingredients})
     }) .then(response => response.json())
-    .then(data => console.log(data))
-    .catch(error => console.error(error));
-  
-
-    const form = document.getElementById("menuadder-form");
+    .then(data => {
+      console.log(data);
+      if(data.message ==="fault"){
+        console.log("fault");
+      }
+      const form = document.getElementById("menuadder-form");
     form.innerHTML = `
       <label htmlFor="item-name">Item Name:</label>
       <input type="text" id="item-name" name="item-name" value="${itemName}" onChange={handleItemNameChange} required />
@@ -39,6 +45,23 @@ function MenuAdder() {
       <input type="number" id="price" name="price" value="${price}" onChange={handlePriceChange} required />
       <button type="button" onClick={handleAddOrder}>Add Order</button>
     `;
+    })
+    .catch(error => {
+      
+      console.error(error)
+      console.log("paad");
+      const form = document.getElementById("menuadder-form");
+    form.innerHTML = `
+      <label htmlFor="ingredient">Ingredient:</label>
+      <input type="text" id="ingredient" name="ingredient" value="${ingredient}" onChange={handleIngredientChange} required />
+      <label htmlFor="quantity">Quantity:</label>
+      <input type="number" id="quantity" name="quantity" value="${quantity}" onChange={handleQuantityChange} required />
+      <button type="button" onClick={handleAddIngredient}>Add Ingredient</button>
+    `;
+
+    });
+
+    
   };
 
   const handleAddOrder = () => {
@@ -55,10 +78,20 @@ function MenuAdder() {
     `;
   };
 
+  /**
+   * Description
+   * @param {any} event
+   * @returns {any}
+   */
   const handleIngredientChange = (event) => {
     setIngredient(event.target.value);
   };
 
+  /**
+   * Description
+   * @param {any} event
+   * @returns {any}
+   */
   const handleQuantityChange = (event) => {
     setQuantity(event.target.value);
   };
