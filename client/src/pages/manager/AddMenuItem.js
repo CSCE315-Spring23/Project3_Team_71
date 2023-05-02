@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import "../../css/AddMenuItem.css"
+
+import ManagerPop from "../../components/managerErrorPop";
 // const express = require('express')
 // const app =express();
 // app.use(express.json)
@@ -15,7 +17,9 @@ function MenuAdder() {
   const [price, setPrice] = useState("");
   const [ingredients, setIngredients] = useState([]);
   const[ingDone , setIngDone] = useState(false);
-
+  const [showManagerPop , setManagerPop] = useState(false);
+  const [ErrorPrompt , setErrorPrompt] = useState("");
+  
   const handleAddIngredient = () => {
     const newIngredient = { name: ingredient, quantity: quantity };
     setIngredients([...ingredients, newIngredient]);
@@ -23,7 +27,9 @@ function MenuAdder() {
     setQuantity("");
   };
 
-  
+  const handleMissingIngredients = () => {
+    setErrorPrompt("missIng");
+  };
 
   const handleDoneIngredients = () => {
 
@@ -48,6 +54,7 @@ function MenuAdder() {
     //   <input type="number" id="price" name="price" value="${price}" onChange={handlePriceChange} required />
     //   <button type="button" onClick={handleAddOrder}>Add Order</button>
     // ;
+    
     setIngDone(true);
     })
     .catch(error => {
@@ -55,6 +62,8 @@ function MenuAdder() {
       console.error(error)
       console.log("paad");
       const form = document.getElementById("menuadder-form");
+      handleMissingIngredients();
+      setManagerPop(true);
     form.innerHTML = `
       <label htmlFor="ingredient">Ingredient:</label>
       <input type="text" id="ingredient" name="ingredient" value="${ingredient}" onChange={handleIngredientChange} required />
@@ -62,6 +71,7 @@ function MenuAdder() {
       <input type="number" id="quantity" name="quantity" value="${quantity}" onChange={handleQuantityChange} required />
       <button type="button" onClick={handleAddIngredient}>Add Ingredient</button>
     `;
+    setManagerPop(true);
 
     });
 
@@ -117,6 +127,7 @@ function MenuAdder() {
   };
 
   return (
+    <>
     <div id="menuadder">
       <h3>Add Ingredients</h3>
       <form id="menuadder-form">
@@ -151,6 +162,18 @@ function MenuAdder() {
         
       </form>
     </div>
+
+    <div>
+
+  {showManagerPop && (
+    <ManagerPop
+        ErrorPrompt={ErrorPrompt}
+        setErrorPrompt={setErrorPrompt}
+        setManagerPop={setManagerPop}
+    />
+)}
+</div>
+</>
   );
 }
 
