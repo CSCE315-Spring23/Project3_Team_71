@@ -17,12 +17,14 @@ const CashierHeader = () => {
         navigate("/cashier/drink");
     };
 
-    const handleSeasonal = () => {
-        navigate("/cashier/seasonal");
-    };
     const handleSauce = () => {
         navigate("/cashier/sauce");
     };
+
+    const handleSeasonal = () => {
+        navigate("/cashier/seasonal");
+    };
+
 
     return (
         <div className="btn-header-row-cashier">
@@ -33,7 +35,7 @@ const CashierHeader = () => {
                             className="btn-header-cashier"
                             onClick={handleMain}
                         >
-                            <h3>Items</h3>
+                            <h3>Entrees</h3>
                         </button>
                     </li>
                     <li>

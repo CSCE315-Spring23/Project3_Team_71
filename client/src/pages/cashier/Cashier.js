@@ -9,8 +9,13 @@ const Cashier = () => {
     const { totalCost, setTotalCost, curItems, setCurItems } =
         useContext(CurOrderContext);
     const [menu, setMenu] = useState("");
-    const { handleClick, handleComplete, handleSubtract } =
-        CashierHelper(curItems, menu, totalCost, setCurItems, setTotalCost);
+    const { handleClick, handleComplete, handleSubtract } = CashierHelper(
+        curItems,
+        menu,
+        totalCost,
+        setCurItems,
+        setTotalCost
+    );
     const [showPopUp, setShowPopUp] = useState(false);
 
     const handlePopUp = () => {
@@ -214,20 +219,19 @@ const Cashier = () => {
             </div>
 
             <div className="edit-row-cashier">
-                <button
-                    className="edit-button-cashier"
-                    onClick={handleComplete}
-                >
-                    Finish
-                </button>
-
                 <button className="edit-button-cashier" onClick={handlePopUp}>
                     Edit
                 </button>
 
-                <div className="price-cashier">
-                    ${Math.abs(totalCost).toFixed(2)}
-                </div>
+                <button
+                    className="edit-button-cashier bigger"
+                    onClick={handleComplete}
+                >
+                    <div>Checkout:</div>
+                    <div className="price-cashier">
+                        ${Math.abs(totalCost).toFixed(2)}
+                    </div>
+                </button>
             </div>
         </div>
     );

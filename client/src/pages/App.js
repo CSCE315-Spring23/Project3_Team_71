@@ -56,6 +56,10 @@ function App() {
                             element={<CashierDrink />}
                         />
                         <Route
+                            path="/cashier/sauce"
+                            element={<CashierSauce />}
+                        />
+                        <Route
                             path="/cashier/seasonal"
                             element={<CashierSeasonal />}
                         />
