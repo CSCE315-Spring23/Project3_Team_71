@@ -40,7 +40,7 @@ const CashierSeasonal = () => {
     useEffect(() => {
         setSeasonMenu(
             Object.keys(menu)
-                .slice(49)
+                .slice(57)
                 .map((key) => ({
                     menuID: key,
                     price: menu[key][0],
