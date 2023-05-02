@@ -26,7 +26,7 @@ const Orders = () => {
     console.log(getdata);
   };
   return (
-    <div>
+    <div id = "order-screen">
       <div id = "menuadder1">
       <h2>Orders</h2>
       
