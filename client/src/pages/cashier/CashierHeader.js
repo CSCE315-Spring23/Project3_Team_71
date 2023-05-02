@@ -17,6 +17,10 @@ const CashierHeader = () => {
         navigate("/cashier/drink");
     };
 
+    const handleSauce = () => {
+        navigate("/cashier/sauce");
+    };
+
     const handleSeasonal = () => {
         navigate("/cashier/seasonal");
     };
@@ -47,6 +51,14 @@ const CashierHeader = () => {
                             onClick={handleDrink}
                         >
                             <h3>Drinks</h3>
+                        </button>
+                    </li>
+                    <li>
+                        <button
+                            className="btn-header-cashier"
+                            onClick={handleSauce}
+                        >
+                            <h3>Sauce</h3>
                         </button>
                     </li>
                     <li>
