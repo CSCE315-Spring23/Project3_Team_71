@@ -1,7 +1,17 @@
 const express = require("express");
 const cors = require("cors");
+const path = require('path');
 const app = express();
 var zDate = "";
+
+// connect to static react app
+app.use(express.static(path.join(__dirname, '../client/build')));
+
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
 
 const { Pool } = require("pg");
 const pool = new Pool({
@@ -11,6 +21,7 @@ const pool = new Pool({
     password: "71_TeaM",
     port: 5432,
 });
+
 
 // const apiKey = process.env.REACT_APP_WEATHER_API_KEY
 app.use(cors());
@@ -515,6 +526,11 @@ app.post("/check-authorization", async (req, res) => {
         console.log(error);
         res.status(500).send({ message: "Server error" });
     }
+});
+
+//catch all other routes and direct them to react
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../client/build/index.html'));
 });
 
 const port = process.env.PORT || 3001;

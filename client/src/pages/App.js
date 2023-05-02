@@ -21,6 +21,7 @@ import PrivateRouteManager from "./PrivateRoute/privateManager";
 import PrivateRouteCashier from "./PrivateRoute/privateCashier";
 import Header from "../components/Header";
 import CashierSauce from "./cashier/CashierSauce";
+import { useEffect } from "react";
 
 function App() {
 
@@ -33,6 +34,9 @@ function App() {
         window.location.href = "/";
     }
 
+    useEffect(() => {
+        console.log(window.location.hostname);
+    }, [])
     return (
         <div id="app">
             <Header user={user} HandleSignOut={HandleSignOut} />
