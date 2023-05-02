@@ -15,8 +15,8 @@ function UserInputLogger() {
   return (
     <div id = "menuadder">
     <div id = "menuadder-form">
-      <input type="text" value={inputValue} onChange={handleInputChange} />
-      <button onClick={handleButtonClick}>Log Input Value</button>
+      <input type="text" value={inputValue} onChange={handleInputChange} placeholder="Input ingredient name"/>
+      <button onClick={handleButtonClick}>Add Ingredient</button>
     </div>
     </div>
   );

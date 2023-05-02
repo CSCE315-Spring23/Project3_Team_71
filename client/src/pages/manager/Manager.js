@@ -30,6 +30,11 @@ const Manager = () => {
     };
     return (
         <div>
+            <img
+                src="/resource/manager_right.png"
+                alt="backdrop"
+                className="backdrop-img"
+            />
         <div className = "navbar">
 
                 <button
@@ -93,7 +98,7 @@ const Manager = () => {
                 >
                     {activeFunction === "addMenuItemFunction"
                         ? "Hide Add Menu Item"
-                        : "Change Add Menu Item"}
+                        : "Add Menu Item"}
                 </button>
                 <button
                     className="m-btn"
@@ -103,7 +108,7 @@ const Manager = () => {
                 >
                     {activeFunction === "addIngredientFunction"
                         ? "Hide Add Ingredient"
-                        : "Change Add Ingredient"}
+                        : "Add Ingredient"}
                 </button>
 
 
