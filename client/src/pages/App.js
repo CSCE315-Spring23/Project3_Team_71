@@ -20,6 +20,7 @@ import { useLocalState } from "./util/useLocalStorage";
 import PrivateRouteManager from "./PrivateRoute/privateManager";
 import PrivateRouteCashier from "./PrivateRoute/privateCashier";
 import Header from "../components/Header";
+import CashierSauce from "./cashier/CashierSauce";
 
 function App() {
 
@@ -57,6 +58,10 @@ function App() {
                         <Route
                             path="/cashier/seasonal"
                             element={<CashierSeasonal />}
+                        />
+                        <Route
+                            path="/cashier/sauce"
+                            element={<CashierSauce />}
                         />
                         <Route
                             path="/manager"

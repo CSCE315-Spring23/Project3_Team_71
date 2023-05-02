@@ -98,7 +98,7 @@ app.get("/inventory", async (req, res) => {
 
 app.get("/newMenuItems", async (req, res) => {
     const result = await pool.query(
-        "SELECT * FROM menu_items WHERE menu_item_id > 55;",
+        "SELECT * FROM menu_items WHERE menu_item_id > 63;",
         (err, result) => {
             if (err) {
                 return res.status(500).send("cant retrieve from db");
@@ -434,7 +434,7 @@ app.post("/addmenu/completeMenu", async (req, res) => {
 });
 
 app.post("/addMenu", async (req, res) => {
-    console.log("hello");
+    // console.log("hello");
     const ingredients = req.body.ingredients;
     console.log(ingredients);
     const result = await pool.query("select * from inventory;");
@@ -477,7 +477,7 @@ app.post("/addMenu", async (req, res) => {
                 }
             );
         }else{
-            console.log("ing not found");
+            console.log("ingredient not found");
             ingredientNotFound = true;
             //res.status(500).send("Ingredient doesn't exist");
         }
