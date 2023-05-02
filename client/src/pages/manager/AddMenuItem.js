@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import "../../css/AddMenuItem.css"
+import "../../css/AddMenuItem.css";
+import { HOST } from "../../host";
 
 import ManagerPop from "../../components/managerErrorPop";
 // const express = require('express')
@@ -34,7 +35,7 @@ function MenuAdder() {
   const handleDoneIngredients = () => {
 
     console.log(ingredients);
-    fetch("http://localhost:3001/addMenu", {
+    fetch(`${HOST}/addMenu`, {
       method: 'POST',
       headers:{
         'Content-Type': 'application/json'
@@ -80,7 +81,7 @@ function MenuAdder() {
 
   const handleAddOrder = () => {
     // Do something with the item name and price (e.g. add them to an order list)
-    fetch("http://localhost:3001/addmenu/completeMenu", {
+    fetch(`${HOST}/addmenu/completeMenu`, {
       method: 'POST',
       headers:{
         'Content-Type': 'application/json'

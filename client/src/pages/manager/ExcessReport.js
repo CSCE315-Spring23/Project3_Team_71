@@ -2,6 +2,7 @@ import "./../../css/sales.css"
 import * as React from "react";
 import { useTable } from "react-table";
 import { useEffect, useState } from "react";
+import { HOST } from "../../host";
 
 const ExcessReport = () => {
     const [items, setExcessReport] = useState([]);
@@ -14,7 +15,7 @@ const ExcessReport = () => {
 
   const handleSubmit = async () => {
 
-    const res = await fetch("http://localhost:3001/excessReport/" + beginning);
+    const res = await fetch(`${HOST}/excessReport/${beginning}`);
     const getdata= await res.json();
     setExcessReport(getdata);
     console.log(getdata);

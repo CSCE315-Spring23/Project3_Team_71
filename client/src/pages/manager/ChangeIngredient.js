@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "../../css/changeIngredient2.css";
+import { HOST } from "../../host";
 
 const ChangeIngredient = () => {
 
@@ -15,12 +16,10 @@ const ChangeIngredient = () => {
   const handleSubmit = async () => {
 
     if(quantity !== '') {
-      console.log("/changeIngredient/:"+id+"/:"+quantity+"/:"+quantity);
-      const response_quantity = await fetch("http://localhost:3001/changeIngredientQuantity/"+id+"/"+quantity);
+      const response_quantity = await fetch(`${HOST}/changeIngredientQuantity/${id}/${quantity}`);
     }
     if(name !== '') {
-      console.log("/changeIngredient/:"+id+"/:"+quantity+"/:"+name);
-      const response_name = await fetch("http://localhost:3001/changeIngredientName/"+id+"/"+name);
+      const response_name = await fetch(`${HOST}/changeIngredientName/${id}/${name}`);
     }
   };
   const handleIdChange = (event) => {
@@ -44,11 +43,11 @@ const ChangeIngredient = () => {
 
     if(price !== '') {
       console.log("/changeMenuPrice/"+id+"/"+price);
-      const response_quantity = await fetch("http://localhost:3001/changeMenuPrice/"+id+"/"+price);
+      const response_quantity = await fetch(`${HOST}/changeMenuPrice/${id}/${price}`);
     }
     if(name !== '') {
       console.log("/changeMenuName/"+id+"/"+name);
-      const response_name = await fetch("http://localhost:3001/changeMenuName/"+id+"/"+name);
+      const response_name = await fetch(`${HOST}/changeMenuName/${id}/${name}`);
     }
   };
 

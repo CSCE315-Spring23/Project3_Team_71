@@ -4,7 +4,7 @@ import CashierHeader from "./CustomerHeader";
 import "../../css/Customer.css";
 import { CurOrderContext } from "../../hooks/CurOrderContext";
 import CurOrderPopUp from "../../components/CurOrderPopUp";
-
+import { HOST } from "../../host";
 import AdPopUp from "../../components/AdPopUp";
 
 const CustomerMeal = () => {
@@ -40,7 +40,7 @@ const CustomerMeal = () => {
 
     useEffect(() => {
         const getMenu = async () => {
-            const res = await fetch("http://localhost:3001/menu");
+            const res = await fetch(`${HOST}/menu`);
             const data = await res.json();
 
             const newObj = {};

@@ -7,6 +7,7 @@ import CustomerHeader from "./CustomerHeader";
 import AdPopUp from "../../components/AdPopUp";
 import WeatherPop from "../../components/weatherPop";
 import CurOrderPopUp from "../../components/CurOrderPopUp";
+import { HOST } from "../../host";
 
 const apiKey = "60ea3e0d4ae18a97f73bdcd78fc41e8d";
 
@@ -74,7 +75,7 @@ const Customer = () => {
                 });
         };
         const getMenu = async () => {
-            const res = await fetch("http://localhost:3001/menu");
+            const res = await fetch(`${HOST}/menu`);
             const data = await res.json();
 
             console.log(res);

@@ -1,6 +1,7 @@
 import React from "react";
 import { useLocalState } from "../util/useLocalStorage";
 import { useEffect, useState } from "react";
+import { HOST } from "../../host";
 
 const PrivateRouteManager = React.memo(({ children }) => {
     const [user, setUser] = useLocalState("", "user");
@@ -9,7 +10,7 @@ const PrivateRouteManager = React.memo(({ children }) => {
     const [shouldRender, setShouldRender] = useState(false);
 
     const make_request = React.useCallback(async () => {
-        return await fetch("http://localhost:3001/check-authorization", {
+        return await fetch(`${HOST}/check-authorization`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -42,7 +43,6 @@ const PrivateRouteManager = React.memo(({ children }) => {
                 // do something here if success
                 // setShouldRender(true); // not needed
                 setShouldRender(true);
-
             } else {
                 console.log("priv failed");
                 // do something here if it failed

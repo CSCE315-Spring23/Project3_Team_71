@@ -4,6 +4,7 @@ import CashierHeader from "./CashierHeader";
 import "../../css/Cashier.css";
 import { CurOrderContext } from "../../hooks/CurOrderContext";
 import CurOrderPopUp from "../../components/CurOrderPopUp";
+import { HOST } from "../../host";
 
 const CashierSeasonal = () => {
     const [menu, setMenu] = useState({});
@@ -27,7 +28,7 @@ const CashierSeasonal = () => {
 
     useEffect(() => {
         const getMenu = async () => {
-            const res = await fetch("http://localhost:3001/menu");
+            const res = await fetch(`${HOST}/menu`);
             const data = await res.json();
 
             const newObj = {};
