@@ -35,6 +35,9 @@ const ManagerPop = ({ ErrorPrompt, setErrorPrompt,setManagerPop }) => {
           {ErrorPrompt == "Entry" &&(
             <h2>Ingredients are missing</h2>
           )}
+          {ErrorPrompt == "helpMenu" &&(
+            <h2>In here</h2>
+          )}
                 
                 </div>
     </>
