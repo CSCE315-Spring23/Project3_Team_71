@@ -5,8 +5,15 @@ import { CurOrderContext } from "../../hooks/CurOrderContext";
 import CustomerHeader from "./CustomerHeader";
 
 import AdPopUp from "../../components/AdPopUp";
+import WeatherPop from "../../components/weatherPop";
 import CurOrderPopUp from "../../components/CurOrderPopUp";
+
+const apiKey = '60ea3e0d4ae18a97f73bdcd78fc41e8d';
+
 const Customer = () => {
+    const [lat, setLat] = useState([]);
+    const [long, setLong] = useState([]);
+    const [temp, setTemp] = useState("");
     const { totalCost, setTotalCost, curItems, setCurItems } =
         useContext(CurOrderContext);
     const [menu, setMenu] = useState("");
@@ -21,13 +28,26 @@ const Customer = () => {
 
     const [showAd, setAd] = useState(true);
 
+    const [showWeatherPop , setWeatherPop] = useState(false);
+
     const handlePopUpClick = (event) => {
         const bID = event.target.closest("button").id;
         console.log(bID);
         setStringID(bID);
         handlePopUpState();
     };
-
+    const handleWeatherPopup =() =>{
+        if(temp>53){
+            console.log("temper: ",temp);
+            handleWeatherPopupState();
+        }else{
+            handleComplete();
+        }
+    }
+    const handleWeatherPopupState =() =>{
+        setWeatherPop(true);
+    } 
+    
     const handlePopupNoAd = () => {
         setAdPopUp(true);
         setAd(false);
@@ -41,7 +61,16 @@ const Customer = () => {
     const handlePopUp = () => {
         setShowPopUp(!showPopUp);
     };
+    
     useEffect(() => {
+        const weather = async () => {
+            console.log("apikey: ",apiKey);
+            await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=30.621&lon=-96.34&units=imperial&appid=${apiKey}`)
+            .then((res) => res.json())
+            .then( (result) =>  {
+                setTemp(result.main.temp);
+            });  
+        };
         const getMenu = async () => {
             const res = await fetch("http://localhost:3001/menu");
             const data = await res.json();
@@ -57,6 +86,7 @@ const Customer = () => {
             setMenu(newObj);
         };
         getMenu();
+        weather();
     }, []);
 
     const getMenuPrice = (menuItemId, menu) => {
@@ -441,7 +471,7 @@ const Customer = () => {
             <div className="edit-row-customer">
                 <button
                     className="edit-button-customer"
-                    onClick={handleComplete}
+                    onClick={handleWeatherPopup}
                 >
                     Finish
                 </button>
@@ -454,8 +484,20 @@ const Customer = () => {
                     ${Math.abs(totalCost).toFixed(2)}
                 </div>
             </div>
-
             <div>
+                {showWeatherPop && (
+                    <WeatherPop
+                        stringID={stringID}
+                        handleClick={handleClick}
+                        setWeatherPop={setWeatherPop}
+                        menu={menu}
+                        handleClickExtra={handleClickExtra}
+                        handleComplete= {handleComplete}
+                    />
+                )}
+            </div>
+            <div>
+
                 {showAdPopUp && (
                     <AdPopUp
                         stringID={stringID}
@@ -467,6 +509,7 @@ const Customer = () => {
                     />
                 )}
             </div>
+            
         </>
     );
 };
