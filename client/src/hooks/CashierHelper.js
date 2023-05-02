@@ -1,8 +1,6 @@
 import { useEffect } from "react";
 import AdPopUp from "../components/AdPopUp";
 
-
-
 export const CashierHelper = (
     curItems,
     menu,
@@ -34,15 +32,14 @@ export const CashierHelper = (
     };
 
     const handleComplete = async (z = "cashier") => {
-        if(z == "customer"){
+        if (z == "customer") {
             console.log("IT KNOWS");
-            
         }
         if (totalCost === 0) {
             console.log("no items bought");
             return;
         }
-        
+
         const result = await fetch(
             `http://localhost:3001/addOrderItems/${totalCost}/${true}`
         );
@@ -230,8 +227,8 @@ export const CashierHelper = (
                 addItem(48);
                 break;
             case "cfaS":
-                break;
                 addItem(56);
+                break;
             case "pS":
                 addItem(57);
                 break;
@@ -252,7 +249,7 @@ export const CashierHelper = (
                 break;
             case "hbqS":
                 addItem(63);
-                break
+                break;
             default:
                 console.log("ERROR w/ switching");
         }

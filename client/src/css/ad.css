@@ -1,11 +1,12 @@
 
 #adwrap{
     position: fixed;
-    right: 31.5%;
-    bottom: 40%;
-    height: 30vh;
+    right: 50%;
+    bottom: 50%;
+    transform: translate(50%, 50%);
+    height: 40vh;
     background-color: white;
-    width: 35%;
+    width: 60vw;
 
     border-top-left-radius: 1rem;
     border-bottom-left-radius: 1rem;
@@ -21,8 +22,9 @@
     overflow: auto;
 }
 
-.new-btn-container {
-    
+#adwrap > .right {
+    display: flex;
+    margin: 1rem 3rem;
 }
 
 .heading{
@@ -35,14 +37,18 @@
     background-color: #e51636;
     border: none;
     font-size: 1.2rem;
-    padding: 1.3rem;
-    margin: 5rem;
+    padding: 1rem;
+    margin: 1rem 4rem;
+
 }
 
 .btn-new:hover {
     background-color: #940e23;
     border: none;
     font-size: 1.2rem;
-    padding: 1.3rem;
-    margin: 5rem;
+
+}
+
+.big {
+    padding: 2rem;
 }

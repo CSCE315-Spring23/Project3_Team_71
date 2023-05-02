@@ -10,13 +10,8 @@ const CustomerDrink = () => {
     const { totalCost, setTotalCost, curItems, setCurItems } =
         useContext(CurOrderContext);
 
-    const { handleClick, handleComplete, handleNewOrder, handleSubtract} = CashierHelper(
-        curItems,
-        menu,
-        totalCost,
-        setCurItems,
-        setTotalCost
-    );
+    const { handleClick, handleComplete, handleNewOrder, handleSubtract } =
+        CashierHelper(curItems, menu, totalCost, setCurItems, setTotalCost);
 
     const [showPopUp, setShowPopUp] = useState(false);
 
@@ -79,8 +74,7 @@ const CustomerDrink = () => {
                                 value=""
                                 id="softm"
                                 onClick={handleClick}
-                            >
-                            </button>
+                            ></button>
                             <button
                                 className="add-button-customer"
                                 type="submit"
@@ -88,8 +82,7 @@ const CustomerDrink = () => {
                                 value=""
                                 id="softl"
                                 onClick={handleClick}
-                            >
-                            </button>
+                            ></button>
                         </div>
                     </div>
                     <div className="items-customer">
@@ -111,8 +104,7 @@ const CustomerDrink = () => {
                                 value=""
                                 id="lem"
                                 onClick={handleClick}
-                            >
-                            </button>
+                            ></button>
                             <button
                                 className="add-button-customer"
                                 type="submit"
@@ -120,8 +112,7 @@ const CustomerDrink = () => {
                                 value=""
                                 id="leml"
                                 onClick={handleClick}
-                            >
-                            </button>
+                            ></button>
                         </div>
                     </div>
                     <div className="items-customer">
@@ -143,8 +134,7 @@ const CustomerDrink = () => {
                                 value=""
                                 id="team"
                                 onClick={handleClick}
-                            >
-                            </button>
+                            ></button>
                             <button
                                 className="add-button-customer"
                                 type="submit"
@@ -152,8 +142,7 @@ const CustomerDrink = () => {
                                 value=""
                                 id="teal"
                                 onClick={handleClick}
-                            >
-                            </button>
+                            ></button>
                         </div>
                     </div>
                     <div className="items-customer">
@@ -175,8 +164,7 @@ const CustomerDrink = () => {
                                 value=""
                                 id="sunjoym"
                                 onClick={handleClick}
-                            >
-                            </button>
+                            ></button>
                             <button
                                 className="add-button-customer"
                                 type="submit"
@@ -184,8 +172,7 @@ const CustomerDrink = () => {
                                 value=""
                                 id="sunjoyl"
                                 onClick={handleClick}
-                            >
-                            </button>
+                            ></button>
                         </div>
                     </div>
                 </div>
@@ -333,6 +320,8 @@ const CustomerDrink = () => {
 
                 <br></br>
                 <h1>Treats</h1>
+                <br></br>
+
                 <div className="button-row-customer">
                     <div className="items-customer">
                         <img
@@ -372,15 +361,7 @@ const CustomerDrink = () => {
                             onClick={handleClick}
                         ></button>
                     </div>
-                    <div>
-                {showPopUp && (
-                    <CurOrderPopUp
-                        curItems={curItems}
-                        handleSubtract={handleSubtract}
-                        menu={menu}
-                    />
-                )}
-            </div>
+
                     <div className="items-customer">
                         <img
                             src="/resource/031717_FudgeChunkBrownie_PDP.png"
@@ -400,11 +381,20 @@ const CustomerDrink = () => {
                             onClick={handleClick}
                         ></button>
                     </div>
+
+                    <div>
+                        {showPopUp && (
+                            <CurOrderPopUp
+                                curItems={curItems}
+                                handleSubtract={handleSubtract}
+                                menu={menu}
+                            />
+                        )}
+                    </div>
                 </div>
             </div>
 
             <div className="edit-row-customer">
-
                 <button className="edit-button-customer" onClick={handlePopUp}>
                     Edit
                 </button>

@@ -14,8 +14,13 @@ const CustomerMeal = () => {
 
     const [stringID, setStringID] = useState("");
 
-    const { handleClick, handleComplete, handleNewOrder, handleSubtract, handleClickExtra } =
-        CashierHelper(curItems, menu, totalCost, setCurItems, setTotalCost);
+    const {
+        handleClick,
+        handleComplete,
+        handleNewOrder,
+        handleSubtract,
+        handleClickExtra,
+    } = CashierHelper(curItems, menu, totalCost, setCurItems, setTotalCost);
 
     const [showPopUp, setShowPopUp] = useState(false);
 
@@ -27,7 +32,7 @@ const CustomerMeal = () => {
         setAdPopUp(true);
         setAd(false);
         handleClick(event);
-    }
+    };
 
     const handlePopUp = () => {
         setShowPopUp(!showPopUp);
@@ -206,8 +211,6 @@ const CustomerMeal = () => {
                             ></button>
                         </div>
                     </div>
-                </div>
-                <div className="button-row-customer">
                     <div className="items-customer">
                         <img
                             src="/resource/Grilled-Deluxe-Sandwich_1085.png"
@@ -227,15 +230,7 @@ const CustomerMeal = () => {
                             onClick={handleClick}
                         ></button>
                     </div>
-                    <div>
-                        {showPopUp && (
-                            <CurOrderPopUp
-                                curItems={curItems}
-                                handleSubtract={handleSubtract}
-                                menu={menu}
-                            />
-                        )}
-                    </div>
+
                     <div className="items-customer">
                         <img
                             src="/resource/grilledClub_colbyJack.png"
@@ -255,6 +250,8 @@ const CustomerMeal = () => {
                             onClick={handlePopupNoAd}
                         ></button>
                     </div>
+                </div>
+                <div className="button-row-customer">
                     <div className="items-customer">
                         <img
                             src="/resource/wrap.png"
@@ -276,9 +273,16 @@ const CustomerMeal = () => {
                     </div>
                 </div>
             </div>
-
+            <div>
+                {showPopUp && (
+                    <CurOrderPopUp
+                        curItems={curItems}
+                        handleSubtract={handleSubtract}
+                        menu={menu}
+                    />
+                )}
+            </div>
             <div className="edit-row-customer">
-
                 <button className="edit-button-customer" onClick={handlePopUp}>
                     Edit
                 </button>
@@ -301,7 +305,7 @@ const CustomerMeal = () => {
                         setAdPopUp={setAdPopUp}
                         menu={menu}
                         handleClickExtra={handleClickExtra}
-                        showAd = {showAd}
+                        showAd={showAd}
                     />
                 )}
             </div>

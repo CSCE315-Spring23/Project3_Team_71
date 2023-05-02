@@ -8,7 +8,7 @@ import AdPopUp from "../../components/AdPopUp";
 import WeatherPop from "../../components/weatherPop";
 import CurOrderPopUp from "../../components/CurOrderPopUp";
 
-const apiKey = '60ea3e0d4ae18a97f73bdcd78fc41e8d';
+const apiKey = "60ea3e0d4ae18a97f73bdcd78fc41e8d";
 
 const Customer = () => {
     const [lat, setLat] = useState([]);
@@ -28,7 +28,7 @@ const Customer = () => {
 
     const [showAd, setAd] = useState(true);
 
-    const [showWeatherPop , setWeatherPop] = useState(false);
+    const [showWeatherPop, setWeatherPop] = useState(false);
 
     const handlePopUpClick = (event) => {
         const bID = event.target.closest("button").id;
@@ -36,22 +36,22 @@ const Customer = () => {
         setStringID(bID);
         handlePopUpState();
     };
-    const handleWeatherPopup =() =>{
-        if(temp>53){
-            console.log("temper: ",temp);
+    const handleWeatherPopup = () => {
+        if (temp > 53) {
+            console.log("temper: ", temp);
             handleWeatherPopupState();
-        }else{
+        } else {
             handleComplete();
         }
-    }
-    const handleWeatherPopupState =() =>{
+    };
+    const handleWeatherPopupState = () => {
         setWeatherPop(true);
-    } 
-    
+    };
+
     const handlePopupNoAd = () => {
         setAdPopUp(true);
         setAd(false);
-    }
+    };
 
     const handlePopUpState = () => {
         setAdPopUp(true);
@@ -61,15 +61,17 @@ const Customer = () => {
     const handlePopUp = () => {
         setShowPopUp(!showPopUp);
     };
-    
+
     useEffect(() => {
         const weather = async () => {
-            console.log("apikey: ",apiKey);
-            await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=30.621&lon=-96.34&units=imperial&appid=${apiKey}`)
-            .then((res) => res.json())
-            .then( (result) =>  {
-                setTemp(result.main.temp);
-            });  
+            console.log("apikey: ", apiKey);
+            await fetch(
+                `https://api.openweathermap.org/data/2.5/weather?lat=30.621&lon=-96.34&units=imperial&appid=${apiKey}`
+            )
+                .then((res) => res.json())
+                .then((result) => {
+                    setTemp(result.main.temp);
+                });
         };
         const getMenu = async () => {
             const res = await fetch("http://localhost:3001/menu");
@@ -105,7 +107,9 @@ const Customer = () => {
             <CustomerHeader />
             <div className="c1">
                 <br></br>
+
                 <h1>Entrees</h1>
+
                 <div className="button-row-customer">
                     <div className="items-customer">
                         <img
@@ -366,7 +370,6 @@ const Customer = () => {
                 </div>
 
                 <h1>Sides</h1>
-                <h1>...</h1>
 
                 <div className="button-row-customer">
                     <div className="items-customer">
@@ -469,7 +472,6 @@ const Customer = () => {
             </div>
 
             <div className="edit-row-customer">
-
                 <button className="edit-button-customer" onClick={handlePopUp}>
                     Edit
                 </button>
@@ -492,12 +494,11 @@ const Customer = () => {
                         setWeatherPop={setWeatherPop}
                         menu={menu}
                         handleClickExtra={handleClickExtra}
-                        handleComplete= {handleComplete}
+                        handleComplete={handleComplete}
                     />
                 )}
             </div>
             <div>
-
                 {showAdPopUp && (
                     <AdPopUp
                         stringID={stringID}
@@ -505,11 +506,10 @@ const Customer = () => {
                         setAdPopUp={setAdPopUp}
                         menu={menu}
                         handleClickExtra={handleClickExtra}
-                        showAd = {showAd}
+                        showAd={showAd}
                     />
                 )}
             </div>
-            
         </>
     );
 };
