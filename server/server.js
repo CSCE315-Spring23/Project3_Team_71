@@ -5,8 +5,25 @@ const app = express();
 var zDate = "";
 
 // connect to static react app
+/**
+
+Express middleware for serving static files from client/build directory.
+@param {Object} req - Express request object.
+@param {Object} res - Express response object.
+@param {function} next - Express next middleware function.
+@returns {undefined}
+*/
 app.use(express.static(path.join(__dirname, '../client/build')));
 
+
+/**
+
+Express middleware for setting Access-Control-Allow-Origin and Access-Control-Allow-Headers headers.
+@param {Object} req - Express request object.
+@param {Object} res - Express response object.
+@param {function} next - Express next middleware function.
+@returns {undefined}
+*/
 app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
@@ -14,6 +31,11 @@ app.use((req, res, next) => {
 });
 
 const { Pool } = require("pg");
+/**
+
+PostgreSQL connection pool for executing queries.
+@type {Pool}
+*/
 const pool = new Pool({
     user: "csce315331_team_71_master",
     host: "csce-315-db.engr.tamu.edu",
@@ -24,8 +46,23 @@ const pool = new Pool({
 
 
 // const apiKey = process.env.REACT_APP_WEATHER_API_KEY
+/**
+
+Express middleware for enabling CORS and parsing JSON request body.
+@returns {undefined}
+*/
 app.use(cors());
 app.use(express.json());
+/**
+
+Express route for retrieving weather data based on latitude and longitude coordinates.
+
+@param {Object} req - Express request object.
+
+@param {Object} res - Express response object.
+
+@returns {Promise<void>}
+*/
 app.get("/weather/:lat/:lon", async (req, res) => {
     const result = await fetch(
         `https://api.openweathermap.org/data/3.0/onecall?lat=${req.params.lat}&lon=${req.params.lon}&appid=${apiKey}`
@@ -34,7 +71,13 @@ app.get("/weather/:lat/:lon", async (req, res) => {
     const data = await result.json();
     return res.send(data);
 });
+/**
 
+Express route for retrieving all menu items from the database.
+@param {Object} req - Express request object.
+@param {Object} res - Express response object.
+@returns {Promise<void>}
+*/
 app.get("/menu", async (req, res) => {
     const result = await pool.query(
         "SELECT * FROM menu_items ORDER BY menu_item_id",
@@ -47,7 +90,13 @@ app.get("/menu", async (req, res) => {
         }
     );
 });
+/**
 
+Express route for retrieving all sales data from the database.
+@param {Object} req - Express request object.
+@param {Object} res - Express response object.
+@returns {Promise<void>}
+*/
 app.get("/sales", async (req, res) => {
     const result = await pool.query(
         "SELECT * FROM sales ORDER BY sales_id",
@@ -69,6 +118,17 @@ app.get("/sales", async (req, res) => {
         }
     );
 });
+
+/**
+
+Route for retrieving a list of items that need to be restocked.
+@name GET/restock
+@function
+@async
+@param {Object} req - Express request object.
+@param {Object} res - Express response object.
+@returns {Object} - Returns an object containing the inventory items that need to be restocked.
+*/
 app.get("/restock", async (req, res) => {
     const result = await pool.query(
         "SELECT * FROM inventory WHERE quantity <= min_amount ORDER BY item_name;",
@@ -91,7 +151,16 @@ app.get("/restock", async (req, res) => {
         
     );
 });
+/**
 
+Route for retrieving a list of all inventory items.
+@name GET/inventory
+@function
+@async
+@param {Object} req - Express request object.
+@param {Object} res - Express response object.
+@returns {Object} - Returns an object containing all inventory items.
+*/
 app.get("/inventory", async (req, res) => {
     const result = await pool.query(
         "SELECT * FROM inventory ORDER BY item_id",
@@ -106,7 +175,16 @@ app.get("/inventory", async (req, res) => {
 });
 
 //  CASHIER SIDE
+/**
 
+Route for retrieving a list of new menu items.
+@name GET/newMenuItems
+@function
+@async
+@param {Object} req - Express request object.
+@param {Object} res - Express response object.
+@returns {Object} - Returns an object containing the new menu items.
+*/
 app.get("/newMenuItems", async (req, res) => {
     const result = await pool.query(
         "SELECT * FROM menu_items WHERE menu_item_id > 63;",
@@ -120,6 +198,18 @@ app.get("/newMenuItems", async (req, res) => {
     );
 });
 
+/**
+
+Route for retrieving the recipe of a menu item with a given ID.
+@name GET/recipe/:itemId
+@function
+@async
+@param {Object} req - Express request object.
+@param {Object} res - Express response object.
+@param {string} req.params.itemId - The ID of the menu item whose recipe should be retrieved.
+@returns {Object} - Returns an object containing the recipe of the menu item with the specified ID.
+*/
+
 app.get("/recipe/:itemId", async (req, res) => {
     const result = await pool.query(
         `SELECT * FROM recipes WHERE menu_item_id = ${req.params.itemId}`,
@@ -132,7 +222,15 @@ app.get("/recipe/:itemId", async (req, res) => {
         }
     );
 });
+/**
 
+Update the quantity of an inventory item by subtracting the given amount
+@route GET /updateInventory/:qty/:inventoryId
+@param {number} qty - The quantity to subtract from the inventory item
+@param {number} inventoryId - The ID of the inventory item to update
+@returns {object} An object containing a success message upon successful update
+@throws {object} 500 - Error message if database query fails
+*/
 app.get("/updateInventory/:qty/:inventoryId", async (req, res) => {
     const result = await pool.query(
         `UPDATE inventory SET quantity = quantity - ${req.params.qty} WHERE item_id = ${req.params.inventoryId};`,
@@ -145,7 +243,15 @@ app.get("/updateInventory/:qty/:inventoryId", async (req, res) => {
         }
     );
 });
+/**
 
+Add an order item to the orders table
+@route GET /addOrderItems/:price/:isPaid
+@param {number} price - The price of the order item
+@param {boolean} isPaid - A boolean indicating whether the order has been paid for or not
+@returns {object} An object containing a success message upon successful update
+@throws {object} 500 - Error message if database query fails
+*/
 app.get("/addOrderItems/:price/:isPaid", async (req, res) => {
     const result = await pool.query(
         `INSERT INTO orders (price, is_paid, order_time) VALUES (${parseFloat(
@@ -160,6 +266,13 @@ app.get("/addOrderItems/:price/:isPaid", async (req, res) => {
         }
     );
 });
+/**
+
+Retrieves the last order ID from the 'orders' table in the database.
+@param {Object} req - The request object.
+@param {Object} res - The response object.
+@returns {Object} - Returns a JSON object containing the last order ID.
+*/
 
 app.get("/lastOrderId", async (req, res) => {
     const result = await pool.query(
@@ -173,7 +286,13 @@ app.get("/lastOrderId", async (req, res) => {
         }
     );
 });
+/**
 
+Creates a new order item and inserts it into the 'order_items' table in the database.
+@param {Object} req - The request object.
+@param {Object} res - The response object.
+@returns {Object} - Returns a JSON object with a success message.
+*/
 app.get("/createOrder/:newId/:itemId/:qty", async (req, res) => {
     const result = await pool.query(
         `INSERT INTO order_items (order_id, menu_item_id, quantity) VALUES (${req.params.newId}, ${req.params.itemId}, ${req.params.qty})`,
@@ -187,6 +306,13 @@ app.get("/createOrder/:newId/:itemId/:qty", async (req, res) => {
     );
 });
 
+/**
+
+Decreases the quantity of an item in the 'inventory' table in the database by 1.
+@param {Object} req - The request object.
+@param {Object} res - The response object.
+@returns {Object} - Returns a success message.
+*/
 app.post("/addToGo", async (req, res) => {
     const result = await pool.query(
         "UPDATE inventory SET quantity = quantity - 1 WHERE item_id = 59; ",
@@ -201,7 +327,13 @@ app.post("/addToGo", async (req, res) => {
 });
 
 //  MANAGER SIDE
+/**
 
+Changes the quantity of an item in the 'inventory' table in the database.
+@param {Object} req - The request object.
+@param {Object} res - The response object.
+@returns {Object} - Returns a JSON object with a success message.
+*/
 app.get("/changeIngredientQuantity/:id/:quantity", async (req, res) => {
     if (req.params.quantity !== "") {
         const result = await pool.query(
@@ -220,7 +352,13 @@ app.get("/changeIngredientQuantity/:id/:quantity", async (req, res) => {
 
     return res.json({ message: "User updated successfully" });
 });
+/**
 
+Changes the name of an item in the 'inventory' table in the database.
+@param {Object} req - The request object.
+@param {Object} res - The response object.
+@returns {Object} - Returns a JSON object with a success message.
+*/
 app.get("/changeIngredientName/:id/:name", async (req, res) => {
     if (req.params.name !== "") {
         result = await pool.query(
@@ -239,7 +377,13 @@ app.get("/changeIngredientName/:id/:name", async (req, res) => {
 
     return res.json({ message: "User updated successfully" });
 });
+/**
 
+Handles changing the price of a menu item.
+@param {object} req - The HTTP request object.
+@param {object} res - The HTTP response object.
+@returns {object} - A JSON object with a success message or an error message.
+*/
 app.get("/changeMenuPrice/:id/:price", async (req, res) => {
     console.log("Actually Runs Price");
     if (req.params.price !== "") {
@@ -259,7 +403,13 @@ app.get("/changeMenuPrice/:id/:price", async (req, res) => {
 
     return res.json({ message: "User updated successfully" });
 });
+/**
 
+Handles changing the name of a menu item.
+@param {object} req - The HTTP request object.
+@param {object} res - The HTTP response object.
+@returns {object} - A JSON object with a success message or an error message.
+*/
 app.get("/changeMenuName/:id/:name", async (req, res) => {
     console.log("Actually Runs Name");
     if (req.params.name !== "") {
@@ -279,7 +429,13 @@ app.get("/changeMenuName/:id/:name", async (req, res) => {
 
     return res.json({ message: "User updated successfully" });
 });
+/**
 
+Handles retrieving orders between a specific beginning and end date.
+@param {object} req - The HTTP request object.
+@param {object} res - The HTTP response object.
+@returns {object} - A JSON object with the orders or an error message.
+*/
 app.get("/orders/:beginning/:end", async (req, res) => {
     const result = await pool.query(
         "SELECT * FROM orders WHERE orders.order_time::date >= '" +
@@ -296,7 +452,13 @@ app.get("/orders/:beginning/:end", async (req, res) => {
         }
     );
 });
+/**
 
+Handles retrieving the net sales of the restaurant.
+@param {object} req - The HTTP request object.
+@param {object} res - The HTTP response object.
+@returns {object} - A JSON object with the net sales or an error message.
+*/
 app.get("/xreportdefault", async (req, res) => {
     console.log(zDate);
     if (zDate === "") {
@@ -331,6 +493,13 @@ app.get("/xreportdefault", async (req, res) => {
     }
 });
 
+/**
+
+@description A route that returns a report of inventory items with a quantity less than 10% of their maximum quantity
+@param {Object} req - Express request object
+@param {Object} res - Express response object
+@returns {Object} - Returns an object containing the item names, their quantities, and maximum quantities
+*/
 app.get("/excessReport/:beginning", async (req, res) => {
 
     const date = getLocalDate();
@@ -367,7 +536,13 @@ app.get("/excessReport/:beginning", async (req, res) => {
         }
     );
 });
+/**
 
+@description A route that returns the total sales amount for a given date
+@param {Object} req - Express request object
+@param {Object} res - Express response object
+@returns {number} - Returns the total sales amount for the given date
+*/
 app.get("/xreport/:date", async (req, res) => {
     //const id = await pool.query("SELECT sales_date FROM sales WHERE sales_id=(SELECT max(sales_id) FROM sales)");
     console.log(req.params.date);
@@ -379,7 +554,12 @@ app.get("/xreport/:date", async (req, res) => {
 
     return res.send(netResult.rows[0]["sum"]);
 });
+/**
 
+@description A route that creates a sales report and inserts it into the database
+@param {Object} req - Express request object
+@param {Object} res - Express response object
+*/
 app.get("/zreport", async (req, res) => {
     const id = await pool.query("SELECT MAX(sales_id) FROM sales;");
     const idVal = id.rows[0]["max"] + 1;
@@ -411,7 +591,11 @@ app.get("/zreport", async (req, res) => {
     const orderid = await pool.query("SELECT max(order_id) FROM orders");
     zDate = orderid.rows[0]["max"];
 });
+/**
 
+This function gets the local date
+@return {string} A string in the format "YYYY-MM-DD"
+*/
 function getLocalDate() {
     const date = new Date();
     const year = date.getFullYear();
@@ -419,7 +603,13 @@ function getLocalDate() {
     const day = String(date.getDate()).padStart(2, "0"); // Add leading zero if needed
     return `${year}-${month}-${day}`;
 }
+/**
 
+This route adds a new menu item to the database
+@param {Object} req - The request object
+@param {Object} res - The response object
+@return {Object} The response object with a success or error message
+*/
 app.post("/addmenu/completeMenu", async (req, res) => {
     console.log("completion");
     const orderDets = req.body;
@@ -443,7 +633,13 @@ app.post("/addmenu/completeMenu", async (req, res) => {
     );
     res.status(200).json({ message: "Menu Item Created" });
 });
+/**
 
+This route adds a new menu item to the database along with its recipe
+@param {Object} req - The request object
+@param {Object} res - The response object
+@return {Object} The response object with a success or error message
+*/
 app.post("/addMenu", async (req, res) => {
     // console.log("hello");
     const ingredients = req.body.ingredients;
@@ -499,7 +695,16 @@ app.post("/addMenu", async (req, res) => {
         res.status(200).json({ message: "Ingredients received" });
     }
 });
+/**
 
+@description This route checks authorization based on user email and sends back whether the user is authorized and their privilege level
+
+@param {Object} req - The request object containing the user email
+
+@param {Object} res - The response object to send back to the client
+
+@returns {Object} - The response object containing whether the user is authorized and their privilege level
+*/
 app.post("/check-authorization", async (req, res) => {
     const email = req.body.email;
 
@@ -527,7 +732,13 @@ app.post("/check-authorization", async (req, res) => {
         res.status(500).send({ message: "Server error" });
     }
 });
+/**
 
+@description This route adds an ingredient to the inventory by updating its quantity
+@param {Object} req - The request object containing the ingredient name and quantity to be added
+@param {Object} res - The response object to send back to the client
+@returns {Object} - The response object indicating whether the operation was successful or not
+*/
 app.post("/addIngredient", async (req, res) => {
     console.log("in here");
     const orderDets = req.body;
@@ -547,7 +758,13 @@ app.post("/addIngredient", async (req, res) => {
     );
     res.status(200).json({ message: "Menu Item Created" });
 });
+/**
 
+@description This route catches all other routes and directs them to the React client
+@param {Object} req - The request object
+@param {Object} res - The response object to send back to the client
+@returns {Object} - The response object containing the React client
+*/
 //catch all other routes and direct them to react
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, '../client/build/index.html'));
