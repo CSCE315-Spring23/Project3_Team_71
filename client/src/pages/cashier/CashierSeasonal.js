@@ -22,10 +22,17 @@ const CashierSeasonal = () => {
 
     const [showPopUp, setShowPopUp] = useState(false);
 
+    /*
+    * Toggles the visibility of the current order popup
+    */
     const handlePopUp = () => {
         setShowPopUp(!showPopUp);
     };
 
+    /*
+    *
+    * Fetches the menu data from the server and saves it to state
+    */
     useEffect(() => {
         const getMenu = async () => {
             const res = await fetch(`${HOST}/menu`);

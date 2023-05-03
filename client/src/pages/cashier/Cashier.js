@@ -6,6 +6,10 @@ import { CurOrderContext } from "../../hooks/CurOrderContext";
 import CurOrderPopUp from "../../components/CurOrderPopUp";
 import { HOST } from "../../host";
 
+/*
+* React component for the Cashier section of the app 
+@returns {JSX.Element} Cashier component JSX
+*/
 const Cashier = () => {
     const { totalCost, setTotalCost, curItems, setCurItems } =
         useContext(CurOrderContext);
@@ -19,10 +23,17 @@ const Cashier = () => {
     );
     const [showPopUp, setShowPopUp] = useState(false);
 
+    /*
+    * Toggles the visibility of the current order popup
+    */
     const handlePopUp = () => {
         setShowPopUp(!showPopUp);
     };
 
+    /*
+    *
+    * Fetches the menu data from the server and saves it to state
+    */
     useEffect(() => {
         const getMenu = async () => {
             const res = await fetch(`${HOST}/menu`);
@@ -95,7 +106,7 @@ const Cashier = () => {
                 </button>
             </div>
 
-            <div className="button-row-cashier">   
+            <div className="button-row-cashier">
                 <button className="btn-cashier" id="8ng" onClick={handleClick}>
                     <img
                         src="/resource/grilledNuggets_8ct.png"
@@ -148,7 +159,6 @@ const Cashier = () => {
             </div>
 
             <div className="button-row-cashier">
-                
                 <button className="btn-cashier" id="sss" onClick={handleClick}>
                     <img
                         src="/resource/sswSalad.png"
@@ -192,8 +202,6 @@ const Cashier = () => {
             </div>
 
             <div className="button-row-cashier">
-                
-
                 <button className="btn-cashier" id="wfm" onClick={handleClick}>
                     <img
                         src="/resource/waffleFry.png"
@@ -210,7 +218,6 @@ const Cashier = () => {
                     />
                     <h1>L</h1>
                 </button>
-                
             </div>
             <div>
                 {showPopUp && (
