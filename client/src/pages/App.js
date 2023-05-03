@@ -23,17 +23,41 @@ import Header from "../components/Header";
 import CashierSauce from "./cashier/CashierSauce";
 import { useEffect } from "react";
 
+/**
+
+A React component for the main App
+@function
+@returns {JSX.Element} - The App component's UI
+*/
 function App() {
 
 
+    /**
+
+A custom hook that retrieves the user state from local storage and updates it when changed
+@function
+@param {string} initialValue - The initial value for the user state
+@param {string} key - The key used to store the user state in local storage
+@returns {Array} - An array containing the user state and a function to update it
+*/
     const [user, setUser] = useLocalState("", "user");
 
+    /**
+
+    A function that handles the user sign out event by resetting the user state and redirecting to the home page
+    @function
+    */
     function HandleSignOut() {
         setUser({});
         console.log(user);
         window.location.href = "/";
     }
 
+    /**
+
+    A React hook that runs once when the component mounts to the DOM, and logs the current window's hostname to the console
+    @function
+    */
     useEffect(() => {
         console.log(window.location.hostname);
     }, [])
