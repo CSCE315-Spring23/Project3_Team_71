@@ -3,16 +3,28 @@ import * as React from "react";
 import { useTable } from "react-table";
 import { useEffect, useState } from "react";
 import { HOST } from "../../host";
+/**
 
+A functional component that displays an excess report of items for a given date range.
+@returns {JSX.Element} ExcessReport component JSX code
+*/
 const ExcessReport = () => {
     const [items, setExcessReport] = useState([]);
 
     const [beginning, setBeginningDate] = useState('');
+/**
 
+Event handler that updates the beginning date for the excess report.
+@param {Object} event - The event object from the input field
+*/
     const handleBeginningChange = (event) => {
         setBeginningDate(event.target.value);
       };
+/**
 
+Event handler that fetches the excess report data and sets the state to display it.
+@async
+*/
   const handleSubmit = async () => {
 
     const res = await fetch(`${HOST}/excessReport/${beginning}`);

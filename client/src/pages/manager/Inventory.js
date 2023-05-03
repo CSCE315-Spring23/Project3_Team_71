@@ -1,10 +1,20 @@
 import React, { useEffect, useState } from "react";
 import { HOST } from "../../host";
+/**
 
+React component for displaying the inventory.
+@returns {JSX.Element} JSX element of the inventory component.
+*/
 const Inventory = () => {
     const [items, setInventory] = useState([]);
 
     useEffect(() => {
+        /**
+
+Fetches the inventory data from the server and updates the state with it.
+@function
+@returns {void}
+*/
         const getInventory = async () => {
             const res = await fetch(`${HOST}/inventory`);
             const getdata = await res.json();

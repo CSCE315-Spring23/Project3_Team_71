@@ -12,10 +12,25 @@ import RestockReport from "./RestockReport";
 
 
 import "../../css/managerButtons.css";
+/**
 
+Renders the Manager component.
+
+@returns {JSX.Element} The rendered component.
+*/
 const Manager = () => {
-    const [activeFunction, setFunction] = useState(null);
+    /*
 
+The state representing the currently active function.
+@type {[string|null, function]} An array containing the state value and the function to update it.
+*/
+    const [activeFunction, setFunction] = useState(null);
+/**
+
+Handles a click on a manager function button by updating the active function state.
+@param {string} functionName - The name of the clicked function button.
+@returns {JSX.Element} The function Name.
+*/
 
     const handleManagerFunction = (functionName) => {
         setFunction((prevFunction) => {

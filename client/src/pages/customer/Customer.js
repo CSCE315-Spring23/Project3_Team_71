@@ -481,7 +481,7 @@ const Customer = () => {
 
                 <button
                     className="edit-button-customer bigger"
-                    onClick={handleComplete}
+                    onClick={handleWeatherPopup}
                 >
                     <div>Checkout:</div>
                     <div className="price-customer">
