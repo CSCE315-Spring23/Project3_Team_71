@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "../../css/changeIngredient2.css";
 import { HOST } from "../../host";
-
+import ManagerPop from "../../components/managerErrorPop";
 const ChangeIngredient = () => {
 
 
@@ -9,6 +9,12 @@ const ChangeIngredient = () => {
   const [quantity, setQuantity] = useState('');
   const [name, setName] = useState ('');
 
+
+
+  const [inputValue, setInputValue] = useState("");
+  const[quantity1, setQuantity1] = useState("");
+  const [showManagerPop , setManagerPop] = useState(false);
+  const [ErrorPrompt , setErrorPrompt] = useState("");
   /**
 
 Function that handles the submit event for changing ingredient's ID, quantity or name.
@@ -71,12 +77,12 @@ It uses the current values of id, price, and name to update the corresponding va
   const handleSubmitMenu = async () => {
 
     if(price !== '') {
-      console.log("/changeMenuPrice/"+id+"/"+price);
-      const response_quantity = await fetch(`${HOST}/changeMenuPrice/${id}/${price}`);
+      console.log("/changeMenuPrice/"+idMenu+"/"+price);
+      const response_quantity = await fetch(`${HOST}/changeMenuPrice/${idMenu}/${price}`);
     }
     if(name !== '') {
-      console.log("/changeMenuName/"+id+"/"+name);
-      const response_name = await fetch(`${HOST}/changeMenuName/${id}/${name}`);
+      console.log("/changeMenuName/"+idMenu+"/"+nameMenu);
+      const response_name = await fetch(`${HOST}/changeMenuName/${idMenu}/${nameMenu}`);
     }
   };
 /**
@@ -108,7 +114,46 @@ Function that updates the state variable nameMenu to the value entered by the us
   };
 
 
+  const handleInputChange = (event) => {
+    setInputValue(event.target.value);
+  };
+
+
+  const handleQuantity1Change = (event) => {
+    setQuantity1(event.target.value);
+  };
+/**
+
+Function that logs the current value of the input field to the console.
+*/
+const handleButtonClick = () => {
+  // Do something with the item name and price (e.g. add them to an order list)
+  fetch(`${HOST}/addIngredient`, {
+    method: 'POST',
+    headers:{
+      'Content-Type': 'application/json'
+    },
+    body:JSON.stringify({'name':inputValue , 'quantity': quantity1})
+  }) .then(response => response.json())
+  .then(data => {console.log(data); answerScreen()})
+  .catch(error => { console.error(error); });
+  // Reset the form to add ingredients again
+};
+
+
+/**
+
+Function that displays the help menu to the user.
+*/
+const answerScreen = () =>{
+  setErrorPrompt("completeChange");
+  setManagerPop(true);
+}
+
+
+
   return (
+    <>
     <div>
     <div id = "menuadder2">
 
@@ -152,7 +197,7 @@ Function that updates the state variable nameMenu to the value entered by the us
         name ="Menu ID"
         required = "required"
         placeholder="Enter Menu ID"
-        value = {id}
+        value = {idMenu}
         onChange = {handleIdChangeMenu}
         />
         <input 
@@ -165,18 +210,35 @@ Function that updates the state variable nameMenu to the value entered by the us
         />
         <input 
         type = "text" 
-        id = "name"
+        id = "nameMenu"
         name ="Name"
         placeholder="Enter New Name"
-        value = {name}
+        value = {nameMenu}
         onChange = {handleNameChangeMenu}
         />
-        <button type ="button" onClick ={handleSubmit}>Change Menu Item</button>
+        <button type ="button" onClick ={handleSubmitMenu}>Change Menu Item</button>
       </form>
       </div>
-</div>
-  
 
+      <div id = "menuadder4">
+    <h3>Change Ingredient Quantity</h3>
+    <div id = "menuadder4-form1">
+      <input type="text" value={inputValue} onChange={handleInputChange} placeholder="Input ingredient name"/>
+      <input type="text" value={quantity1} onChange={handleQuantity1Change} placeholder="Input Quantity"/>
+      <button type = "button" onClick={handleButtonClick}>Add Ingredient</button>
+    </div>
+    </div>
+</div>
+  <div>
+  {showManagerPop && (
+    <ManagerPop
+        ErrorPrompt={ErrorPrompt}
+        setErrorPrompt={setErrorPrompt}
+        setManagerPop={setManagerPop}
+    />
+)}
+</div>
+</>
   )
 }
 

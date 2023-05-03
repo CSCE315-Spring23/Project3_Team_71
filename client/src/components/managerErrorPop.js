@@ -33,14 +33,23 @@ const ManagerPop = ({ ErrorPrompt, setErrorPrompt,setManagerPop }) => {
                     </h2>
           </div>
           {ErrorPrompt == "missIng" &&(
-            <h2>Ingredients are missing</h2>
+            <h2>Ingredients are missing. Try again after refreshing page</h2>
           )}
 
           {ErrorPrompt == "Entry" &&(
             <h2>Ingredients are missing</h2>
           )}
           {ErrorPrompt == "helpMenu" &&(
-            <h2>In here</h2>
+            <>
+            <h2> 1.First enter the ingredient name you want to add and the quantity of that ingredient in the recipe</h2>
+            <h2>2. Press on the Add Ingredient button. It'll add the ingredient to a list and show it. </h2>
+            <h2>3. To add more ingredients, keep on adding ingredient and quantity and click on add ingredient again </h2>
+            <h2> 4.Click on done with ingredients afterwards</h2>
+            <h2>5. Finish up by entering the name of the menu item and the price</h2>
+            </>
+          )}
+          {ErrorPrompt == "completeChange" &&(
+            <h2>Ingredient Quantities have been changed</h2>
           )}
                 
                 </div>

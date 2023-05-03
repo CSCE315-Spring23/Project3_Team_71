@@ -386,6 +386,8 @@ Handles changing the price of a menu item.
 */
 app.get("/changeMenuPrice/:id/:price", async (req, res) => {
     console.log("Actually Runs Price");
+    console.log(req.params)
+    console.log("price: ",req.params.price ," name: ",req.params.id);
     if (req.params.price !== "") {
         const result = await pool.query(
             "UPDATE menu_items SET menu_item_price = " +

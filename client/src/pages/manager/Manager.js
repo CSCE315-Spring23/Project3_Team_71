@@ -106,7 +106,7 @@ Handles a click on a manager function button by updating the active function sta
                         ? "Hide Add Menu Item"
                         : "Add Menu Item"}
                 </button>
-                <button
+                {/* <button
                     className="m-btn"
                     onClick={() =>
                         handleManagerFunction("addIngredientFunction")
@@ -115,7 +115,7 @@ Handles a click on a manager function button by updating the active function sta
                     {activeFunction === "addIngredientFunction"
                         ? "Hide Add Ingredient"
                         : "Add Ingredient"}
-                </button>
+                </button> */}
 
 
 
