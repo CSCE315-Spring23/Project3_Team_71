@@ -11,9 +11,12 @@ import { HOST } from "../../host";
 
 const apiKey = "60ea3e0d4ae18a97f73bdcd78fc41e8d";
 
+/**
+
+A functional component that represents a customer page in a restaurant.
+@returns {JSX.Element} The JSX representation of the customer component.
+*/
 const Customer = () => {
-    const [lat, setLat] = useState([]);
-    const [long, setLong] = useState([]);
     const [temp, setTemp] = useState("");
     const { totalCost, setTotalCost, curItems, setCurItems } =
         useContext(CurOrderContext);
@@ -31,12 +34,20 @@ const Customer = () => {
 
     const [showWeatherPop, setWeatherPop] = useState(false);
 
+    /**
+Handles click event for popup button
+@param {Event} event - The event object
+*/
     const handlePopUpClick = (event) => {
         const bID = event.target.closest("button").id;
         console.log(bID);
         setStringID(bID);
         handlePopUpState();
     };
+
+    /**
+    Handles weather popup based on current temperature
+    */
     const handleWeatherPopup = () => {
         if (temp > 53) {
             console.log("temper: ", temp);
@@ -45,24 +56,52 @@ const Customer = () => {
             handleComplete();
         }
     };
+
+    /**
+Sets the weather popup state to true.
+*/
     const handleWeatherPopupState = () => {
         setWeatherPop(true);
     };
 
+    /**
+
+    Handles the popup when the user chooses not to watch an advertisement by setting the advertisement popup state to true and the advertisement state to false.
+    */
     const handlePopupNoAd = () => {
         setAdPopUp(true);
         setAd(false);
     };
 
+    /**
+
+Handles the popup state when the user clicks a button by setting the advertisement popup state to true and the advertisement state to true.
+*/
     const handlePopUpState = () => {
         setAdPopUp(true);
         setAd(true);
     };
 
+    /**
+
+Toggles the show popup state to show or hide the popup.
+*/
     const handlePopUp = () => {
         setShowPopUp(!showPopUp);
     };
 
+    /**
+
+Fetches weather data from OpenWeatherMap API and sets the temperature state.
+Fetches the menu from the server and sets the menu state.
+@async
+@function useEffect
+@param {string} apiKey - API key for OpenWeatherMap API.
+@param {string} HOST - URL for the server to fetch menu from.
+@param {function} setTemp - State setter function for temperature.
+@param {function} setMenu - State setter function for menu.
+@returns {void}
+*/
     useEffect(() => {
         const weather = async () => {
             console.log("apikey: ", apiKey);
@@ -74,6 +113,8 @@ const Customer = () => {
                     setTemp(result.main.temp);
                 });
         };
+
+        
         const getMenu = async () => {
             const res = await fetch(`${HOST}/menu`);
             const data = await res.json();
@@ -92,6 +133,13 @@ const Customer = () => {
         weather();
     }, []);
 
+    /**
+        Gets the price of a menu item given its ID.
+        @function getMenuPrice
+        @param {number} menuItemId - ID of the menu item to get the price for.
+        @param {object} menu - Object containing menu items and their prices.
+        @returns {number|null} The price of the menu item or null if it doesn't exist in the menu object.
+        */
     const getMenuPrice = (menuItemId, menu) => {
         if (menu.hasOwnProperty(menuItemId)) {
             return menu[menuItemId][0];

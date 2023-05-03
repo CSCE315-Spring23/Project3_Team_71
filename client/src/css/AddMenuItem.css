@@ -72,3 +72,19 @@
   #menuadder-form button[type="button"].done-button:hover {
     background-color: rgb(231, 74, 74);
   }
+  .help {
+    display: flex;
+    z-index: 2;
+    align-items: center;
+    justify-content: right;
+
+  }
+  .help-btn {
+    padding: 5px 10px;
+    /* margin-top: 10px; */
+    background-color: rgb(240, 46, 46);
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }

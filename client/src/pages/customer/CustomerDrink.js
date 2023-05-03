@@ -20,7 +20,10 @@ const CustomerDrink = () => {
     const handlePopUp = () => {
         setShowPopUp(!showPopUp);
     };
-
+    
+    /**
+     * Fetches menu data from the server and sets the menu state.
+     */
     useEffect(() => {
         const getMenu = async () => {
             const res = await fetch(`${HOST}/menu`);
@@ -38,6 +41,7 @@ const CustomerDrink = () => {
         getMenu();
     }, []);
 
+    
     const getMenuPrice = (menuItemId, menu) => {
         if (menu.hasOwnProperty(menuItemId)) {
             return menu[menuItemId][0];

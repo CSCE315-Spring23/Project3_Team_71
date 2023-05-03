@@ -2,11 +2,24 @@ import React, { useEffect, useState, useRef } from "react";
 import "../../css/menu.css";
 import { HOST } from "../../host";
 
+/**
+
+React component that displays a menu and handles fetching of menu data from the server.
+
+@returns {JSX.Element} The Menu component.
+*/
 export default function Menu() {
     const [menu, setMenu] = useState("");
     const [menu1, setMenu1] = useState("");
     const [items, newItems] = useState([]);
 
+   
+/**
+A side effect hook that fetches new menu items from a server and updates the state of newItems with the received data.
+@param {Array} newItems - The state array of menu items to be updated with the fetched data.
+@param {String} HOST - The server address to fetch the data from.
+@returns {void}
+*/
     useEffect(() => {
         const handleNewItems = async () => {
             const res = await fetch(`${HOST}/newMenuItems`);
@@ -17,6 +30,13 @@ export default function Menu() {
         handleNewItems();
     }, []);
 
+    /**
+    This effect retrieves the menu from the server and sets the state of the menu and menu1.
+    @function
+    @name getMenuEffect
+    @param {Array} dependencies - an empty array indicating that the effect should only run once on mount.
+    @returns {void}
+    */
     useEffect(() => {
         const getMenu = async () => {
             const res = await fetch(`${HOST}/menu`);
@@ -37,14 +57,33 @@ export default function Menu() {
         getMenu();
     }, []);
 
+    /**
+    Gets the price of a menu item given its ID.
+    @param {number} menuItemId - The ID of the menu item to get the price for.
+    @param {Object} menu - The menu object containing the menu item data.
+    @returns {number} The price of the menu item.
+    */
     const getMenuPrice = (menuItemId, menu) => {
         return menu[menuItemId];
     };
+
+    /**
+
+Gets the name of a menu item given its ID.
+@param {number} menuItemId - The ID of the menu item to get the name for.
+@param {Object} menu1 - The menu object containing the menu item data.
+@returns {string} The name of the menu item.
+*/
     const getMenuName = (menuItemId, menu1) => {
         return menu1[menuItemId];
     };
     const bdy = useRef(null);
+    
+    /**
 
+    A function to request the fullscreen mode for the body element of the document.
+    @returns {void}
+    */
     const handleFullscreen = () => {
         if (bdy.current) {
             if (bdy.current.requestFullscreen) {
@@ -57,7 +96,16 @@ export default function Menu() {
         }
     };
 
+    /**
+    A hook that listens for the "Enter" keydown event and triggers the handleFullscreen function.
+    @returns {void}
+    */
     useEffect(() => {
+        /** 
+        A function to handle the "Enter" keydown event and trigger the handleFullscreen function.
+        @param {KeyboardEvent} event - The event object representing the keydown event.
+        @returns {void}
+        */
         const handleKeyDown = (event) => {
             if (event.key === "Enter") {
                 handleFullscreen();
@@ -391,7 +439,6 @@ export default function Menu() {
                             </div>
                         </div>
                     </div>
-                    {/* </div> */}
                 </div>
             </div>
             <br></br>
