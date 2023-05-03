@@ -1,10 +1,25 @@
 import React, { useEffect, useState } from "react";
 import { HOST } from "../../host";
+/**
 
+MenuItems Component - displays a list of menu items
+
+@returns {JSX.Element} - JSX element representing the MenuItems component
+*/
 const MenuItems = () => {
     const [items, setMenu] = useState([]);
-
+/**
+* Asynchronously retrieves the menu items data from the server and sets it in the state.
+*
+* @async
+* @function
+*/
     useEffect(() => {
+        /**
+
+Represents a functional component that retrieves and displays a list of menu items.
+@returns {JSX.Element} The rendered component.
+*/
         const getMenu = async () => {
             const res = await fetch(`${HOST}/menu`);
             const getdata = await res.json();
