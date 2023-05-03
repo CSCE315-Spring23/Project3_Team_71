@@ -528,6 +528,26 @@ app.post("/check-authorization", async (req, res) => {
     }
 });
 
+app.post("/addIngredient", async (req, res) => {
+    console.log("in here");
+    const orderDets = req.body;
+    console.log(orderDets);
+    const name = orderDets['name'];
+    const quantity = parseInt(orderDets['quantity']);
+    // const id = await pool.query("SELECT MAX(menu_item_id) FROM menu_items;");
+    // const idVal = id.rows[0]["max"] + 1;
+    const result = await pool.query(
+        "UPDATE inventory SET quantity = "+quantity+" WHERE item_name = '"+name+"';",
+        (err, result) => {
+                if (err) {
+                    res.status(500).send("Failed to update Quantity");
+                    console.log("error");
+                }
+            }
+    );
+    res.status(200).json({ message: "Menu Item Created" });
+});
+
 //catch all other routes and direct them to react
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, '../client/build/index.html'));

@@ -3,21 +3,38 @@ import "../../css/Manager.css";
 import "../../css/order.css";
 import { HOST } from "../../host";
 
+/**
+
+Functional component for displaying orders and their details.
+
+@returns {JSX.Element} The Orders component
+*/
 const Orders = () => {
     //YYYY-MM-DD FORMAT
     const [items, setOrders] = useState([]);
 
     const [beginning, setBeginningDate] = useState("");
     const [end, setEndDate] = useState("");
+/**
 
+Event handler for beginning date change.
+@param {Object} event - The event object.
+*/
     const handleBeginningChange = (event) => {
         setBeginningDate(event.target.value);
     };
+/**
 
+Event handler for end date change.
+@param {Object} event - The event object.
+*/
     const handleEndChange = (event) => {
         setEndDate(event.target.value);
     };
+/**
 
+Event handler for form submission.
+*/
     const handleSubmit = async () => {
         //console.log("/changeIngredient/:"+id+"/:"+quantity+"/:"+name);
         const res = await fetch(`${HOST}/orders/${beginning}/${end}`);
