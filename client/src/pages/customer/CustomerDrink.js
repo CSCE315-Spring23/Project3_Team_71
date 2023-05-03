@@ -6,8 +6,18 @@ import { CurOrderContext } from "../../hooks/CurOrderContext";
 import CurOrderPopUp from "../../components/CurOrderPopUp";
 import { HOST } from "../../host";
 
+/**
 
+Represents a component for ordering drinks as a customer.
+
+Uses state to keep track of the menu items and the total cost of the order.
+*/
 const CustomerDrink = () => {
+    /**
+
+    State to hold the menu items retrieved from the server.
+    @type {[Object, function]} An array containing the menu items and a function to update the state.
+    */
     const [menu, setMenu] = useState("");
     const { totalCost, setTotalCost, curItems, setCurItems } =
         useContext(CurOrderContext);
@@ -15,13 +25,23 @@ const CustomerDrink = () => {
     const { handleClick, handleComplete, handleNewOrder, handleSubtract } =
         CashierHelper(curItems, menu, totalCost, setCurItems, setTotalCost);
 
+        /**
+    State to determine whether to display the order confirmation popup.
+    @type {[boolean, function]} An array containing a boolean value for the state and a function to update it.
+    */
     const [showPopUp, setShowPopUp] = useState(false);
 
     const handlePopUp = () => {
         setShowPopUp(!showPopUp);
     };
 
+    /**
+     * Fetches menu data from the server and sets the menu state.
+     */
     useEffect(() => {
+        /** 
+        @async function to fetch menu data from the server and update the state.
+        */
         const getMenu = async () => {
             const res = await fetch(`${HOST}/menu`);
             const data = await res.json();
@@ -38,6 +58,13 @@ const CustomerDrink = () => {
         getMenu();
     }, []);
 
+
+    /**
+    Function to get the price of a menu item by its ID.
+    @param {string} menuItemId - The ID of the menu item to get the price of.
+    @param {Object} menu - The object containing the menu items and their prices.
+    @returns {number | null} The price of the menu item with the given ID, or null if it is not found in the menu object.
+    */
     const getMenuPrice = (menuItemId, menu) => {
         if (menu.hasOwnProperty(menuItemId)) {
             return menu[menuItemId][0];
@@ -382,20 +409,20 @@ const CustomerDrink = () => {
                             id="brown"
                             onClick={handleClick}
                         ></button>
-                    </div>  
+                    </div>
                 </div>
-                
+
             </div>
             <br></br><br></br><br></br><br></br><br></br><br></br><br></br>
             <div>
-                        {showPopUp && (
-                            <CurOrderPopUp
-                                curItems={curItems}
-                                handleSubtract={handleSubtract}
-                                menu={menu}
-                            />
-                        )}
-                    </div>
+                {showPopUp && (
+                    <CurOrderPopUp
+                        curItems={curItems}
+                        handleSubtract={handleSubtract}
+                        menu={menu}
+                    />
+                )}
+            </div>
 
             <div className="edit-row-customer">
                 <button className="edit-button-customer" onClick={handlePopUp}>
