@@ -5,18 +5,35 @@ import "../../css/Customer.css";
 const CustomerHeader = () => {
     let navigate = useNavigate();
 
+    /**
+     Handles the click event for the meal button and navigates to the customer meal page.
+     *
+     *@returns {void} 
+     */
     const handleMeal = () => {
         navigate("/customer/meal");
     };
-
+    /**
+     *Handles the click event for the main button and navigates to the customer main page.
+     *
+     *@returns {void}
+     */
     const handleMain = () => {
         navigate("/customer");
     };
-
+    /**
+     * Handles the click event for the drink button and navigates to the customer drink page.
+     *
+     * @returns {void}
+     */
     const handleDrink = () => {
         navigate("/customer/drink");
     };
-
+    /**
+     * Handles the click event for the seasonal button and navigates to the customer seasonal page.
+     *
+     * @returns {void}
+     */
     const handleSeasonal = () => {
         navigate("/customer/seasonal");
     };

@@ -8,12 +8,32 @@ import { HOST } from "../../host";
 import AdPopUp from "../../components/AdPopUp";
 
 const CustomerMeal = () => {
+    /**
+     * State hook that manages the menu object.
+     *
+     * @type {Object}
+     */
     const [menu, setMenu] = useState("");
+
+    /**
+     * Context hook that provides access to the current order information.
+     *
+     * @type {Object}
+     */
     const { totalCost, setTotalCost, curItems, setCurItems } =
         useContext(CurOrderContext);
-
+    /**
+     * State hook that manages the string ID used for the current order.
+     *
+     * @type {string}
+     */
     const [stringID, setStringID] = useState("");
 
+    /**
+     * Custom hook that returns functions for handling the current order and updating the menu.
+     *
+     * @type {Object}
+     */
     const {
         handleClick,
         handleComplete,
@@ -22,22 +42,53 @@ const CustomerMeal = () => {
         handleClickExtra,
     } = CashierHelper(curItems, menu, totalCost, setCurItems, setTotalCost);
 
+    /**
+     * State hook that manages the visibility of the order confirmation popup.
+     *
+     * @type {boolean}
+     */
     const [showPopUp, setShowPopUp] = useState(false);
 
+    /**
+     * State hook that manages the visibility of the advertisement popup.
+     *
+     * @type {boolean}
+     */
     const [showAdPopUp, setAdPopUp] = useState(false);
 
+    /**
+     * State hook that manages the visibility of the advertisement.
+     *
+     * @type {boolean}
+     */
     const [showAd, setAd] = useState(true);
 
+    /**
+     * Event handler function for the "No, thanks" button in the advertisement popup.
+     *
+     * @param {Event} event - The click event.
+     * @returns {void}
+     */
     const handlePopupNoAd = (event) => {
         setAdPopUp(true);
         setAd(false);
         handleClick(event);
     };
 
+    /**
+     * Event handler function for the order confirmation popup.
+     *
+     * @returns {void}
+     */
     const handlePopUp = () => {
         setShowPopUp(!showPopUp);
     };
 
+    /**
+     * Effect hook that retrieves the menu data from the server and updates the menu state hook.
+     *
+     * @returns {void}
+     */
     useEffect(() => {
         const getMenu = async () => {
             const res = await fetch(`${HOST}/menu`);
@@ -55,6 +106,13 @@ const CustomerMeal = () => {
         getMenu();
     }, []);
 
+    /**
+    *
+    * Returns the price of a menu item based on its ID
+    * @param {number} menuItemId - The ID of the menu item to retrieve the price for
+    * @param {Object} menu - The menu object containing all menu items with their respective prices
+    * @returns {number|null} The price of the menu item if it exists, or null if it does not
+    */
     const getMenuPrice = (menuItemId, menu) => {
         if (menu.hasOwnProperty(menuItemId)) {
             return menu[menuItemId][0];
@@ -62,9 +120,14 @@ const CustomerMeal = () => {
         return null;
     };
 
+    /**
+    *
+    * Logs the current items in the order whenever there is a change to curItems
+    */
     useEffect(() => {
         console.log(curItems);
     }, [curItems]);
+
     return (
         <div>
             {/* <h1>{JSON.stringify(menu, null, 2)}</h1> */}

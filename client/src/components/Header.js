@@ -4,15 +4,40 @@ import React, { useEffect, useState } from "react";
 const apiKey =  '60ea3e0d4ae18a97f73bdcd78fc41e8d';;
 
 const Header = ({ user, HandleSignOut }) => {
-    // const [weather, setWeather] = useState("");
+    
+    /**
+    *
+    * A state hook that represents the latitude of a location.
+    * @type {Array} An array containing the current state value of latitude and a function to update it.
+    */
     const [lat, setLat] = useState([]);
+
+    /**
+    *
+    * A state hook that represents the longitude of a location.
+    * @type {Array} An array containing the current state value of latitude and a function to update it.
+    */
     const [long, setLong] = useState([]);
-    // const [data,setData] = useState([]);
+
+    /**
+    * A state hook that represents the temperature of a location.
+    * 
+    * @type {string} An string containing the current state value of temperature and a function to update it.
+    */
     const [temp, setTemp] = useState("");
+
+    /**
+    *
+    * A state hook that represents the icon of a location.
+    * @type {string} An string containing the current state value of icon and a function to update it.
+    */
     const [icon, setIcon] = useState("");
 
-
-    // fetch weather data
+    /**
+    * Fetches weather data from OpenWeatherMap API based on latitude and longitude and updates the temperature and icon state variables
+    * 
+    * @returns {void}
+    */
     useEffect(() => {
         const weather = async () => {
             await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=30.621&lon=-96.34&units=imperial&appid=${apiKey}`)

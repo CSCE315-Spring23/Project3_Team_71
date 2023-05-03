@@ -7,6 +7,12 @@ const WeatherPop = ({ stringID, handleClick, setWeatherPop, menu, handleClickExt
     // const [data,setData] = useState([]);
     const [temp, setTemp] = useState("");
 
+    /**
+    *
+    * useEffect that sets a timeout to close the weather popup and handle complete after 10 seconds.
+    * @param {string} stringID - the ID of the string to pass to the handleClick function
+    * @param {function} setWeatherPop - a function to set the visibility of the weather popup
+    */
     useEffect(() => {
         
         // set a timeout to close the popup after 5 seconds
@@ -18,11 +24,16 @@ const WeatherPop = ({ stringID, handleClick, setWeatherPop, menu, handleClickExt
         return () => clearTimeout(timeout); // cleanup function to clear the timeout on unmount
       }, [stringID, setWeatherPop]);
 
-  function handleClicker(event) {
-    console.log(event.target.closest("button").id);
-    handleClick(event);
-    setWeatherPop(false);
-  }
+    /**
+    * Function that handles clicking a button element.
+    * 
+    * @param {Object} event - the click event object
+    */
+    function handleClicker(event) {
+      console.log(event.target.closest("button").id);
+      handleClick(event);
+      setWeatherPop(false);
+    }
 
   return (
     <>

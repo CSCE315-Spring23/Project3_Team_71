@@ -7,20 +7,54 @@ import CurOrderPopUp from "../../components/CurOrderPopUp";
 import { HOST } from "../../host";
 
 function CustomerNew() {
+
+    /**
+     * State hook to store the menu object.
+     * @type {object}
+     */
     const [menu, setMenu] = useState({});
+
+    /**
+     * State hook to store the seasonal menu array.
+     * @type {Array}
+     */
     const [seasonMenu, setSeasonMenu] = useState([]);
+
+    /**
+     * Context hook to access current order context data.
+     * @type {object}
+     */
     const { totalCost, setTotalCost, curItems, setCurItems } =
         useContext(CurOrderContext);
 
+    /**
+     * Object with functions to handle Cashier actions.
+     * @type {object}
+     */
     const { handleClickExtra, handleComplete, handleNewOrder, handleSubtract } =
         CashierHelper(curItems, menu, totalCost, setCurItems, setTotalCost);
 
+    /**
+     * State hook to toggle the display of a pop-up.
+     * @type {boolean}
+     */
     const [showPopUp, setShowPopUp] = useState(false);
 
+    /**
+     * Function to toggle the pop-up display.
+     * 
+     * @returns {void}
+     */
     const handlePopUp = () => {
         setShowPopUp(!showPopUp);
     };
 
+    
+    /**
+     * Effect hook to fetch the menu data from the server and update the menu state.
+     * 
+     * @returns {void}
+     */
     useEffect(() => {
         const getMenu = async () => {
             const res = await fetch(`${HOST}/menu`);
@@ -38,6 +72,11 @@ function CustomerNew() {
         getMenu();
     }, []);
 
+    /**
+    * Effect hook to update the seasonal menu when the menu state changes.
+    * 
+    * @returns {void}
+    */
     useEffect(() => {
         setSeasonMenu(
             Object.keys(menu)
@@ -52,10 +91,20 @@ function CustomerNew() {
         console.log(menu);
     }, [menu]);
 
+    /**
+    * Effect hook to log the menu state when it changes.
+    * 
+    * @returns {void}
+    */
     useEffect(() => {
         console.log(menu);
     }, [menu]);
 
+    /**
+     * Effect hook to log the current order context data when it changes.
+     * 
+     * @returns {void}
+     */
     useEffect(() => {
         console.log(curItems);
     }, [curItems]);

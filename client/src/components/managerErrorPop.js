@@ -3,6 +3,15 @@ import "../css/ad.css";
 
 const ManagerPop = ({ ErrorPrompt, setErrorPrompt,setManagerPop }) => {
 
+  /**
+  * A side effect hook that sets a timeout to close a popup after a specified time period.
+  *
+  * @param {function} setErrorPrompt - A function to set an error prompt.
+  *
+  * @param {boolean} setManagerPop - A function to set the state of a manager popup.
+  *
+  * @returns {function} A cleanup function to clear the timeout on unmount.
+  */
     useEffect(() => {
         
         // set a timeout to close the popup after 5 seconds
@@ -13,11 +22,6 @@ const ManagerPop = ({ ErrorPrompt, setErrorPrompt,setManagerPop }) => {
         return () => clearTimeout(timeout); // cleanup function to clear the timeout on unmount
       }, [ setErrorPrompt, setManagerPop]);
 
-  // function handleClicker(event) {
-  //   console.log(event.target.closest("button").id);
-  //   handleClick(event);
-  //   setManagerPop(false);
-  // }
 
   return (
     <>
