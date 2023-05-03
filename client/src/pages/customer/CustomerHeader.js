@@ -46,7 +46,7 @@ const CustomerHeader = () => {
                             className="btn-header-cashier"
                             onClick={handleDrink}
                         >
-                            <h3>Drinks</h3>
+                            <h3>Drinks & Treats</h3>
                         </button>
                     </li>
                     <li>

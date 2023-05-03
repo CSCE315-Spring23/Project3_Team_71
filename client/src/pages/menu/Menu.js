@@ -189,6 +189,8 @@ export default function Menu() {
                                         12ct: ${getMenuPrice(33, menu)} Meal | $
                                         {getMenuPrice(17, menu)} Entree
                                     </h4>
+                                    <br></br><br></br><br></br>
+
                                 </div>
                             </div>
                         </div>
@@ -348,7 +350,7 @@ export default function Menu() {
                                     className="menuImg"
                                     src="/resource/sides.png"
                                 ></img>
-                                <div className="lhs">
+                                <div className="lhs-side">
                                     <h3>{getMenuName(12, menu1)}</h3>
                                     <h4>
                                         M: ${getMenuPrice(12, menu)}| L: $
@@ -358,7 +360,7 @@ export default function Menu() {
                                     <h3>{getMenuName(53, menu1)}</h3>
                                     <h4>${getMenuPrice(53, menu)}</h4>
                                 </div>
-                                <div className="lhs">
+                                <div className="lhs-side">
                                     <h3>{getMenuName(55, menu1)}</h3>
                                     <h4>${getMenuPrice(55, menu)}</h4>
                                     <br></br>

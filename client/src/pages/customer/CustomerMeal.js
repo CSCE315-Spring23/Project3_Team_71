@@ -273,6 +273,7 @@ const CustomerMeal = () => {
                     </div>
                 </div>
             </div>
+            <br></br><br></br><br></br><br></br><br></br><br></br><br></br>
             <div>
                 {showPopUp && (
                     <CurOrderPopUp

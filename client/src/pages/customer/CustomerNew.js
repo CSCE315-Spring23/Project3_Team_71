@@ -86,7 +86,8 @@ function CustomerNew() {
                     />
                 )}
             </div>
-            ;
+            <br></br><br></br><br></br><br></br><br></br><br></br><br></br>
+
             <div className="edit-row-customer">
                 <button className="edit-button-customer" onClick={handlePopUp}>
                     Edit

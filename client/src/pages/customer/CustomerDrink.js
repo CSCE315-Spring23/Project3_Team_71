@@ -382,9 +382,12 @@ const CustomerDrink = () => {
                             id="brown"
                             onClick={handleClick}
                         ></button>
-                    </div>
-
-                    <div>
+                    </div>  
+                </div>
+                
+            </div>
+            <br></br><br></br><br></br><br></br><br></br><br></br><br></br>
+            <div>
                         {showPopUp && (
                             <CurOrderPopUp
                                 curItems={curItems}
@@ -393,8 +396,6 @@ const CustomerDrink = () => {
                             />
                         )}
                     </div>
-                </div>
-            </div>
 
             <div className="edit-row-customer">
                 <button className="edit-button-customer" onClick={handlePopUp}>

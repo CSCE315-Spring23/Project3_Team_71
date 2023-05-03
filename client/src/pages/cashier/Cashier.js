@@ -85,9 +85,6 @@ const Cashier = () => {
                     />
                     <h1>N8</h1>
                 </button>
-            </div>
-
-            <div className="button-row-cashier">
                 <button className="btn-cashier" id="12n" onClick={handleClick}>
                     <img
                         src="/resource/nuggets_8ct.png"
@@ -96,6 +93,9 @@ const Cashier = () => {
                     />
                     <h1>N12</h1>
                 </button>
+            </div>
+
+            <div className="button-row-cashier">   
                 <button className="btn-cashier" id="8ng" onClick={handleClick}>
                     <img
                         src="/resource/grilledNuggets_8ct.png"
@@ -129,9 +129,6 @@ const Cashier = () => {
                     />
                     <h1>GC</h1>
                 </button>
-            </div>
-
-            <div className="button-row-cashier">
                 <button className="btn-cashier" id="ccwg" onClick={handleClick}>
                     <img
                         src="/resource/wrap.png"
@@ -148,6 +145,10 @@ const Cashier = () => {
                     />
                     <h1>SM</h1>
                 </button>
+            </div>
+
+            <div className="button-row-cashier">
+                
                 <button className="btn-cashier" id="sss" onClick={handleClick}>
                     <img
                         src="/resource/sswSalad.png"
@@ -172,9 +173,6 @@ const Cashier = () => {
                     />
                     <h1>Salad</h1>
                 </button>
-            </div>
-
-            <div className="button-row-cashier">
                 <button className="btn-cashier" id="fc" onClick={handleClick}>
                     <img
                         src="/resource/Fruit-Cup.png"
@@ -183,6 +181,18 @@ const Cashier = () => {
                     />
                     <h1>Fruit</h1>
                 </button>
+                <button className="btn-cashier" id="wc" onClick={handleClick}>
+                    <img
+                        src="/resource/chips.png"
+                        alt="Chips"
+                        className="btn-img-cashier"
+                    />
+                    <h1>Chip</h1>
+                </button>
+            </div>
+
+            <div className="button-row-cashier">
+                
 
                 <button className="btn-cashier" id="wfm" onClick={handleClick}>
                     <img
@@ -200,14 +210,7 @@ const Cashier = () => {
                     />
                     <h1>L</h1>
                 </button>
-                <button className="btn-cashier" id="wc" onClick={handleClick}>
-                    <img
-                        src="/resource/chips.png"
-                        alt="Chips"
-                        className="btn-img-cashier"
-                    />
-                    <h1>Chip</h1>
-                </button>
+                
             </div>
             <div>
                 {showPopUp && (
