@@ -4,7 +4,7 @@
     right: 50%;
     bottom: 50%;
     transform: translate(50%, 50%);
-    height: 40vh;
+    height: 70vh;
     background-color: white;
     width: 60vw;
 
@@ -12,10 +12,10 @@
     border-bottom-left-radius: 1rem;
     border-top-right-radius: 1rem;
     border-bottom-right-radius: 1rem;
-    border-top: solid 4px red;
-    border-left: solid 4px red;
-    border-right: solid 4px red;
-    border-bottom: solid 4px red;
+    border-top: solid 4px #e51636;
+    border-left: solid 4px #e51636;
+    border-right: solid 4px #e51636;
+    border-bottom: solid 4px #e51636;
 
     text-align: center;
 
@@ -24,11 +24,12 @@
 
 #adwrap > .right {
     display: flex;
-    margin: 1rem 3rem;
+    margin: 0.5rem 1rem;
+    padding: 0.5rem;
 }
 
 .heading{
-    margin: 0.5rem;
+    margin-bottom: 0.5rem;
 }
 
 .btn-new {
@@ -36,8 +37,8 @@
     /* max-height: 60%; */
     background-color: #e51636;
     border: none;
-    font-size: 1.2rem;
-    padding: 1rem;
+    font-size: 1.5rem;
+    padding: 0.5rem;
     margin: 1rem 4rem;
 
 }
@@ -45,10 +46,38 @@
 .btn-new:hover {
     background-color: #940e23;
     border: none;
-    font-size: 1.2rem;
+
 
 }
 
 .big {
-    padding: 2rem;
+    padding: 1rem;
 }
+
+.btn-img-cashier-sauce1{
+    max-height: 6rem;
+}
+.btn-sauce {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1rem;
+    margin: 0.5rem 1rem;
+    padding:0.1rem;
+    border-color: white;
+    max-width: 8rem;
+    max-height: 9rem;
+
+}
+.btn-sauce:hover {
+    background-color: #c1c1c1;
+    cursor: pointer;
+}
+::-webkit-scrollbar {
+    width: 10px;
+    height: 98%;
+    border-radius:1rem;
+  }
+  
+ 
