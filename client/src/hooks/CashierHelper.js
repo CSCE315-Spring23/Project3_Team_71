@@ -8,11 +8,27 @@ export const CashierHelper = (
     setCurItems,
     setTotalCost
 ) => {
+
+    
+    /**
+    *Sets the current items and total cost to zero to start a new order
+    *
+    *@function handleNewOrder
+    *@returns {void}
+    */
     const handleNewOrder = () => {
         setCurItems({});
         setTotalCost(0);
     };
 
+    /**
+    *
+    * Updates the inventory after an order is placed
+    * @async
+    * @function handleInventory
+    * @param {string} key - The key of the item in the current items state
+    * @returns {Promise<void>}
+    */
     const handleInventory = async (key) => {
         const result3 = await fetch(`http://localhost:3001/recipe/${key}`);
         const data = await result3.json();
@@ -31,6 +47,14 @@ export const CashierHelper = (
         console.log("asgegege\n\n");
     };
 
+    /**
+    *
+    * Completes the order by updating the order and inventory states
+    * @async
+    * @function handleComplete
+    * @param {string} [z='cashier'] - The role of the user completing the order
+    * @returns {Promise<void>}
+    */
     const handleComplete = async (z = "cashier") => {
         if (z == "customer") {
             console.log("IT KNOWS");
@@ -61,6 +85,13 @@ export const CashierHelper = (
         handleNewOrder();
     };
 
+
+    /**
+    *
+    * Handles click event on extra item button.
+    * 
+    * @param {Event} event - The click event.
+    */
     const handleClickExtra = (event) => {
         var bID = event.target.closest("button").id;
 
@@ -69,6 +100,14 @@ export const CashierHelper = (
         addItem(parseInt(bID));
     };
 
+    /**
+    *
+    * Handles click event on menu item button.
+    * 
+    * @param {Event} event - The click event.
+    * 
+    * @param {string} [id=""] - The ID of the button, if already known.
+    */
     const handleClick = (event, id = "") => {
         var bID;
         if (id === "") {
@@ -255,6 +294,16 @@ export const CashierHelper = (
         }
     };
 
+    
+    /**
+    *
+    * Subtracts one from the quantity of the item with the given ID,
+    * updates the current items state and the total cost state accordingly.
+    *
+    * @param {string} itemID - The ID of the item to subtract from the current items state.
+    *
+    * @returns {void}
+    */
     const handleSubtract = (itemID) => {
         console.log(curItems[itemID]);
 
@@ -266,6 +315,13 @@ export const CashierHelper = (
         setTotalCost((prev) => (prev -= parseFloat(menu[itemID])));
     };
 
+
+    /**
+    *
+    * Removes items with a quantity of zero from the current items state.
+    * 
+    * @returns {void}
+    */
     useEffect(() => {
         Object.keys(curItems).forEach((id) => {
             // if the value of a key hits zero, delete that key-value pair
@@ -277,6 +333,17 @@ export const CashierHelper = (
         });
     }, [curItems, setCurItems]);
 
+    /**
+    *
+    * Adds one to the quantity of the item with the given ID,
+    * or adds the item with a quantity of one if it doesn't exist yet in the current items state.
+    *
+    * Updates the current items state and the total cost state accordingly.
+    *
+    * @param {string} menuID - The ID of the item to add to the current items state.
+    *
+    * @returns {void}
+    */
     const addItem = (menuID) => {
         if (menuID in curItems) {
             console.log("item in");
