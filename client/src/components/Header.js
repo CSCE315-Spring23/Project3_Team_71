@@ -94,7 +94,7 @@ const Header = ({ user, HandleSignOut }) => {
                                 <a href={`/customer`}>Customer</a>
                             </li>
                             <li>
-                                <a href={`/menu`}>Menu</a>
+                                <a href={`/menuget`}>Menu</a>
                             </li>
                         </ul>
                     </nav>

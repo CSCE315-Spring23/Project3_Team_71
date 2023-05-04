@@ -103,7 +103,7 @@ A custom hook that retrieves the user state from local storage and updates it wh
                                 </PrivateRouteManager>
                             }
                         />
-                        <Route path="/menu" element={<Menu />} />
+                        <Route path="/menuget" element={<Menu />} />
                         <Route path="/customer" element={<Customer />} />
                         <Route
                             path="/customer/drink"
