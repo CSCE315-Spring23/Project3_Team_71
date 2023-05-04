@@ -6,8 +6,7 @@ import { CurOrderContext } from "../../hooks/CurOrderContext";
 import CurOrderPopUp from "../../components/CurOrderPopUp";
 import { HOST } from "../../host";
 
-/*
-* React component for the Cashier section of the app 
+/** React component for the Cashier section of the app 
 @returns {JSX.Element} Cashier component JSX
 */
 const Cashier = () => {

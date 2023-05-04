@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import AdPopUp from "../components/AdPopUp";
+import { HOST } from "../host";
 
 export const CashierHelper = (
     curItems,
@@ -30,13 +31,13 @@ export const CashierHelper = (
     * @returns {Promise<void>}
     */
     const handleInventory = async (key) => {
-        const result3 = await fetch(`http://localhost:3001/recipe/${key}`);
+        const result3 = await fetch(`${HOST}/recipe/${key}`);
         const data = await result3.json();
 
         data.forEach(async (item) => {
             console.log(item.inventory_id);
             const result4 = await fetch(
-                `http://localhost:3001/updateInventory/${
+                `${HOST}/updateInventory/${
                     curItems[key] * item.quantity
                 }/${item.inventory_id}`
             );
@@ -65,18 +66,18 @@ export const CashierHelper = (
         }
 
         const result = await fetch(
-            `http://localhost:3001/addOrderItems/${totalCost}/${true}`
+            `${HOST}/addOrderItems/${totalCost}/${true}`
         );
         console.log(result);
 
-        const lastID = await fetch("http://localhost:3001/lastOrderID");
+        const lastID = await fetch(`${HOST}/lastOrderID`);
         const data = await lastID.json();
         console.log(data[0].order_id);
 
         for (const key in curItems) {
             console.log(key, curItems[key]);
             const result2 = await fetch(
-                `http://localhost:3001/createOrder/${data[0].order_id}/${key}/${curItems[key]}`
+                `${HOST}/createOrder/${data[0].order_id}/${key}/${curItems[key]}`
             );
 
             handleInventory(key);

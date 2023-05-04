@@ -6,8 +6,8 @@ import { CurOrderContext } from "../../hooks/CurOrderContext";
 import CurOrderPopUp from "../../components/CurOrderPopUp";
 import { HOST } from "../../host";
 
-/*
-* React component for the Cashier section of the app 
+/** 
+React component for the Cashier section of the app 
 @returns {JSX.Element} Cashier Drink component JSX
 */
 const CashierDrink = () => {
@@ -28,10 +28,9 @@ const CashierDrink = () => {
         setShowPopUp(!showPopUp);
     };
 
-
     /**
-    * Fetches the menu data from the server and saves it to state
-    */
+     * Fetches the menu data from the server and saves it to state
+     */
     useEffect(() => {
         const getMenu = async () => {
             const res = await fetch(`${HOST}/menu`);

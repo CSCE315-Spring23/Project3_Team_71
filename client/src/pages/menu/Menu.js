@@ -13,13 +13,12 @@ export default function Menu() {
     const [menu1, setMenu1] = useState("");
     const [items, newItems] = useState([]);
 
-   
-/**
-A side effect hook that fetches new menu items from a server and updates the state of newItems with the received data.
-@param {Array} newItems - The state array of menu items to be updated with the fetched data.
-@param {String} HOST - The server address to fetch the data from.
-@returns {void}
-*/
+    /**
+    A side effect hook that fetches new menu items from a server and updates the state of newItems with the received data.
+    @param {Array} newItems - The state array of menu items to be updated with the fetched data.
+    @param {String} HOST - The server address to fetch the data from.
+    @returns {void}
+    */
     useEffect(() => {
         const handleNewItems = async () => {
             const res = await fetch(`${HOST}/newMenuItems`);
@@ -69,16 +68,16 @@ A side effect hook that fetches new menu items from a server and updates the sta
 
     /**
 
-Gets the name of a menu item given its ID.
-@param {number} menuItemId - The ID of the menu item to get the name for.
-@param {Object} menu1 - The menu object containing the menu item data.
-@returns {string} The name of the menu item.
-*/
+    Gets the name of a menu item given its ID.
+    @param {number} menuItemId - The ID of the menu item to get the name for.
+    @param {Object} menu1 - The menu object containing the menu item data.
+    @returns {string} The name of the menu item.
+    */
     const getMenuName = (menuItemId, menu1) => {
         return menu1[menuItemId];
     };
     const bdy = useRef(null);
-    
+
     /**
 
     A function to request the fullscreen mode for the body element of the document.
@@ -123,12 +122,10 @@ Gets the name of a menu item given its ID.
 
     return (
         <>
-            {/* <header><h1>Menu</h1></header> */}
             <style>
                 @import
                 url('https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Montserrat:wght@300&display=swap');
             </style>
-            {/* <button onclick={toggleFullScreen}>Open Fullscreen</button> */}
 
             <div className="bdy" ref={bdy} allow="fullscreen">
                 <div className="b1">
@@ -237,8 +234,9 @@ Gets the name of a menu item given its ID.
                                         12ct: ${getMenuPrice(33, menu)} Meal | $
                                         {getMenuPrice(17, menu)} Entree
                                     </h4>
-                                    <br></br><br></br><br></br>
-
+                                    <br></br>
+                                    <br></br>
+                                    <br></br>
                                 </div>
                             </div>
                         </div>
@@ -384,7 +382,6 @@ Gets the name of a menu item given its ID.
                         </div>
                     </div>
 
-                    {/* <div className='bdy2'> */}
                     <div className="lowermenu">
                         <div className="sidewrapper">
                             <div className="sidesTitle">
