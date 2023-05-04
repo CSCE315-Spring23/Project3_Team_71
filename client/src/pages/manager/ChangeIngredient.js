@@ -80,7 +80,7 @@ It uses the current values of id, price, and name to update the corresponding va
       console.log("/changeMenuPrice/"+idMenu+"/"+price);
       const response_quantity = await fetch(`${HOST}/changeMenuPrice/${idMenu}/${price}`);
     }
-    if(name !== '') {
+    if(nameMenu !== '') {
       console.log("/changeMenuName/"+idMenu+"/"+nameMenu);
       const response_name = await fetch(`${HOST}/changeMenuName/${idMenu}/${nameMenu}`);
     }
