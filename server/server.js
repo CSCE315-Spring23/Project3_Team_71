@@ -635,6 +635,29 @@ app.post("/addmenu/completeMenu", async (req, res) => {
     );
     res.status(200).json({ message: "Menu Item Created" });
 });
+
+app.post("/complete", async (req, res) => {
+    console.log("completion");
+
+});
+
+app.post("/addIngredientItem/:name/:quantity", async (req, res) => {
+    console.log("completion");
+    const id = await pool.query("SELECT MAX(item_id) FROM inventory;");
+
+    result = await pool.query(
+        "INSERT INTO inventory (item_id,quantity, item_name) VALUES (" + id + ","
+        + req.params.quantity + " , '" + req.params.name + "');", 
+        (err, result) => {
+            if (err) {
+                return res.status(500).send("Failed to add Ingredient");
+            }
+        }
+    );
+    
+
+    return res.json({ message: "User updated successfully" });
+});
 /**
 
 This route adds a new menu item to the database along with its recipe

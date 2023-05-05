@@ -9,7 +9,8 @@ import AddMenuItem from "./AddMenuItem";
 import AddIngredient from "./AddIngredient";
 import ExcessReport from "./ExcessReport";
 import RestockReport from "./RestockReport";
-
+import Delete from "./Delete";
+import AddIngredientItem from "./AddIngredientItem";
 
 import "../../css/managerButtons.css";
 /**
@@ -96,7 +97,7 @@ Handles a click on a manager function button by updating the active function sta
                 >
                     {activeFunction === "changeIngredientFunction"
                         ? "Hide Change Ingredient Item"
-                        : "Change Ingredient/Menu Item Item"}
+                        : "Change Ingredient/Menu Item"}
                 </button>
                 <button
                     className="m-btn"
@@ -117,6 +118,15 @@ Handles a click on a manager function button by updating the active function sta
                         : "Add Ingredient"}
                 </button> */}
 
+                <button
+                    className="m-btn"
+                    onClick={() => handleManagerFunction("AddIngredientItem")}
+                >
+                    {activeFunction === "Delete"
+                        ? "Hide Add Ingredient Item"
+                        : "Add Ingredient Item"}
+                </button>
+
 
 
                 <button
@@ -136,6 +146,15 @@ Handles a click on a manager function button by updating the active function sta
                         ? "Hide Restock Report"
                         : "Restock Report"}
                 </button>
+
+                <button
+                    className="m-btn"
+                    onClick={() => handleManagerFunction("Delete")}
+                >
+                    {activeFunction === "Delete"
+                        ? "Hide Delete Item"
+                        : "Delete Item"}
+                </button>
                 </div>
 
             {activeFunction === "orderFunction" && <Orders />}
@@ -147,9 +166,10 @@ Handles a click on a manager function button by updating the active function sta
                 <ChangeIngredient />
             )}
             {activeFunction === "addMenuItemFunction" && <AddMenuItem />}
-            {activeFunction === "addIngredientFunction" && <AddIngredient />}
+            {activeFunction === "AddIngredientItem" && <AddIngredientItem />}
             {activeFunction === "excessReport" && <ExcessReport />}
             {activeFunction === "RestockReport" && <RestockReport />}
+            {activeFunction === "Delete" && <Delete />}
         </div>
     );
 };
