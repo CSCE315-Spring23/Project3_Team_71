@@ -636,10 +636,6 @@ app.post("/addmenu/completeMenu", async (req, res) => {
     res.status(200).json({ message: "Menu Item Created" });
 });
 
-app.post("/complete", async (req, res) => {
-    console.log("completion");
-
-});
 
 app.post("/addIngredientItem/:name/:quantity", async (req, res) => {
     console.log("completion");
@@ -783,8 +779,54 @@ app.post("/addIngredient", async (req, res) => {
     );
     res.status(200).json({ message: "Menu Item Created" });
 });
-/**
 
+app.post("/deleteMenuItem/id", async (req, res) => {
+    console.log("Delete Menu item");
+    const result = await pool.query(
+        "DELETE FROM menu_items WHERE menu_item_id = "+ req.params.id +";",
+        (err, result) => {
+                if (err) {
+                    res.status(500).send("Failed to delete");
+                    console.log("error1");
+                }
+            }
+    );
+
+    const result2 = await pool.query(
+        "DELETE FROM recipes WHERE menu_item_id = "+ req.params.id +";",
+        (err, result) => {
+                if (err) {
+                    //res.status(500).send("Failed to update Quantity");
+                    console.log("error2");
+                }
+            }
+    );
+});
+
+app.post("/deleteIngredient/id", async (req, res) => {
+    console.log("Delete Ingredient");
+    const result = await pool.query(
+        "DELETE FROM inventory WHERE item_id = "+ req.params.id +";",
+        (err, result) => {
+                if (err) {
+                    res.status(500).send("Failed to delete");
+                    console.log("error1");
+                }
+            }
+    );
+
+    const result2 = await pool.query(
+        "DELETE FROM recipes WHERE menu_item_id = "+ req.params.id +";",
+        (err, result) => {
+                if (err) {
+                    //res.status(500).send("Failed to update Quantity");
+                    console.log("error2");
+                }
+            }
+    );
+});
+
+/**
 @description This route catches all other routes and directs them to the React client
 @param {Object} req - The request object
 @param {Object} res - The response object to send back to the client

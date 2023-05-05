@@ -9,8 +9,7 @@ const AddIngredientItem = () => {
 
     const handleAddIngredientItem = async () => {
             console.log("hi");
-            //const response_name = await fetch(`${HOST}/addIngredientItem/${name}/${quantity}`);
-            const response_name = await fetch(HOST +"/complete");
+            const response_name = await fetch(`${HOST}/addIngredientItem/${name}/${quantity}`);
     };
 
     const handleName = (event) => {
