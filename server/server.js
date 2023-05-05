@@ -637,23 +637,7 @@ app.post("/addmenu/completeMenu", async (req, res) => {
 });
 
 
-app.post("/addIngredientItem/:name/:quantity", async (req, res) => {
-    console.log("completion");
-    const id = await pool.query("SELECT MAX(item_id) FROM inventory;");
 
-    result = await pool.query(
-        "INSERT INTO inventory (item_id,quantity, item_name) VALUES (" + id + ","
-        + req.params.quantity + " , '" + req.params.name + "');", 
-        (err, result) => {
-            if (err) {
-                return res.status(500).send("Failed to add Ingredient");
-            }
-        }
-    );
-    
-
-    return res.json({ message: "User updated successfully" });
-});
 /**
 
 This route adds a new menu item to the database along with its recipe
@@ -766,18 +750,24 @@ app.post("/addIngredient", async (req, res) => {
     console.log(orderDets);
     const name = orderDets['name'];
     const quantity = parseInt(orderDets['quantity']);
+    const idQuery = await pool.query("SELECT MAX(item_id) FROM inventory;");
+    const id = parseInt(idQuery.rows[0].max +1);
+    console.log("id: ",id," name: ",name, " quantity: ",quantity)
+
     // const id = await pool.query("SELECT MAX(menu_item_id) FROM menu_items;");
     // const idVal = id.rows[0]["max"] + 1;
     const result = await pool.query(
-        "UPDATE inventory SET quantity = "+quantity+" WHERE item_name = '"+name+"';",
+        "INSERT INTO inventory (item_id,quantity, item_name) VALUES (" + id + ","
+        + quantity + " , '" + name + "');",
+        
         (err, result) => {
                 if (err) {
-                    res.status(500).send("Failed to update Quantity");
+                    return res.status(500).send("Failed to update Quantity");
                     console.log("error");
                 }
             }
     );
-    res.status(200).json({ message: "Menu Item Created" });
+    //return res.json({ message: "Menu Item Created" });
 });
 
 app.post("/deleteMenuItem/id", async (req, res) => {
@@ -833,9 +823,9 @@ app.post("/deleteIngredient/id", async (req, res) => {
 @returns {Object} - The response object containing the React client
 */
 //catch all other routes and direct them to react
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../client/build/index.html'));
-});
+// app.get('*', (req, res) => {
+//     res.sendFile(path.join(__dirname, '../client/build/index.html'));
+// });
 
 const port = process.env.PORT || 3001;
 app.listen(port);
